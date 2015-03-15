@@ -1,0 +1,17 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Blind>
+
+<div id="FriendsZoneUserFriends">
+@foreach (var blind in Model)
+{
+    <div class="FzUserFriend">
+        <div class="FzUserLink">
+    @Html.ActionLink(blind.Blinder.DescriptionName, "Details", "Explorer", new { id = blind.BlinderId }, null)
+            </div>
+        <div class="FzUserFriendContainer">
+        <img class="FzUserFriendImg" src='@Url.Action( "ShowProfile", "FriendsZone", new { id = blind.Blinder.Id } )' /><br />
+  </div>
+        <div class="FzUserText">
+        </div>
+    </div>
+}
+    </div>

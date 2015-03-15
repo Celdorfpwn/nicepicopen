@@ -1,0 +1,144 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+@{
+    ViewBag.Title = "Workbench";
+}
+<script type="text/javascript">
+    function done() {
+        $('#fileInput').trigger('click');
+    }
+</script>
+<div id="workbench">
+    <div id="workbenchProfile">
+        <img id="workbenchProfileImage" src='@Url.Action("UserProfileImage", "Images", new { id = Model.Id })' />
+        <p>
+            @using (Html.BeginForm("EditProfile", "Workbench", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input id="fileInput" onchange="this.form.submit()" type="file" name="file" style="width: 0px; height: 0px; visibility: hidden; display: none;" />
+                <a id="selectFile" onclick="done()">Edit Profile Picture</a>
+            }
+        </p>
+        <p>
+            @Html.ActionLink("Albums", "Index")
+        </p>
+        <p>
+            @Ajax.ActionLink("Pictures", "AlbumPictures", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+        </p>
+        <p>
+            @if (Model.HasPortofolio())
+            {
+                <span>@Html.ActionLink("Portofolio", "Index", "Portofolio")</span>
+            }
+            else
+            {
+                <span>@Html.ActionLink("Create Portofolio", "CreatePortofolio", "Portofolio")</span>
+            }
+        </p>
+        <h4>My Cameras</h4>
+        <hr />
+        <br />
+        @foreach (var camera in Model.Cameras)
+        {
+            <p>@camera.Name<br />
+                <img class="workbenchCameraImage" src="@Url.Action("CameraImage", "Images", new { id = camera.Id })" />
+            </p>
+        }
+    </div>
+    <div id="workbenchContent">
+        <div id="albumDetails">
+            @foreach (var album in Model.Albums.OrderByDescending(album => album.Id))
+            {
+                <div class="workbenchAlbumShow">
+
+                    <div class="albumProfilePicture">
+                        <a href="@Url.Action("AlbumDetails", new { id = album.Id })">
+                        <img class="albumProfile" src='@Url.Action("AlbumProfileImage", "Images", new { id = album.Id })' />
+                            </a>
+                    </div>
+                    <div class="albumDescription">
+                        <p>Name : @album.Name</p>
+                        <p>Desciption : @album.GetShorterDescription()</p>
+                        <p>Pictures : @album.Pictures.Count()</p>
+                    </div>
+                    <div class="albumQuickBar">
+                        <p>@Ajax.ActionLink("Add Picture", "AddPictureQuick", new { id = album.Id }, new AjaxOptions
+                      {
+                          UpdateTargetId = "workbenchContent",
+                          InsertionMode = InsertionMode.Replace,
+                          HttpMethod = "GET"
+                      }, new { @class = "workbenchContentLink" })
+                        </p>
+                        <p>
+                            @Html.ActionLink("Donwload", "Download", new { id = album.Id }, new { @class = "workbenchContentLink" })
+                        </p>
+                    </div>
+                    <div class="albumCaruselBar">
+                        @{Html.RenderAction("AlbumCarusel", new { id = album.Id });
+                        }
+                    </div>
+                </div>
+                <hr style="width: 650px; color: aqua;" />
+            }
+        </div>
+    </div>
+    <div id="workbenchWatermarks">
+        <h4>   Options</h4>
+        <hr />
+        <br />
+        <p>
+            @Ajax.ActionLink("Add album", "AddAlbum", null, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       }, new { @class = "workbenchLink" })
+        </p>
+        <p>
+            @Ajax.ActionLink("Add Camera", "AddCamera", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+        </p>
+        <p>
+            @Ajax.ActionLink("Add Text Watermark", "EditTextWatermark", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+        </p>
+        <p>
+            @Ajax.ActionLink("Add Image Watermark", "EditImageWatermark", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+        </p>
+
+        <h4>Watermarks</h4>
+        <hr />
+        <br />
+        @foreach (var watermark in Model.Watermarks)
+        {
+            <p>@Ajax.ActionLink(watermark.WatermarkName, "PreviewWatermark", new { id = watermark.WatermarkName, }, new AjaxOptions
+          {
+              UpdateTargetId = "workbenchContent",
+              InsertionMode = InsertionMode.Replace,
+              HttpMethod = "GET"
+          })
+            </p>
+        }
+    </div>
+</div>
+<div style="height: 100px; width: 100px;"></div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}
+

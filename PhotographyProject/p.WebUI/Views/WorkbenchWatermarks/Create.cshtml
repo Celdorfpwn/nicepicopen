@@ -1,0 +1,24 @@
+﻿@using (Ajax.BeginForm("LoadWatermark", new AjaxOptions
+{
+    UpdateTargetId = "watermarkLoader",
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    OnSuccess = "onSucces"
+}))
+{
+    <table>
+        <tr>
+            <td style="width:53%">@Html.Label("Type")</td>
+   <td> @Html.DropDownList("watermark", (SelectList)ViewBag.Watermarks, new { onchange = "$(this.form).submit()",@class = "dropDown" })</td>
+        </tr>
+       
+        </table>
+}
+
+<div id="watermarkLoader">
+</div>
+<script type="text/javascript">
+    var onSucces = function () {
+        $.validator.unobtrusive.parse($("#watermarkLoader"));
+    };
+</script>

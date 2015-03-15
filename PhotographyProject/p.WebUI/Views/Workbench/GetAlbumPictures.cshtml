@@ -1,0 +1,11 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+
+
+    @foreach (var picture in Model)
+    {
+        <div class="albumPictureDiv">
+            <div class="albumPictureContainer"><
+            <a href='@Url.Action("PictureProfile", "Workbench", new { id = picture.Id })'><img class="albumPicture" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id })" /></a>
+               </div>
+        </div>
+    }

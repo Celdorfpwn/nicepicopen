@@ -1,0 +1,25 @@
+﻿@model int
+
+
+
+
+@Ajax.ActionLink("Nice", "AddNice", new { id = Model }, new AjaxOptions
+                     {
+                         UpdateTargetId = "counter",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })
+@*<span class="nice">
+    @using(Ajax.BeginForm("AddNice", "ExplorerPortofolio", new { id = Model }, new AjaxOptions
+    {
+        UpdateTargetId="n",
+        InsertionMode = InsertionMode.Replace
+    }))
+    {
+        <button class="niceButton" onclick="this.hide()" type="submit" >Nice</button>
+    }
+</span>
+
+<script type="text/javascript">
+</script>
+*@

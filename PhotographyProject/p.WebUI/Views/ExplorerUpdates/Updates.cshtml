@@ -1,0 +1,23 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.UserUpdate>
+
+
+@foreach (var update in Model)
+{
+    Html.RenderAction("Update", new { id = update.Id });
+}
+
+
+<script type="text/javascript">
+    $(".pictureNotSoNiceLink").click(function () {
+        $(this).parent().parent().find('.nice').find(".pictureNiceLink").css("background-color", "grey");
+        $(this).parent().parent().find('.nice').find(".pictureNiceLink").css("color", "black");
+        $(this).css("background-color", "#9400D3");
+        $(this).css("color", "white");
+    });
+    $(".pictureNiceLink").click(function () {
+        $(this).parent().parent().find('.notNice').find(".pictureNotSoNiceLink").css("background-color", "grey");
+        $(this).parent().parent().find('.notNice').find(".pictureNotSoNiceLink").css("color", "black");
+        $(this).css("background-color", "#9400D3");
+        $(this).css("color", "white");
+    });
+</script>

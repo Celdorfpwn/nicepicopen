@@ -1,0 +1,7 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.DiscussionPost>
+
+
+@foreach (var post in Model)
+{
+    Html.RenderAction("DiscussionPost", new { id = post.Id });
+}

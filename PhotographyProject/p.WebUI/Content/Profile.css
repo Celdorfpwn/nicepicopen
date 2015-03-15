@@ -1,0 +1,52 @@
+﻿
+
+#profileTop
+{
+    margin-top:10px;
+    width:90%;
+    float:left;
+    height:200px;
+    padding:5px 5px 5px 5px;
+    background-color:white;
+    border:solid 1px #CECECE;
+}
+
+.profileImage
+{
+    height:100%;
+    width:30%;
+    float:left;
+}
+
+#profileDescription
+{
+    float:right;
+    width:67%;
+    padding:1%;
+    height:180px;
+    border:solid 1px #CECECE;
+}
+
+#profileLeft
+{
+    margin-top:3px;
+    width:27%;
+    float:left;
+    height:200px;
+    padding:0.5%;
+    background-color:white;
+    border:solid 1px #CECECE;
+}
+
+.profileWatchers
+{
+    width:98%;
+    border:solid 1px #CECECE;
+    padding:0.5%;
+    min-height:100px;
+}
+.profileWatchersImg
+{
+    width:32%;
+    float:left;
+}

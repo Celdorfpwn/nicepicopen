@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RoleModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="p.WebUI" version="2.2.6492.2" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <Startup>
+    <Task commandLine="DiagnosticsAgent.exe" taskType="background" relativePath="plugins\Diagnostics">
+      <Environment>
+        <Variable name="RdModuleName" value="Diagnostics" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+    <Task commandLine="DiagnosticsAgent.exe /blockStartup" relativePath="plugins\Diagnostics">
+      <Environment>
+        <Variable name="RdModuleName" value="Diagnostics" />
+        <Variable name="WaRoleType" value="IISWebRole" />
+      </Environment>
+    </Task>
+  </Startup>
+  <Runtime>
+    <EntryPoint>
+      <NetFxEntryPoint assemblyName="p.WebUI.dll" targetFrameworkVersion="v4.0" />
+    </EntryPoint>
+  </Runtime>
+  <ConfigurationSettings>
+    <Setting name="ConnectionString" nameSpace="Microsoft.WindowsAzure.Plugins.Diagnostics" />
+  </ConfigurationSettings>
+  <Properties>
+    <Property name="TargetFrameworkVersion" value="v4.5.1" />
+    <Property name="RoleType" value="Web" />
+    <Property name="RoleName" value="p.WebUI" />
+    <Property name="ProjectName" value="p.WebUI" />
+    <Property name="Configuration" value="Debug" />
+    <Property name="Platform" value="AnyCPU" />
+    <Property name="RoleTargetFramework" value="v4.5.1" />
+    <Property name="OutputDir" value="D:\Excite\PhotographyProject\p.WebUI.Azure\obj\Debug\p.WebUI\" />
+    <Property name="EntryPoint" value="p.WebUI.dll" />
+    <Property name="SourceDir" value="D:\Excite\PhotographyProject\p.WebUI\" />
+    <Property name="SitePhysicalPath" value="D:\Excite\PhotographyProject\p.WebUI\" />
+    <Property name="TargetRuntimeVersion" value="v4.0" />
+  </Properties>
+  <Sites>
+    <Site name="Web" physicalDirectory="D:\Excite\PhotographyProject\p.WebUI\">
+      <Bindings>
+        <Binding name="Endpoint1" endpointName="Endpoint1" />
+      </Bindings>
+    </Site>
+  </Sites>
+</RoleModel>

@@ -1,0 +1,26 @@
+﻿
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            $(this).closest("form").submit();
+        });
+    });
+</script>
+<div id="searchFriendContent">
+    <div id="searchDiv">
+@using(Ajax.BeginForm("GetFriends","FriendsZone",
+                   new AjaxOptions { HttpMethod = "POST",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "friends"}))
+{
+    <input id="search" type="text" name="containsString"/>
+}
+        </div>
+<div id="friends">
+</div>
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

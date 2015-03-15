@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1602590-FD37-40CD-9473-CD6DAD2F1C1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Workbench</RootNamespace>
+    <AssemblyName>Workbench</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.2\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\AbstractQuotesContext.cs" />
+    <Compile Include="Abstract\AbstractWorkbenchAlbumsContext.cs" />
+    <Compile Include="Abstract\AbstractWorkbenchCameraContext.cs" />
+    <Compile Include="Abstract\AbstractWorkbenchPicturesContext.cs" />
+    <Compile Include="Abstract\AbstractWorkbenchProfileContext.cs" />
+    <Compile Include="Abstract\AbstractWorkbenchWatermarksContext.cs" />
+    <Compile Include="Abstract\Constants.cs" />
+    <Compile Include="Abstract\WatermarkType.cs" />
+    <Compile Include="Concrete\ImageProcessor.cs" />
+    <Compile Include="Concrete\WorkbenchAlbumsContext.cs" />
+    <Compile Include="Concrete\WorkbenchCameraContext.cs" />
+    <Compile Include="Concrete\WorkbenchPicturesContext.cs" />
+    <Compile Include="Concrete\WorkbenchProfileContext.cs" />
+    <Compile Include="Concrete\WorkbenchQuotesContext.cs" />
+    <Compile Include="Concrete\WorkbenchWatermarksContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\p.Database\p.Database.csproj">
+      <Project>{9a22974e-a32a-4459-a8b8-8b195b5cf684}</Project>
+      <Name>p.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicturesProvider\PicturesProvider.csproj">
+      <Project>{f7d15ee8-1d7f-424f-95df-8bbb7792ab8c}</Project>
+      <Name>PicturesProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

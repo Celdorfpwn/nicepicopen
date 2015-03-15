@@ -1,0 +1,10 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+@if (Model.FullName != null)
+{
+    @Html.ActionLink(Model.FullName, "Index", "WorkbenchProfile", null, new { @class = "headerLinkBig" })
+}
+else
+{
+    @Html.ActionLink(Model.Name, "Index", "WorkbenchProfile",null, new { @class = "headerLink" })
+}

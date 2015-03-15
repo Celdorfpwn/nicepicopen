@@ -1,0 +1,33 @@
+﻿@model p.Database.Concrete.Entities.ContestPicture
+
+        <div class="worldContainer">
+            <div class="picturesUpdateDivInfo">
+                @Model.Photographer.Name won a daily contest
+            </div>
+        <div class="worldPictureDetails">
+            <div class="worldPictureStuff">
+                <img style="float:left;width:30px;height:45px;" src="~/Images/cup.jpg" />
+                <div class="contestDetails">
+                    @{Html.RenderAction("ContestPictureDetails","DailyContests", new { id = Model.Id });
+}
+                </div>
+                </div>
+            <div class="worldPhotographerContent">
+                @{Html.RenderAction("PictureDetails", "World", new { id = Model.PictureId });
+                }
+            </div>
+                @if (Model.Picture.CameraId != null)
+                {
+                    <div class="worldPictureCameraDetails">
+           
+                        <div class="worldPictureCameraContainer">
+                            <img src="@Url.Action("CameraImage", "Images", new { id = Model.Picture.CameraId })" />
+                        </div>
+                    </div>
+                }
+            
+        </div>
+        <div class="worldPictureContainer">
+            <img src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = Model.Picture.Id })" />
+        </div>
+    </div>

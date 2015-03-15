@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/World.css")	
+
+
+<div id="worldMenu">
+    <p>News</p>
+    <p>Quotes</p>
+    <p>Pictures</p>
+    <p>Portofolios</p>
+</div>
+
+<div id="world">
+    @{Html.RenderAction("BestPictures");}
+</div>

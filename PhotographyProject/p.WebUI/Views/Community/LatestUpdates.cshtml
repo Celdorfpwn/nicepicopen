@@ -1,0 +1,16 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.CommunityUpdate>
+
+
+@foreach (var update in Model)
+{
+    <div class="updateContainer">
+        @if (update.HasAlbum())
+        {
+            Html.RenderAction("AlbumUpdate", new { id = update.AlbumId });
+        }
+        else if (update.HasPortofolio())
+        {
+            Html.RenderAction("PortofolioUpdate", new { id = update.PortofolioId });
+        }
+    </div>
+}

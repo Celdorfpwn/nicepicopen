@@ -1,0 +1,78 @@
+﻿
+
+#portofolio
+{
+    width:100%;
+    margin-left:1%;
+}
+
+#createPortofolioBar
+{
+    width:100%;
+    height:30px;
+    padding-left:1%;
+}
+#createPortofolioCover a
+{
+    text-decoration:none;
+}
+#next
+{
+    height:25px;
+    width:7%;
+    font-size:70%;
+    text-decoration:none;
+}
+#choosedCoverImage
+{
+    width:42%;
+    height:333px;
+    float:left;
+    margin:1%;
+}
+.explorerPictureContainer
+{
+    width:10%;
+    height:80px;
+    float:left;
+    margin:0.5%;
+}
+.explorerPicture
+{
+    max-height:100%;
+    width:100%;
+}
+#coverContainer
+{
+    width:95%;
+    height:95%;
+}
+#coverImage
+{
+    max-height:100%;
+    max-width:100%;
+}
+
+#toChoose
+{
+    width:45%;
+    float:right;
+}
+#choosedAlbumImages
+{
+    width:45%;
+    float:left;
+}
+
+.choosePictureContainer
+{
+    float:left;
+    width:23%;
+    margin:1%;
+    height:80px;
+}
+.choosePicture
+{
+    max-height:100%;
+    max-width:100%;
+}

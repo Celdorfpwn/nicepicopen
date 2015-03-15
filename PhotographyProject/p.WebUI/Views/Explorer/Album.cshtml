@@ -1,0 +1,47 @@
+﻿@model p.Database.Concrete.Entities.Album
+@{
+    ViewBag.Title = "Album";
+}
+@Styles.Render("~/Content/Explorer.css")
+<div id="explorer">
+    <div id="explorerAlbumImage">
+        @{
+            int id = (int)ViewBag.picture;
+            if (id != 0)
+            {
+                Html.RenderAction("Picture", new { id = id });
+            }}
+    </div>
+    @{
+        Random rand = new Random();
+    }
+    <div id="explorerAlbumImages">
+        @foreach (var picture in Model.Pictures)
+        {
+            using (Ajax.BeginForm("Picture", "Explorer", new { id = picture.Id }, new AjaxOptions
+                  {
+                      UpdateTargetId = "explorerAlbumImage",
+                      HttpMethod = "GET",
+                      InsertionMode = InsertionMode.Replace
+                  }))
+            {
+            <div class="pictureContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id,key = rand.Next() }));background-size:cover;">
+                @* <img class="explorerPicture" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id })" />*@
+            </div>    }
+
+        }
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".pictureContainer").click(function () {
+                $(this).closest('form').submit();
+            });
+        });
+        $('#nice').click(function () {
+            $(this).text('Niced');
+        });
+    </script>
+}

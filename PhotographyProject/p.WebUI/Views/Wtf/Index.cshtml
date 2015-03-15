@@ -1,0 +1,34 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Photographer>
+
+@{
+    ViewBag.Title = "Index";
+}  
+
+<div id="wtf"></div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        alert('wff');
+        $.ajax({
+            dataType: 'jsonp',
+            data: 'id=10',
+            jsonp: 'jsonp_callback',
+            url: 'http://www.timesnewroman.ro/',
+            success: function () {
+                alert('done');
+            },
+        });
+    });
+
+
+
+    function createCORSRequest(method, url) {
+        alert('miau');
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url, true);
+        return xhr;
+    }
+</script>
+    }

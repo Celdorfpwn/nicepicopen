@@ -1,0 +1,15 @@
+﻿
+<div id="freeViewPictures">
+</div>
+<img id="freeViewLoading" class="loadingGif" src="~/Images/loading.gif" />
+<script type="text/javascript">
+
+    $(function () {
+        var url = '/World/RandomPictures/';
+        var div = $('#freeViewPictures');
+        var loading = $('#freeViewLoading');
+
+        var template = window.Templates.appendPictures;
+        window.ContentExtractor.init(url, div, template, 10, loading, true);
+    });
+</script>

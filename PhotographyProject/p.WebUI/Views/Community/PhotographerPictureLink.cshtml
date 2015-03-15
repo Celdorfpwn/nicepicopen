@@ -1,0 +1,8 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+<span style="float:left">@Html.ActionLink(Model.Name.Split('@')[0],"Details","Explorer",new { id = Model.Id },null)</span>
+
+@if(Model.HasPortofolio())
+{
+<span style="float:right">@Html.ActionLink("Portofolio","Index","ExplorerPortofolio",new { id = Model.Id},null)</span>
+}

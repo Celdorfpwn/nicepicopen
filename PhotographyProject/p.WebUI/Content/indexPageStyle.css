@@ -1,0 +1,280 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+    font-family: 'Photography'; /*a name to be used later*/
+    src: url('fonts/Photography.ttf'); /*URL to font*/
+}
+body {
+	background: #34495e;
+	font-size: 62.5%;
+}
+
+p, li {
+	font: 1.2em/1.8em Tahoma, sans-serif;
+	margin-bottom: 10px;
+}
+
+h1 {
+	font: 2.0em Tahoma, sans-serif;
+	color: white;
+	height: 0px;
+}
+
+h2 {
+	font: 1.8em Tahoma, sans-serif;
+	color: green;
+	margin-bottom: 10px;
+}
+
+ul {
+	margin-left: 25px;
+}
+
+img {
+	border: none;
+}
+
+#page-wrap {
+	background: #00adb2;
+	
+
+	min-width: 780px;
+	max-width: 100%;
+	margin: 2px auto;
+	}
+	#page-wrap #inside {
+		margin: 5px 5px 0px 5px;
+	}
+	
+#main-content {
+	padding-top: 20px;
+	text-align:center;
+	background-color:#00adb2;
+
+	
+	
+}
+	
+#header {
+	background: #34495e;
+	background: #00adb2;
+	text-align: center;
+	padding-top:35px;
+	margin-top:15px;
+}
+
+.formsDiv {
+/*background: #00adb2;*/
+	background: #000;
+	text-align: center;
+	margin-left:120px;
+}
+
+#login {
+	background: #00adb2;
+	float:left;
+	padding-left:190px;
+}
+
+#login .inputlog {
+padding-left:2px;
+border-color:#00adb2;
+width:350px;
+height:32px;
+margin-top:10px;
+text-align:left;
+float:left;
+color:#718eab;
+font-size:14px;
+-moz-border-radius:5px; /* Firefox */
+-webkit-border-radius: 5px; /* Safari, Chrome */
+-khtml-border-radius: 5px; /* KHTML */
+border-radius: 5px; /* CSS3 */
+font-family: Photography, Arial, Verdana;
+}
+
+.logtitle {
+font-family: Photography, Arial, Verdana;
+font-size: 16px;
+text-align:center;
+margin-top:5px;
+}
+
+
+#login .buttonlog {
+
+width:350px;
+height:35px;
+font-family: Photography, Arial, Verdana;
+margin-top:10px;
+color:#34495e;
+font-size:16px;
+}
+
+#login h1 {
+
+font-size:20px;
+margin-bottom:30px;
+font-family: Photography, Arial, Verdana;
+text-align:left;
+}
+
+#login  a
+{
+font-family: Photography, Arial, Verdana;
+color:#fff;
+text-decoration:none;
+float:right;
+font-size:20px;
+padding-top:5px;
+}
+
+
+#login  .login
+{
+font-family: Photography, Arial, Verdana;
+color:#fff;
+text-decoration:none;
+float:right;
+font-size:20px;
+padding-top:10px;
+}
+
+
+#login img {
+
+float:right;
+padding-right:5px;
+padding-top:4px;
+}
+
+#register  .register
+{
+font-family: Photography, Arial, Verdana;
+color:#fff;
+text-decoration:none;
+float:right;
+font-size:20px;
+padding-top:10px;
+}
+
+#register img {
+
+float:right;
+padding-right:5px;
+padding-top:4px;
+}
+
+#register {
+	background: #00adb2;
+	float:right;
+	padding-right:170px;
+}
+
+#register h1 {
+text-align:left;
+font-size:20px;
+margin-bottom:30px;
+font-family: Photography, Arial, Verdana;
+}
+
+
+#register .inputreg {
+padding-left:2px;
+border-color:#00adb2;
+width:350px;
+height:32px;
+margin-top:10px;
+text-align:left;
+float:left;
+-moz-border-radius:3px; /*Firefox */
+-webkit-border-radius: 3px; /* Safari, Chrome */
+-khtml-border-radius: 3px; /* KHTML */
+border-radius: 3px; /* CSS3 */
+color:#718eab;
+font-family: Photography, Arial, Verdana;
+font-size:14px;
+}
+
+#register .inputregf {
+padding-left:2px;
+border-color:#00adb2;
+width:167px;
+height:32px;
+margin-top:10px;
+text-align:left;
+float:left;
+margin-right:10px;
+-moz-border-radius:3px; /*Firefox */
+-webkit-border-radius: 3px; /* Safari, Chrome */
+-khtml-border-radius: 3px; /* KHTML */
+border-radius: 3px; /* CSS3 */
+color:#718eab;
+font-family: Photography, Arial, Verdana;
+font-size:14px;
+
+}
+
+.regtitle {
+
+font-family: Photography, Arial, Verdana;
+font-size: 14px;
+text-align:center;
+margin-top:5px;
+}	
+	
+#register .buttonreg {
+
+width:350px;
+height:35px;
+font-family: Photography, Arial, Verdana;
+margin-top:10px;
+color:#34495e;
+font-size:18px;
+}
+
+#register  a
+{
+font-family: Photography, Arial, Verdana;
+color:#fff;
+text-decoration:none;
+float:right;
+font-size:20px;
+}
+	
+
+#photos {
+	background: #00adb2;
+	text-align: center;
+	padding-top:5px;
+}
+
+#photos h1 {
+
+font-size:24px;
+padding-top:10px;
+padding-bottom:5px;
+margin-bottom:40px;
+font-family:Photography, Arial, Verdana;
+}
+
+#footer {
+	background: #34495e;
+	text-align: center;
+	padding-top:5px;
+	color: #fff;
+	width:100%;
+	height:35px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+
+#footer a {
+
+color:#fff;
+}

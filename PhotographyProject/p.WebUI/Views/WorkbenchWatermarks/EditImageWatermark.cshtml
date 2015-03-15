@@ -1,0 +1,72 @@
+﻿@model p.Database.Concrete.Entities.ImageWatermark
+
+@using (Html.BeginForm("CreateImageWatermark", "WorkbenchWatermarks", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div id="ADDFORM">
+        <table>
+            <tr>
+                <td>@Html.LabelFor(model => model.WatermarkName)</td>
+                <td>@Html.EditorFor(model => model.WatermarkName)</td>
+                <td>@Html.ValidationMessageFor(model => model.WatermarkName)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Image")</td>
+                <td>
+                    <input type="file" name="file" /></td>
+                <td style="color:red">@ViewBag.ErrorMessage</td>
+
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(model => model.Width)</td>
+
+                <td>@Html.DropDownListFor(model => model.Width, new SelectList(Workbench.Abstract.Constants.Width))</td>
+                <td>@Html.ValidationMessageFor(model => model.Width)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Height)</td>
+
+
+                <td>@Html.DropDownListFor(model => model.Height, new SelectList(Workbench.Abstract.Constants.Height))</td>
+                <td>@Html.ValidationMessageFor(model => model.Height)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.HorizontalAlign)</td>
+
+
+                <td>@Html.DropDownListFor(model => model.HorizontalAlign, new SelectList(Workbench.Abstract.Constants.Horizonal))</td>
+                <td>@Html.ValidationMessageFor(model => model.HorizontalAlign)</td>
+
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.VerticalAlign)</td>
+
+
+                <td>@Html.DropDownListFor(model => model.VerticalAlign, new SelectList(Workbench.Abstract.Constants.Vertical))</td>
+                <td>@Html.ValidationMessageFor(model => model.VerticalAlign)</td>
+
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Opacity)</td>
+
+                <td>@Html.DropDownListFor(model => model.Opacity, new SelectList(Workbench.Abstract.Constants.Opacity))</td>
+                <td>@Html.ValidationMessageFor(model => model.Opacity)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Padding)</td>
+
+                <td>@Html.DropDownListFor(model => model.Padding, new SelectList(Workbench.Abstract.Constants.Padding))</td>
+                <td>@Html.ValidationMessageFor(model => model.Padding)</td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Add</button></td>
+            </tr>
+        </table>
+    </div>
+}
+

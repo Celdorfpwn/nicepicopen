@@ -1,0 +1,69 @@
+﻿@model p.Database.Concrete.Entities.Conversation
+<script type="text/javascript">
+    $(function () {
+        setInterval(function () {
+            $('#msg').load('@Url.Action("Messages", "MessMe")');
+            var div = $('#msg');
+            div.scrollTop(div.prop('scrollHeight'));
+        }, 1000); // every 1 sec
+    });
+
+    $(document).ready(function () {
+        var div = $('#msg');
+        div.scrollTop(div.prop('scrollHeight'));
+    });
+
+    function done() {
+        $('#messageField').val('');
+        $('#messageField').select();
+        var div = $('#msg');
+        div.scrollTop(div.prop('scrollHeight'));
+    }
+</script>
+<div id="conversationMessages">
+    <div id="conversationPartener">
+        @if (Model.Sender.Name.Equals(User.Identity.Name))
+        {
+            if (Model.Receiver != null)
+            {
+            <p>@Model.Receiver.Name</p>
+            }
+        }
+        else
+        {
+            <p>@Model.Sender.Name</p>
+        }
+    </div>
+
+    <div id="msg">
+        @foreach (var message in Model.Messages)
+        {
+            if (!message.Sender.Name.Equals(User.Identity.Name))
+            {
+            <div class="chatLeft">
+                <div class="leftText">
+                @message.Message
+                    </div>
+            </div>
+            }
+            else
+            {
+            <div class="chatRight">
+                <div class="rightText">
+                @message.Message
+                    </div>
+
+            </div>
+            }
+            <br />
+        }
+    </div>
+    <div id="messageForm" style="">
+        @using (Ajax.BeginForm("AddMessage", new AjaxOptions { UpdateTargetId = "msg", InsertionMode = InsertionMode.Replace, OnComplete = "done" }))
+        {
+            <input type="text" id="messageField" name="message">
+            <input type="submit" name="Send" value="Send" id="refresh" onclick="submitForm()" />
+        }
+    </div>
+
+</div>

@@ -1,0 +1,46 @@
+﻿@model p.WebUI.Models.RegisterModel
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/Login.css")
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<div id="registerDivContent">
+    <div class="inputRegisterDiv">
+        <span class="inputText">Username</span>
+        <span class="errorRegister">@Html.ValidationMessageFor(model => model.UserName)</span>
+       @Html.TextBoxFor(model => model.UserName)
+    </div>
+    <div class="inputRegisterDiv">
+        <span class="inputText">Full name</span>
+        <span class="errorRegister">@Html.ValidationMessageFor(model => model.FullName)</span>
+       @Html.TextBoxFor(model => model.FullName)
+    </div>
+    <div class="inputRegisterDiv">
+        <span class="inputText">Email</span>
+        <span class="errorRegister">@Html.ValidationMessageFor(model => model.Email)</span>
+       @Html.TextBoxFor(model => model.Email)
+    </div>
+    <div class="inputRegisterDiv">
+        <span class="inputText">Password</span>
+        <span class="errorRegister">@Html.ValidationMessageFor(model => model.Password)</span>
+       @Html.PasswordFor(model => model.Password)
+    </div>
+    <div class="inputRegisterDiv">
+        <span class="inputText">Confirm password</span>
+        <span class="errorRegister">@Html.ValidationMessageFor(model => model.PasswordConfirmed)</span>
+       @Html.PasswordFor(model => model.PasswordConfirmed)
+    </div>
+    <div class="stuffsRegister">
+        <button type="submit" class="buttonDiv">Register</button>
+        </div>
+    
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

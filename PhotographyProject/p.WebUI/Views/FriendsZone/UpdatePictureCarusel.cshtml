@@ -1,0 +1,44 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+
+
+
+@if (Model.Count() == 0)
+{
+    <div class="updatePictureContainer">
+        <img class="updatePicture" src="~/Images/albumImage.jpeg" />
+        </div>
+}
+
+else if (Model.Count() > 0 && Model.Count()<6)
+{
+    foreach (var picture in Model.Take(1))
+    {
+        <a href="@Url.Action("Album","Explorer",new { id = picture.AlbumId, picture = picture.Id})">
+    <div class="updatePictureContainer">
+        <img class="updatePicture" src="@Url.Action("AlbumPictureCarusel","Images",new { id = picture.Id})" />
+        </div>
+            </a>
+   }
+}
+else if (Model.Count() > 5 && Model.Count() < 12)
+{
+    foreach (var picture in Model.Take(6))
+    {
+        <a href="@Url.Action("Album","Explorer",new { id = picture.AlbumId, picture = picture.Id})">
+        <div class="updatePictureContainerMedium">
+            <img class="updatePictureMedium" src="@Url.Action("AlbumPictureCarusel","Images",new { id = picture.Id})" />
+        </div>
+            </a>
+    }
+}
+else if (Model.Count() > 11)
+{
+    foreach (var picture in Model.Take(12))
+    {
+        <a href="@Url.Action("Album","Explorer",new { id = picture.AlbumId, picture = picture.Id})">
+        <div class="updatePictureContainerSmall">
+            <img class="updatePictureMedium" src="@Url.Action("AlbumPictureCarusel","Images",new { id = picture.Id})" />
+        </div>
+            </a>
+    }
+}

@@ -1,0 +1,5 @@
+﻿@model PicturesProvider.Concrete.PictureImageModel
+
+<div id="pictureDetailsContainer">
+<img id="pictureDetailsImage" src="@Url.Action("ShowImage",new {id = Model.PictureId,width = Model.Width,height = Model.Height })" />
+    </div>

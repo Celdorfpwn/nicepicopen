@@ -1,0 +1,11 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Photographer>
+
+@foreach (var user in Model)
+{
+    <div class="ExFriendDiv">
+        <img class="ExFriendPic" src="@Url.Action("Show", "Explorer", new { id = user.Id })" />
+        <div class="ExFriendText">
+            @user.Name.Split('@')[0]
+        </div>
+    </div>
+}

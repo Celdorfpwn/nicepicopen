@@ -1,0 +1,9 @@
+﻿@model int
+
+<div id="viral">
+    @Ajax.ActionLink("Go viral", "GoViral", new { id = Model }, new AjaxOptions
+{
+    UpdateTargetId ="viral",
+    InsertionMode = InsertionMode.Replace
+})
+</div>

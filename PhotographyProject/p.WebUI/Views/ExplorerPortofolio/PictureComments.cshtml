@@ -1,0 +1,6 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.PortofolioPictureComment>
+
+@foreach (var comment in Model)
+{
+    <p>@comment.Photographer.Name:@comment.Comment</p>
+}

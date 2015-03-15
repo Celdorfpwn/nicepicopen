@@ -1,0 +1,61 @@
+﻿
+#dailyContestsMenu
+{
+    width:94%;
+    margin:auto;
+    height:22px;
+    margin-top:1%;
+    font-size:90%;
+    font-family:Tahoma;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+background-color:white;
+    border:solid 1px #F7F7F7;
+}
+    #dailyContestsMenu a
+    {
+        width:15%;
+        float:left;
+        margin-top:1px;
+        margin-bottom:1px;
+        height:18px;
+        font-family:Tahoma;
+        font-size:80%;
+        padding-top:2px;
+        color:black;
+        text-decoration:none;
+        text-align:center;
+        margin-left:1px;
+        margin-right:1px;
+        -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+    }
+
+#dailyContestsMenu a:hover
+{
+    color:white;
+    background-color:#9400D3;
+}
+
+#dailyContestsContent
+{
+}
+
+.contestDivContent
+{
+    width:90%;
+    height:200px;
+    border:solid 1px black;
+    margin:auto;
+}
+.contestDetails
+{
+    width:70%;
+    height:40px;
+    margin-left:1px;
+    padding:1px;
+    float:left;
+    font-size:80%;
+}

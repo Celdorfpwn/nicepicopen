@@ -1,0 +1,124 @@
+﻿
+    News
+    <hr />
+<div id="newsDiv" data-id="">
+
+</div>
+
+<script type="text/javascript">
+    var newsLoading = false;
+    $(function () {
+        var div = $('#newsDiv');
+        var url = '/ExplorerUpdates/NewsData/';
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (data) {
+                $.each(data, function (i, news) {
+                    appendNews(news, div);
+                });
+                var id
+                if (data.length > 0) {
+                    var id = data[0].Id;
+                } else {
+                    id = 0;
+                }
+                $(div).data('id', id);
+                startLoading(div)
+            },
+            beforeSend: function () {
+            },
+            complete: function () {
+                newsLoading = true;
+            },
+            error: function () {
+                alert(url);
+            }
+        });
+    });
+
+    function appendNews(news, div) {
+        var newsDiv = $(document.createElement('div'));
+        $(newsDiv).attr('class', 'newsContentDiv');
+        $(div).append(newsDiv);
+
+        var imgDiv = $(document.createElement('div'));
+        $(imgDiv).attr('class', 'newsContentImgDiv');
+        var urlDiv = 'url(/Images/UserProfileSmall/' + news.UserId + ') center';
+
+        $(imgDiv).css('background', urlDiv);
+        $(imgDiv).css('background-repeat', 'no-repeat');
+        $(newsDiv).append(imgDiv);
+       /* var img = $(document.createElement('img'));
+        $(img).attr('class', 'newsContentImg');
+        $(img).attr('src', '/Images/UserProfileImage/' + news.UserId);
+        $(newsDiv).append(img);*/
+
+        var text = $(document.createElement('div'));
+        $(text).attr('class', 'newsContentText');
+        if (news.HasPictures) {
+            $(text).append(news.UserName + '</br> added new pictures');
+        } else
+            if (news.HasAlbum) {
+                $(text).append(news.UserName + '</br> added a new album');
+            }
+
+        $(newsDiv).append(text);
+
+    }
+
+    function appendMoreNews(news, div) {
+        var newsDiv = $(document.createElement('div'));
+        $(newsDiv).attr('class', 'newsContentDiv');
+
+        var img = $(document.createElement('img'));
+        $(img).attr('class', 'newsContentImg');
+        $(img).attr('src', '/Images/UserProfileImage/' + news.UserId);
+        $(newsDiv).append(img);
+
+        var text = $(document.createElement('div'));
+        $(text).attr('class', 'newsContentText');
+        if (news.HasPictures) {
+            $(text).append(news.UserName + '</br> added new pictures');
+        } else
+            if (news.HasAlbum) {
+                $(text).append(news.UserName + '</br> added a new album');
+            }
+        $(newsDiv).hide();
+        $(newsDiv).append(text);
+        $(newsDiv).prependTo(div);
+        $(newsDiv).show('slow');
+    }
+
+
+   function startLoading(div) {
+            var url = '/ExplorerUpdates/MoreNewsData/';
+            loadNews(div,url)
+    }
+
+    function loadNews(div, url) {
+        var id = $(div).data('id');
+        var link = url + id;
+        $.ajax({
+            type: 'GET',
+            url: link,
+            success: function (data) {
+                $.each(data, function (i, news) {
+                    appendMoreNews(news, div);
+                });
+                if (data.length > 0) {
+                    var id = data[0].Id;
+                    $(div).data('id', id);
+                } else {
+                }
+                loadNews(div, url);
+            },
+            beforeSend: function () {
+            },
+            complete: function () {
+            },
+            error: function () {
+            }
+        });
+    }
+</script>

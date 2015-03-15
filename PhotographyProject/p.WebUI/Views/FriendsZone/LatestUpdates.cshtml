@@ -1,0 +1,9 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.UserUpdate>
+
+
+
+
+@foreach (var update in Model)
+{
+    Html.RenderAction("Update","ExplorerUpdates", new { id = update.Id });  
+}

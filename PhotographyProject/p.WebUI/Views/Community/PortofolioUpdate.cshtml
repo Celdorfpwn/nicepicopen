@@ -1,0 +1,19 @@
+﻿@model p.Database.Concrete.Entities.Portofolio
+
+<p>
+   @Html.ActionLink(Model.Photographer.Name.Split('@')[0], "Details", "Explorer", new { id = Model.PhotographerId },null)'s portofolio is Viral!
+</p>
+<p>
+    @Html.ActionLink("Check it now!", "GoToPortofolio", new { id = Model.PhotographerId })
+</p>
+<div class="coverContainer">
+    <img class="coverImage" src="@Url.Action("PictureCaruselImage","Images",new { id = Model.CoverId})" />
+</div>
+<div class="caruselContainer">
+    @foreach (var picture in Model.Pictures.Take(6))
+    {
+        <div class="portofolioImageContainer">
+            <img class="portofolioCoverImage" src="@Url.Action("PictureCaruselImage","Images",new { id = picture.Id})"/>
+            </div>
+    }
+</div>

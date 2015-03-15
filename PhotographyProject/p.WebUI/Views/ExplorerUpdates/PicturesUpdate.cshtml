@@ -1,0 +1,24 @@
+﻿@model Explorer.Abstract.PicturesUpdate
+
+@{
+    int count = Model.Pictures.Count();
+}
+
+<div class="picturesUpdateDiv">
+    <div class="picturesUpdateDivInfo">
+        @if (count == 1)
+        {
+            <span>@Model.Photographer.Name added a picture to album "@Model.Album.Name"</span>
+        }
+        else
+        {
+            <span>@Model.Photographer.Name added @count pictures to album "@Model.Album.Name"</span>
+        }
+    </div>
+
+    @{Html.RenderPartial("PicturesCarusel", Model.Pictures);}
+</div>
+
+
+
+

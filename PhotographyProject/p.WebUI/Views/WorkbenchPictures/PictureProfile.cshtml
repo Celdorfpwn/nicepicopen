@@ -1,0 +1,38 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+@{
+    ViewBag.Title = "PictureProfile";
+}
+
+@Styles.Render("~/Content/workbench.css")
+<div id="workbench">
+    <div id="pictureProfile">
+        @{Html.RenderAction("PicturePreview", new { id = Model.Id });}
+    </div>
+    <div id="pictureRightMenu">
+        @foreach (var picture in Model.Album.Pictures)
+        {
+            <div class="picturesProfileMenu">
+                @using (Ajax.BeginForm("PicturePreview", "WorkbenchPictures", new { id = picture.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureProfile",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     }))
+                {
+                    <img class="pictureImageMenu" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id })" />
+                }
+            </div>}
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".pictureImageMenu").click(function () {
+                $(this).closest('form').submit();
+            });
+        });
+
+    </script>
+}

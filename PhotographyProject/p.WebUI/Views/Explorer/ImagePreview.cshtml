@@ -1,0 +1,6 @@
+﻿@model int
+<div id="coverPictureDetailsContainer">
+    <a href="@Url.Action("PicToAlbum","Explorer",new { id = Model})">
+<img id="coverPic" src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = Model })" />
+        </a>
+        </div>

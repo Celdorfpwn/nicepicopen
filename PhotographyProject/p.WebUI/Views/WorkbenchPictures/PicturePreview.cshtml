@@ -1,0 +1,132 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+<div id="workbenchProfile">
+    <div id="workbenchMainLinks">
+    <p>@Html.ActionLink("Album", "AlbumDetails", "WorkbenchAlbums", new { id = Model.AlbumId }, null)</p>
+    <p>@Ajax.ActionLink("Resize", "ResizePicture", "Resizer", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "PictureProfileContent",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     }, null)
+    </p>
+    <p>@Ajax.ActionLink("Picture", "PictureView", "WorkbenchPictures", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureDetailsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     }, null)
+    </p>
+
+    <p>@Ajax.ActionLink("Watermark", "PictureViewWatermark", "WorkbenchPictures", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureDetailsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET",
+                         OnSuccess = "up()"
+                     }, null)
+    </p>
+    <p>@Html.ActionLink("Download", "Download", new { id = Model.Id })
+    </p>
+    <p>
+        @Html.ActionLink("Download Mark", "DownloadWithWatermark", new { id = Model.Id })
+    </p>
+    <p>
+        @using (Ajax.BeginForm("ChangePictureCategory", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "null",
+            HttpMethod = "GET",
+            OnComplete = "up()"
+        }))
+        {
+            @Html.DropDownListFor(model => model.CategoryId, (SelectList)ViewBag.Categories,
+            new { id = "category", @class = "categoryDropDown" })
+        }
+    </p>
+    <p>
+        @using (Ajax.BeginForm("ChangeDonwload", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "null",
+            OnComplete = "up()",
+            HttpMethod = "GET",
+        }))
+        {
+            <span style="font-size:80%;padding-left:5px">Download</span>@Html.CheckBoxFor(model => model.Downloadable, new { id = "downloadable" });
+        }
+    </p>
+        <p>
+        @using (Ajax.BeginForm("ChangeDonwloadMark", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "null",
+            OnComplete = "up()",
+            HttpMethod = "GET",
+        }))
+        {
+            <span style="font-size:80%;padding-left:5px">Download</span>@Html.CheckBoxFor(model => model.DownloadWithWatermark, new { id = "downloadableMark" });
+        }
+    </p>
+    <p>
+        @using (Ajax.BeginForm("ChangeWatermark", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "pictureDetailsContainer",
+            OnSuccess = "up()",
+            HttpMethod = "GET",
+        }))
+        {
+            @Html.DropDownList("watermark", (SelectList)ViewBag.Watermarks, new { id = "watermark", @class = "categoryDropDown" })
+        }
+    </p>
+    <p>
+        @using (Ajax.BeginForm("ChangeCamera", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "null",
+            OnSuccess = "up()",
+            HttpMethod = "GET",
+        }))
+        {
+            @Html.DropDownList("cameraId", (SelectList)ViewBag.Cameras, new { id = "camera", @class = "categoryDropDown" })
+        }
+    </p>
+    <p>
+        <span id="update" style="color:red"></span>
+    </p>
+        </div>
+</div>
+<div id="PictureProfileContent">
+    <div id="pictureDetailsContainer">
+        @{Html.RenderPartial("PictureView", Model);}
+    </div>
+</div>
+
+@*if (!Request.IsAjaxRequest())
+{
+    Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js");
+}*@
+
+<script type="text/javascript">
+    $("#category").on('change', '', function () {
+        $(this).closest('form').submit();
+    });
+    $("#downloadable").on('change', '', function () {
+        $(this).closest('form').submit();
+    });
+    $("#downloadableMark").on('change', '', function () {
+        $(this).closest('form').submit();
+    });
+
+    $("#watermark").on('change', '', function () {
+        $(this).closest('form').submit();
+    });
+    $("#camera").on('change', '', function () {
+        $(this).closest('form').submit();
+    });
+
+    function up() {
+        $('update').text('Changed');
+    };
+</script>

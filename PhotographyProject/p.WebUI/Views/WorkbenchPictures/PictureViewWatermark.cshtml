@@ -1,0 +1,9 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+@{
+    Random rand= new Random();
+    var randKey = rand.Next(10000);
+}
+
+<img id="pictureDetailsImage" src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = Model.Id,randKey = randKey })" />
+

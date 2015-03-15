@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A22974E-A32A-4459-A8B8-8B195B5CF684}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>p.Database</RootNamespace>
+    <AssemblyName>p.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\Repositories\AbstractDailyContestsRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Abstract\Repositories\AbstractDiscussionPostsRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractDiscussionsRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractExplorerUpdatesRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchCamerasRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractAccountRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractExplorerPortofolioRepository.cs" />
+    <Compile Include="Abstract\Entities\Watermark.cs" />
+    <Compile Include="Abstract\Repositories\AbstractCommunityRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractConversationsRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractExplorerRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractFriendsRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractImagesRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractPortofolioRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchAlbumsRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchPicturesRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchProfileRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchQuotesRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchRepository.cs" />
+    <Compile Include="Abstract\Repositories\AbstractWorkbenchWatermarksRepository.cs" />
+    <Compile Include="Concrete\Entities\Album.cs" />
+    <Compile Include="Concrete\Entities\Blind.cs" />
+    <Compile Include="Concrete\Entities\CommunityUpdate.cs" />
+    <Compile Include="Concrete\Entities\ContestPicture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concrete\Entities\Conversation.cs" />
+    <Compile Include="Concrete\Entities\DailyContest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concrete\Entities\Discussion.cs" />
+    <Compile Include="Concrete\Entities\DiscussionPost.cs" />
+    <Compile Include="Concrete\Entities\DiscussionPostReply.cs" />
+    <Compile Include="Concrete\Entities\ExternalInformation.cs" />
+    <Compile Include="Concrete\Entities\FriendRequest.cs" />
+    <Compile Include="Concrete\Entities\ConversationMessage.cs" />
+    <Compile Include="Concrete\Entities\ImageWatermark.cs" />
+    <Compile Include="Concrete\Entities\OnlineUser.cs" />
+    <Compile Include="Concrete\Entities\Photographer.cs" />
+    <Compile Include="Concrete\Entities\PhotographerCamera.cs" />
+    <Compile Include="Concrete\Entities\Picture.cs" />
+    <Compile Include="Concrete\Entities\PictureCategory.cs" />
+    <Compile Include="Concrete\Entities\PictureComment.cs" />
+    <Compile Include="Concrete\Entities\Portofolio.cs" />
+    <Compile Include="Concrete\Entities\PortofolioPictureComment.cs" />
+    <Compile Include="Concrete\Entities\PortofolioPictureNice.cs" />
+    <Compile Include="Concrete\Entities\PortofolioPictureView.cs" />
+    <Compile Include="Concrete\Entities\Quote.cs" />
+    <Compile Include="Concrete\Entities\TextWatermark.cs" />
+    <Compile Include="Concrete\Entities\UserProfilePicture.cs" />
+    <Compile Include="Concrete\Entities\UserUpdate.cs" />
+    <Compile Include="Concrete\Entities\Visitor.cs" />
+    <Compile Include="Concrete\Repositories\AccountRepository.cs" />
+    <Compile Include="Concrete\Repositories\CommunityRepository.cs" />
+    <Compile Include="Concrete\Repositories\ConversationsRepository.cs" />
+    <Compile Include="Concrete\Repositories\DailyContestsRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concrete\Repositories\DatabaseContext.cs" />
+    <Compile Include="Concrete\Repositories\DiscussionPostsRepository.cs" />
+    <Compile Include="Concrete\Repositories\DiscussionRepository.cs" />
+    <Compile Include="Concrete\Repositories\ExplorerPortofolioRepository.cs" />
+    <Compile Include="Concrete\Repositories\ExplorerRepository.cs" />
+    <Compile Include="Concrete\Repositories\ExplorerUpdatesRepository.cs" />
+    <Compile Include="Concrete\Repositories\FriendsRepository.cs" />
+    <Compile Include="Concrete\Repositories\ImagesRepository.cs" />
+    <Compile Include="Concrete\Repositories\PortofolioRepository.cs" />
+    <Compile Include="Concrete\Repositories\Repository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchAlbumsRepository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchCamerasRepository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchPicturesRepository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchProfileRepository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchQuotesRepository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchRepository.cs" />
+    <Compile Include="Concrete\Repositories\WorkbenchWatermarksRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

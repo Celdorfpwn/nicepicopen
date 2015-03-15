@@ -1,0 +1,14 @@
+﻿@model p.Database.Concrete.Entities.DailyContest
+
+@Styles.Render("~/Content/Contests.css")
+@Styles.Render("~/Content/World.css")
+
+<div id="dailyContestsMenu">
+    @{Html.RenderAction("CurrentUser");}
+    @Ajax.ActionLink("Todays", "ContestPictures", new { id = Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "dailyContestsContent" })
+    @Ajax.ActionLink("Winners", "LatestContests", new { id = Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "dailyContestsContent" })
+</div>
+<div id="dailyContestsContent">
+    @if(Model.Pictures.Count!=0)
+    {Html.RenderAction("ContestPictures", new { id = Model.Id });}
+</div>

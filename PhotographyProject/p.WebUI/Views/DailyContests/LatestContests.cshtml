@@ -1,0 +1,28 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.DailyContest>
+
+@foreach (var contest in Model.Where(c => c.WinnerId!=null))
+{
+        <div class="worldContainer">
+            <span style="height:10px;font-size:13px">@contest.Date</span>
+        <div class="worldPictureDetails">
+            <div class="worldPhotographerContent">
+                @{Html.RenderAction("PictureDetails", "World", new { id = contest.Winner.PictureId });
+                }
+            </div>
+            <img style="float:left;width:30px;height:45px;margin-left:10%;" src="~/Images/cup.jpg" />
+                @if (contest.Winner.Picture.CameraId != null)
+                {
+                    <div class="worldPictureCameraDetails">
+           
+                        <div class="worldPictureCameraContainer">
+                            <img src="@Url.Action("CameraImage", "Images", new { id = contest.Winner.Picture.CameraId })" />
+                        </div>
+                    </div>
+                }
+            
+        </div>
+        <div class="worldPictureContainer">
+            <img src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = contest.Winner.Picture.Id })" />
+        </div>
+    </div>
+}

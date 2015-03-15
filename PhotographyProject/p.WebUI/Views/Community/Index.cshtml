@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Community";
+}
+@Styles.Render("~/Content/CommunityStyle.css")
+
+
+<div id="community">
+    <div id="communityUpdates">
+        <div id="updatesbar">
+        Updates
+            @using (Ajax.BeginForm("LatestUpdates", null, new AjaxOptions
+            {
+                UpdateTargetId = "up",
+                InsertionMode = InsertionMode.Replace
+            }, new { id = "checkForm" }))
+            {
+            @Html.CheckBox("check", new { id = "checked" })
+                
+            }
+         <hr />
+        </div>
+        <div id="up">
+        @{Html.RenderAction("LatestUpdates", new { check = false });}
+            </div>
+    </div>
+    <div id="communityPictures">
+        <p>
+
+            @using (Ajax.BeginForm("BestPictures", null, new AjaxOptions
+            {
+                UpdateTargetId = "commUpdater",
+                InsertionMode = InsertionMode.Replace
+            }, new { id = "categories" }))
+            {
+           <span>Best </span> @Html.DropDownList("categoryId", (SelectList)ViewBag.Categories, new { id = "category" })
+                <span>Pictures</span>
+            }
+
+        </p>
+        <div id="commUpdater">
+            @{Html.RenderAction("BestPictures", "Community", new { categoryId = 0 });}
+        </div>
+    </div>
+    <div id="communityBestPort">
+        <p>Best Portofolios</p>
+        <hr />
+        @{Html.RenderAction("BestPortofolios", "Community");}
+    </div>
+
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+<script type="text/javascript">
+    $(function () {
+        $('#category').on('change', '', function () {
+            $(this).closest('form').submit();
+        });
+        $('#checked').on('change', '', function () {
+            $(this).closest('form').submit();
+        });
+    });
+    $(function () {
+        $(".communityPictureContainer").hover(
+            function () {
+                $(this).children("img").fadeTo(200, 0.85).end().children(".communityPictureText").show();
+            },
+            function () {
+                $(this).children("img").fadeTo(200, 1).end().children(".communityPictureText").hide();
+            });
+    });
+    $(function () {
+        $(".communityPortofolioContainer").hover(
+            function () {
+                $(this).children("img").fadeTo(200, 0.85).end().children(".communityPortofolioText").show();
+            },
+            function () {
+                $(this).children("img").fadeTo(200, 1).end().children(".communityPortofolioText").hide();
+            });
+    });
+</script>
+}

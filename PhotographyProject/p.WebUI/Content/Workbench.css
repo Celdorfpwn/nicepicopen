@@ -1,0 +1,1327 @@
+﻿
+/* #9400D3  vs #9400D3 */
+/*#D909E0*/
+#workbench
+{
+    width:90%;
+    padding-top:33px;
+    margin:auto;
+}
+
+    .workbenchProfileLink
+    {
+        font-size:110%;
+        width:93%;
+        height:15px;
+        display:block;
+        padding-left:5%;
+        text-decoration:none;
+        font-family:Tahoma;
+        vertical-align:middle;
+        color:black;
+        padding-top:2%;
+        margin-top:2%;
+        font-weight:normal;
+        padding-left:7%;
+    }
+
+.workbenchProfileLink:hover
+        {
+            background-color:#9400D3;
+            color:white;
+        }
+
+.workbenchProfileTheLink
+{
+    color:black;
+    width:65%;
+    height:17px;
+    float:left;
+}
+.workbenchProfileNewPicture
+{
+    background-image:url(NewStar2.png);
+    width:11px;
+    height:11px;
+    float:right;
+    margin-right:5px;
+    margin-top:2px;
+}
+
+.workbenchProfileNewPictureReplace
+{
+        background-image:url(NewStar.png);
+    width:11px;
+    height:11px;
+    float:right;
+    margin-right:5px;
+    margin-top:2px;
+}
+
+#workbenchProfile
+{
+    position:fixed;
+    width:9%;
+    padding-top:10px;
+    padding-left:0.5%;
+    padding-right:1%;
+    text-align:left;
+    float:left;
+    min-height:100%;
+    font-size:60%;
+    font-family:Tahoma;
+        color:#9400D3;
+        text-align:left;
+        font-weight:bold;
+}
+
+.workbenchMainLinks
+{
+padding-bottom:1px;
+margin-bottom:5px;
+width:100%;
+background-color:white;
+padding:2%;
+border:solid 0.5px #CECECE;
+}
+.workbenchMainLinks a
+    {
+        font-size:110%;
+        width:93%;
+        height:15px;
+        display:block;
+        padding-left:5%;
+        text-decoration:none;
+        font-family:Tahoma;
+        vertical-align:middle;
+        color:black;
+        padding-top:2%;
+        margin-top:2%;
+        font-weight:normal;
+        padding-left:7%;
+    }
+        .workbenchMainLinks a:hover
+        {
+            background-color:#9400D3;
+            color:white;
+        }
+.linksTitle
+{
+    width:100%;
+    height:15px;
+    text-align:center;
+}
+#conversations
+{
+    width:105%;
+    background-color:white;
+    max-height:100%;
+    padding-top:2%;
+    padding-left:2%;
+    padding-right:2%;
+    padding-bottom:2%;
+    margin-right:5px;
+    margin-top:7px;
+    border:solid 1px #CECECE;
+overflow:auto;
+}
+.switcherLink
+{
+    width:95%;
+    margin:auto;
+    height:14px;
+    margin-left:1%;
+    margin-top:1px;
+    padding:1%;
+    text-align:center;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+    .switcherLink:hover
+    {
+        background-color:#9400D3;
+        color:white;
+    }
+.workbenchDivLinks
+{
+    margin-top:5px;
+    margin-bottom:5px;
+    background:white;
+    width:100%;
+    border:solid 1px #CECECE;
+    padding:2%;
+    padding-bottom:10px;
+}
+
+.workbenchSecondLinks
+{
+    margin-top:5px;
+    margin-bottom:5px;
+    background:white;
+    width:100%;
+    border:solid 1px #CECECE;
+    padding:2%;
+    padding-bottom:10px;
+}
+.workbenchSecondLinks a
+    {
+        width:93%;
+        height:15px;
+        display:block;
+        padding-left:7px;
+        padding-top:1%;
+        margin-top:2%;
+        text-decoration:none;
+        font-size:110%;
+        font-family:Tahoma;
+        font-weight:normal;
+        color:black;
+    }
+        .workbenchSecondLinks a:hover
+        {
+            background-color:#9400D3;
+            color:white;
+        }
+#workbenchContent
+{
+    width:60%;
+    float:left;
+    margin-left:13%;
+    margin-top:3px;
+}
+#moreContent
+{
+    width:72%;
+    float:left;
+    margin-left:15.6%;
+}
+#workbenchNews
+{
+    position:fixed;
+    width:14.5%;
+    padding:0.5%;
+    margin-top:10px;
+    background-color:white;
+    margin-left:51.6%;
+    border:solid 1px #CECECE;
+    overflow-x:hidden;
+    overflow:auto;
+}
+#workbenchMenu
+{
+    width:11%;
+    position:fixed;
+    margin-left:87.3%;
+    margin-top:3px;
+    font-size:70%;
+        font-family:Tahoma;
+        text-align:left;
+        font-weight:bold;
+}
+#prtfImage
+{
+    width:103%;
+    border:solid 0.5px #CECECE;
+    background-color:white;
+    padding-left:1%;
+    padding-top:1%;
+    padding-bottom:1%;
+    padding-right:1%;
+    max-height:200px;
+}
+
+#workbenchProfileImage
+{
+    width:100%;
+    max-height:195px;
+}
+
+#albumDetails
+{
+    padding-top:10px;
+    width:94%;
+    margin-left:3%;
+}
+
+.workbenchAlbumShow
+{
+    width:98%;
+    height:140px;
+    padding-top:10px;
+    padding-bottom:2px;
+    padding-left:10px;
+    background-color:white;
+margin-bottom:10px;
+   border:solid 0.5px #CECECE;
+}
+
+.albumProfilePicture
+{
+    width:25%;
+    height:90%;
+    float:left;
+    border:solid 1px white;
+    background-size:cover;
+}
+
+.albumProfile
+{
+    width:100%;
+    height:100%;
+    display:inline;
+    vertical-align:middle;
+}
+.albumDescription
+{
+    float:left;
+    width:52%;
+    padding-left:2%;
+    font-size:11px;
+        font-weight:normal;
+        font-family:Tahoma;
+        color:#9400D3;
+        text-align:left;
+        height:50%;
+}
+    .albumDescription a
+    {
+                width:25%;
+        height:20px;
+        display:block;
+        padding-left:4px;
+        text-decoration:none;
+        font-size:100%;
+        font-weight:normal;
+        font-family:Tahoma;
+        color:#9400D3;
+        float:left;
+        text-align:center;
+    }
+        .albumDescription a:hover
+        {
+            background-color:#E8E4E4;
+        }
+.albumQuickBar
+{
+    width:17%;
+    float:right;
+    height:50%;
+    text-align:right;
+    padding-right:1%;
+    padding-top:0%;
+    margin-right:2%;
+}
+
+.albumQuickBar a
+    {
+        margin-top:0px;
+        width:70%;
+        height:20px;
+        display:block;
+        padding-right:4px;
+        text-decoration:none;
+        font-size:10px;
+        font-weight:normal;
+        font-family:Tahoma;
+        color:#9400D3;
+        float:right;
+    }
+        .albumQuickBar a:hover
+        {
+            background-color:#E8E4E4;
+        }
+
+.albumCaruselBar
+{
+    float:left;
+    width:74%;
+    height:40%;
+}
+
+.caruselContainer
+{
+    width:13.5%;
+    float:left;
+    height:100%;
+    background-color:black;
+    border:solid 1px white;
+}
+.caruselImg
+{
+    width:100%;
+    height:100%;
+    display:inline-block;
+    vertical-align:middle;
+}
+.albumPictureContainer
+{
+    width:32%;
+    float:left;
+    border:solid 3px white;
+    background-color:black;
+}
+.albumPicture
+{
+    width:23%;
+    height:150px;
+    border:solid 2px white;
+    float:left;
+}
+
+#allPictures
+{
+    padding-top:5px;
+    width:94%;
+    margin-left:3%;
+}
+.picturesCarusel
+{
+        padding-top:5px;
+    width:94%;
+    margin-left:3%;
+}
+/*------------------------ALBUMS----------------------*/
+#albumContent
+{
+    width:90%;
+    float:left;
+    margin-left:16%;
+}
+
+#albumDetailsShow
+{
+    width:100%;
+    float:left;
+    min-height:100%;
+}
+
+#albumNavigation
+{
+    width:80%;
+    float:left;
+    padding-left:0.3%;
+    margin-top:5px;
+    font-size:12px;
+        font-weight:normal;
+        font-family:Tahoma;
+}
+
+.albumDetailsPictureContainer
+{
+    width:23%;
+    float:left;
+    height:140px;
+    margin:0.5%;
+    background-color:black;
+    border:solid 2px white;
+}
+.albumDetailsPicture
+{
+    width:100%;
+    height:100%;
+}
+#pictureDetailsContainer
+{
+    padding-top:3%;
+    width:95%;
+    height:90%;
+    float:left;
+    padding-bottom:3%;
+}
+#pictureDetailsImage
+{
+    max-height:100%;
+    max-width:100%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    border:solid 4px white;
+}
+
+#imgResizePreview
+{
+    max-width:90%;
+    max-height:90%;
+}
+#resizerPreview
+{
+    width:100%;
+    height:100%;
+    float:left;
+    margin-top:2%;
+}
+
+#resizeForm
+{
+    height:10%;
+    width:100%;
+    padding-left:2%;
+    font-size:80%;
+}
+.resizeInput
+    {
+        width:13%;
+        height:40%;
+        font-size:90%;
+        text-align:center;
+    }
+.textBoxInput
+{
+    width:20%;
+    height:50%;
+    font-size:90%;
+}
+
+#watermarkPreview
+{
+    padding-top:1%;
+    width:90%;
+    height:100%;
+}
+#watermarkProfile
+{
+    max-height:80%;
+    max-width:100%;
+}
+
+#PictureProfileContent
+{
+    width:82%;
+    height:100%;
+    float:left;
+    padding-left:1%;
+    margin-left:23%;
+    font-family:Tahoma;
+}
+#pictureRightMenu
+{
+    margin-top:2%;
+    float:right;
+    width:14%;
+    height:500px;
+    overflow:auto;
+    padding-left:1%;
+}
+.picturesProfileMenu
+{
+    float:left;
+    width:90%;
+    height:90px;
+    padding:2%;
+    background-color:black;
+}
+.pictureImageMenu
+{
+    max-height:100%;
+    max-width:100%;
+    background-color:black;
+}
+
+#pictureProfile
+{
+    float:left;
+    width:80%;
+}
+
+.watermarkSubmit
+{
+    height:3%;
+    font-size:80%;
+    width:10%;
+}
+
+.categoryDropDown
+{
+    width:90%;
+}
+
+#portofolioCover
+{
+    width:100%;
+    height:100px;
+}
+
+
+
+/*-------------Friends Zone----------------------*/
+
+.updateDiv
+{
+    width:90%;
+    margin-top:10px;
+    margin-left:3.5%;
+    height:100%;
+    overflow:hidden;
+    margin-bottom:30px;
+        background-color:white;
+     border:solid 2px #CECECE;
+     -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+    padding:1%;
+}
+
+.updateText
+{
+    float:left;
+    width:50%;
+}
+
+.updatePictureDiv
+{
+    float:right;
+    width:43%;
+    height:155px;
+}
+
+.updatePictureContainer
+{
+    width:98%;
+    height:90%;
+    border:solid 1px white;
+    float:left;
+}
+
+.updatePicture
+{
+   max-width:100%;
+    max-height:100%;
+}
+
+.updatePictureText
+{
+    float:left;
+}
+.newsProfileContainer
+{
+    width:30%;
+    height:60px;
+    float:left;
+    border:solid 1px white;
+}
+.newsProfileImage
+{
+    width:100%;
+    height:100%;
+}
+.userPorfileContent
+{
+    width:100%;
+    height:70px;
+    float:left;
+}
+.updateUserText
+{
+    float:left;
+    margin-top:5px;
+}
+
+
+.updatePictureContainerMedium
+{
+    border:solid 1px white;
+    width:32%;
+    height:50px;
+    float:left;
+}
+.updatePictureMedium
+{
+        width:100%;
+    height:100%;
+}
+
+.updatePictureContainerSmall
+{
+    width:23.7%;
+    height:40px;
+    float:left;
+    border:solid 1px white;
+}
+
+#searchFriendContent
+{
+    width: 90%;
+    margin:auto;
+    margin-top: 1.5%;
+    text-align: center;
+}
+#searchDiv
+{
+    text-align:center;
+    width:100%;
+}
+#search
+{
+    margin:auto;
+     border:solid 1px #9400D3;
+     -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding-left:5px;
+padding-right:5px;
+font-family:Tahoma;
+color:#9400D3;
+}
+
+.FzUserFriend
+{
+    width:29.5%;
+    height:90px;
+    float:left;
+    margin-top:2%;
+    margin-left:1%;
+    border:solid 1px #9400D3;
+     -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:1%;
+}
+
+.FzUserFriendContainer
+{
+    width:50%;
+    height:70px;
+    float:left;
+}
+.FzUserFriendImg
+{
+    max-width:98%;
+    max-height:100%;
+    border:solid 1px white;
+}
+.FzUserLink
+{
+    width:100%;
+    height:20px;
+}
+    .FzUserLink a
+    {
+        color:#9400D3;
+        font:bold;
+        text-decoration:none;
+        height:18px;
+        width:98%;
+        margin:auto;
+        text-align:center;
+        display:block;
+        font-weight:bold;
+    }
+        .FzUserLink a:hover
+        {
+            background-color:#9400D3;
+            color:white;
+        }
+.FzUserText
+{
+    float:left;
+    width:45%;
+    height:65px;
+    font-size:90%;
+    margin-left:2px;
+        font-weight:normal;
+        font-family:Tahoma;
+        color:black;
+        text-align:left;
+        padding-left:2%;
+    border:solid 1px #9400D3;
+    background-color: #9400D3;
+     -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:1px;
+font-size:12px;
+        text-align:center;
+        font-weight:normal;
+        font-family:Tahoma;
+        color:white;
+        font-weight:bold;
+}
+    .FzUserText a
+    {
+        width:95%;
+        display:block;
+        text-align:left;
+        padding-left:5%;
+        text-decoration:none;
+        font-size:12px;
+        text-align:center;
+        font-weight:normal;
+        font-family:Tahoma;
+        color:white;
+        font-weight:bold;
+        padding-top:3%;
+        padding-bottom:10%;
+        -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+    }
+        .FzUserText a:hover
+        {
+            background-color:white;
+            color:#9400D3;
+        }
+
+.quoteUpdateDiv
+{
+    width:93%;
+    margin:auto;
+    height:200px;
+    margin-top:10px;
+    display:inline-block;
+}
+.cameraUpdateDiv
+{
+    width:93%;
+    height:145px;
+    margin:auto;
+    margin-top:10px;
+    border:solid 1px #9400D3;
+       -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.cameraExplorerContainer
+{
+    float:right;
+    height:140px;
+    width:35%;
+    line-height:135px;
+}
+    .cameraExplorerContainer img
+    {
+        vertical-align:middle;
+    max-height:100%;
+    max-width:100%;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    }
+
+.explorerUpdateStuff
+{
+    width:60%;
+    height:20px;
+    float:left;
+    text-align:center;
+    margin-left:2%;
+    margin-top:1%;
+    font-weight:bold;
+    color:#9400D3;
+    text-align:left;
+    font-size:80%;
+}
+
+.explorerDescriptionContent
+{
+    width:60%;
+    height:89px;
+    float:left;
+    margin-top:5px;
+    margin-left:2%;
+    color:#9400D3;
+    text-align:left;
+    border:solid 1px #9400D3;
+    font-size:85%;
+    -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding:4px 4px 4px 4px;
+}
+
+
+
+.ExplorerUpdatesPicturesCarusel
+{
+    width:98%;
+    float:left;
+    height:80px;
+    margin-top:20px;
+}
+
+.explorerCaruselPictureContainer
+{
+    width:16.2%;
+    height:78px;
+    float:right;
+}
+
+.explorerCaruselPictureContainer img
+    {
+        vertical-align:middle;
+        height:100%;
+        width:100%;
+    }
+
+.explorerCaruselPictureContainerSmall
+{
+    width:8.1%;
+    height:39px;
+    float:right;
+}
+
+.explorerCaruselPictureContainerSmall img
+    {
+        vertical-align:middle;
+        height:100%;
+        width:100%;
+    }
+
+.explorerQuote
+{
+       -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    width:100%;
+    margin-top:10px;
+    margin-left:3%;
+    height:100%;
+        border:solid 1px #9400D3;
+}
+.onePictureContent
+{
+    width:99%;
+    height:340px;
+    margin-left:0.5%;
+}
+
+.onePictureContainer
+{
+    width:99%;
+    height:330px;
+    line-height:329px;
+    margin-left:0.4%;
+    border-bottom:solid 1px white;
+    background-size:cover;
+}
+.onePictureContainer img
+    {
+        vertical-align:middle;
+    max-height:100%;
+    max-width:100%;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    }
+
+.sixPicturesContent
+{
+    width:99%;
+    height:720px;
+    margin:auto;
+}
+
+.sixPictureImageConainter
+{
+    background-size:cover;
+    width:49%;
+    height:154px;
+    border:solid 1px black;
+    float:left;
+}
+
+
+.picturesUpdateDiv
+{
+    width:92.5%;
+    margin:auto;
+    background-color:white;
+     border:solid 2px #CECECE;
+    margin-top:10px;
+     -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.picturesUpdateDivInfo
+{
+    margin:5px 5px 5px 5px;
+    margin-left:10px;
+    font-weight:bold;
+    color:white;
+    background-color:#9400D3;
+    font-size:84%;
+    border:solid 1px #9400D3;
+    padding-left:2%;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+.twoPicturesContent
+{
+    width:96%;
+    height:225px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.twoPicturesContainer
+{
+    width:49.5%;
+    height:220px;
+    line-height:220px;
+    background-size:cover;
+    float:left;
+    border-left:solid 1px white;
+    border-bottom:solid 1px white;
+}
+
+.threePicturesContent
+{
+    width:96%;
+    height:560px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.threePicturesContainer
+{
+    width:33%;
+    height:150px;
+    line-height:150px;
+    background-size:cover;
+    float:left;
+    border-left:solid 1px white;
+    border-bottom:solid 1px white;
+}
+.fourPicturesContent
+{
+    width:96%;
+    height:400px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.fourPicturesContainer
+{
+    width:49.6%;
+    height:200px;
+    line-height:200px;
+    background-size:cover;
+    float:left;
+    border-bottom:solid 1px white;
+    border-left:solid 1px white;
+}
+
+
+.fivePicturesContent
+{
+    width:96%;
+    height:375px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.sevenPicturesContent
+{
+    width:96%;
+    height:570px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.eightPicturesContent
+{
+    width:96%;
+    height:550px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.fourPicturesContainer9
+{
+    width:24.6%;
+    height:100px;
+    line-height:100px;
+    background-size:cover;
+    float:left;
+    border-bottom:solid 1px white;
+    border-left:solid 1px white;
+}
+
+.ninePicturesContent
+{
+    width:96%;
+    height:490px;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.multipleContainer
+{
+    width:96%;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+/*                                        */
+
+.conversationUserLink
+{
+    width:95%;
+    padding:2%;
+    height:20px;
+    color:black;
+}
+
+
+
+.conversationMessages
+{
+    float:right;
+    width:230px;
+    margin-left:2%;
+    border:solid 2px #9400D3;
+ background-color:white;
+ height:98%;
+ pointer-events:all;
+     -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.msg
+{
+    width:98%;
+    margin:auto;
+    overflow:auto;
+    height:75%;
+    padding-bottom:10px;
+    margin-bottom:5px;
+    font-size:14px;
+    padding-left:2px;
+    padding-right:2px;
+    font-family:Arial;
+    overflow-x:hidden;
+}
+.messageForm
+{
+    width:99%;
+    padding-left:2px;
+    height:8%;
+    border-top:solid 1px #9400D3;
+}
+
+.chatRight
+{
+    margin-top:5px;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+float:right;
+width:70%;
+word-wrap:break-word;
+}
+
+.chatLeft
+{
+    margin-top:3px;
+    word-wrap:break-word;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+float:left;
+width:70%;
+}
+
+.leftText
+{
+    padding:1%;
+    max-width:90%;
+    background-color:#E1E4E6;
+    word-wrap:break-word;
+    padding-left:10px;
+padding-right:10px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+float:left;
+ font-size:12px;
+}
+.rightText
+{
+    font-size:12px;
+    padding:1%;
+    float:right;
+     word-wrap:break-word;
+    padding-left:10px;
+padding-right:10px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+    max-width:90%;
+    background-color:#f4d2f5;
+}
+.uploadImgInput
+{
+    width: 30px; height: 30px; cursor: pointer;
+    float:right;
+}
+
+.messageField
+{
+    height:25px;
+    font-size:12px;
+    color:black;
+    padding-left:1%;
+    width:83%;
+    float:left;
+    border:solid 1px white;
+}
+.messageField:focus
+{
+    border:solid 1px white;
+}
+
+.refresh
+{
+    height:29px;
+    font-size:60%;
+    width:15%;
+    float:left;
+}
+
+.conversationPartener
+{
+    width:98%;
+    font-weight:bold;
+    font-size:14px;
+    padding-left:2%;
+    padding-top:3px;
+    color:white;
+    height:8%;
+    background-color:#9400D3;
+    padding-right:0px;
+}
+
+.newMessageDivContent
+{
+    width:90%;
+    margin:auto;
+    height:60px;
+    padding:1%;
+    font-size:70%;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border:solid 1px #9400D3;
+margin-top:5px;
+}
+.newMessageUserName
+{
+    width:60%;
+    height:10px;
+}
+.newMessageText
+{
+    margin-left:10px;
+    margin-top:3px;
+    width:78%;
+    height:40px;
+    float:left;
+    padding:1%;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+background-color:#E1E4E6;
+}
+.conversationHide
+{
+    height:20px;
+    padding-top:1px;
+    color:white;
+    background-color:#9400D3;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+    .conversationHide:hover
+    {
+        color:#CECECE;
+    }
+.messageImage
+{
+    margin-top:5px;
+    margin-bottom:5px;
+    max-width:130px;
+    max-height:400px;
+}
+
+.loadingGif
+{
+    margin-left:45%;
+    margin-top:10px;
+    width:50px;
+    height:50px;
+    margin-bottom:10px;
+
+}
+
+
+.conversationUserImg
+{
+    float:left;
+    max-width:10%;
+    height:15px;
+}
+
+
+.conversationUserText
+{
+    float: left;
+     margin-left: 2px;
+}
+.conversationState
+{
+     -webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;
+background-color:white;
+width:8px;
+height:8px;
+float:right;
+margin-top:4%;
+}
+
+.newsContentDiv
+{
+    width:97%;
+    padding:1%;
+    height:40px;
+    border:solid 0.5px #CECECE;
+    margin-bottom:5px;
+}
+
+.newsContentImg
+{
+    width:22%;
+    height:100%;
+    float:left;
+}
+.newsContentImgDiv
+{
+    width:22%;
+    height:100%;
+    float:left;
+    background-size:contain;
+    background-color:white;
+    background-repeat:no-repeat;
+}
+.newsContentText
+{
+    float:left;
+    margin-left:2%;
+    margin-top:5px;
+    font-size:12px;
+}
+
+.hideConversation
+{
+    float:right;height:20px;font-size:10px;
+    padding-top:1px;
+}

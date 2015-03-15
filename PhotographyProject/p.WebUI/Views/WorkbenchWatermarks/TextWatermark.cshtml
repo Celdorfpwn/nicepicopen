@@ -1,0 +1,26 @@
+﻿@model p.Database.Concrete.Entities.TextWatermark
+
+
+<div id="watermarkProfile">
+    <img id="watermarkPreview" src="@Url.Action("TextWatermarkProfile", "Images", new { id = Model.Id })" />
+
+    <div id="watermarkSetForm">
+        @using (Ajax.BeginForm("SetTextWatermark","WorkbenchWatermarks", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "WatermarkConfirmation",
+            HttpMethod = "GET"
+        },null))
+        {
+            @Html.DropDownList("type", (SelectList)ViewBag.Albums)
+            <button class="watermarkSubmit" onclick="this.form.submit()" >Set</button>
+        }
+    </div>
+    <div id="WatermarkConfirmation">
+        @Html.ActionLink("Remove", "RemoveWatermark", "WorkbenchWatermarks", new { id = Model.Id, type = Model.GetType().Name }, null)
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

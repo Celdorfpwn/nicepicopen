@@ -1,0 +1,90 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.FriendRequest>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".accept").click(function () {
+            $(this).parent().text('Watching');
+        });
+        $(".blinded").click(function () {
+            $(this).parent.text('Blinded');
+        });
+    });
+
+</script>
+
+@if (Model.Count() > 0)
+{
+    <span>Requests</span>
+    foreach (var request in Model)
+    {
+    <div class="newMessageDivContent">
+        <div class="newMessageUserName">
+
+            @request.PhotographerRequesting.Name
+
+        </div>
+        <img style="height:35px;width:35px;float:left;margin-top:5px" src="@Url.Action("UserProfileImage", "Images", new { id = request.PhotographerId })" />
+        <div class="newMessageText">
+           <button class="acceptRequestButton" type="button" data-id="@request.Id" onclick="acceptRequest(this)">Accept</button>
+            @*Ajax.ActionLink("Allow", "AcceptRequest", new { id = request.Id },
+       new AjaxOptions
+       {
+           InsertionMode = InsertionMode.InsertAfter,
+           HttpMethod = "GET",
+           UpdateTargetId = "conversationsPlace"
+       }, new { @class = "accept" })*@
+            <div id="blind">
+                @Ajax.ActionLink("Blind", "Blind", new { id = request.FriendRequestId }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            UpdateTargetId = "as"
+        }, new { @class = "blinded" })
+            </div>
+        </div>
+    </div>
+    }
+}
+
+<div id="Suggestions">
+    @{Html.RenderAction("Suggestions");}
+</div>
+
+
+
+
+
+
+@*
+@if(Model.Count()!=0)
+{
+foreach (var request in Model)
+{
+    <div class="FzUserFriend">
+        <div class="FzUserLink">
+    @Html.ActionLink(request.PhotographerRequesting.DescriptionName, "Details", "Explorer", new { id = request.PhotographerRequesting.Id }, null)
+            </div>
+        <div class="FzUserFriendContainer">
+        <img class="FzUserFriendImg" src='@Url.Action( "ShowProfile", "FriendsZone", new { id = request.PhotographerRequesting.Id } )' /><br />
+  </div>
+        <div class="FzUserText">
+             @Ajax.ActionLink("Allow","AcceptRequest",new { id = request.Id},
+       new AjaxOptions { InsertionMode= InsertionMode.Replace, HttpMethod="GET",
+                         UpdateTargetId = "idwtfshit"
+       }, new { @class = "accept" })
+            <div id="blind">
+             @Ajax.ActionLink("Blind", "Blind", new { id = request.FriendRequestId }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET",
+           UpdateTargetId = "as"
+        }, new { @class = "blinded" })
+         </div>
+        </div>
+    </div>
+}
+}else
+{
+    <p>No requests</p>
+}
+*@

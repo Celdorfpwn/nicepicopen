@@ -1,0 +1,3 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+<p>@Html.ActionLink("Is viral","Album","Explorer", new { id = Model.Id,picture = Model.Pictures.First().Id },null)</p>

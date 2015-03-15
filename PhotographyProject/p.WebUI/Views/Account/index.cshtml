@@ -1,0 +1,35 @@
+﻿@model p.WebUI.Models.LoginModel
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/Login.css")
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+<div id="loginDivContent">
+    <div class="Logo">
+        <button type="button" class="signUp" onclick="location.href='@Url.Action("Register","Account")'">Sign Up</button>
+        Welcome
+        <a href="@Url.Action("FacebookLogin","Account")"><img class="externalStuff" src="~/Images/Index/logfacebook.png" /></a>
+        <a href="@Url.Action("TwitterLogin","Account")"><img class="externalStuff" src="~/Images/Index/logtweet.png" /></a>
+    </div>
+    <div style="color:red;margin-bottom:10px;">@ViewBag.Error</div>
+    <div class="inputDiv">
+        <span class="inputText">Username or Email</span>
+       @Html.TextBoxFor(model => model.UserName)
+    </div>
+    <div class="inputDiv">
+        <span class="inputText">Password</span>
+       @Html.PasswordFor(model => model.Password)
+    </div>
+    <div class="stuffs">
+    <span class="checkBox">4ever?</span>
+        @Html.CheckBoxFor(model => model.RememberMe)
+    <button class="buttonDiv" type="submit">Log in</button>
+        </div>
+</div>
+}
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

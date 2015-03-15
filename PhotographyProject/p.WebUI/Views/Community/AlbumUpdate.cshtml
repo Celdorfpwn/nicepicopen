@@ -1,0 +1,14 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+<div class="albumUpdate">
+    <p>@Html.ActionLink(Model.Photographer.Name.Split('@')[0], "Details", "Explorer", new { id = Model.PhotographerId },null)'s @Model.Name is Viral</p>
+    <p>@Html.ActionLink("Check it now!", "GoToAlbum", new { id = Model.Id })</p>
+    @foreach (var picture in Model.Pictures.Take(10))
+    {
+        <div class="albumContainer">
+        <img class="albumImage" src="@Url.Action("PictureCaruselImage","Images",new { id = picture.Id})" />
+            </div>
+    }
+
+
+</div>

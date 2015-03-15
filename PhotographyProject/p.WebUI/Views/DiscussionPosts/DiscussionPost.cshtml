@@ -1,0 +1,13 @@
+﻿@model p.Database.Concrete.Entities.DiscussionPost
+
+<div class="discussionPostContent">
+    <div class="discussionPostUser">
+        <div class="discussionUserName">
+                @Model.Photographer.DescriptionName
+            </div>
+            <img class="discussionUserProfile" src="@Url.Action("UserProfileImage", "Images", new { id = Model.PhotographerId })" />
+    </div>
+    <div class="discussionPostText">
+        @Model.Text
+    </div>
+</div>

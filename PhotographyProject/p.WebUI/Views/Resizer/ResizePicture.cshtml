@@ -1,0 +1,31 @@
+﻿@model PicturesProvider.Concrete.PictureImageModel
+
+<div id="resizerPreview">
+@using (Ajax.BeginForm("PreviewResize", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "imageCont", InsertionMode = InsertionMode.Replace }))
+{
+    <div id="resizeForm">
+    @Html.HiddenFor(model => model.PictureId)
+
+         <span style="margin-left:5px;">Width</span>@Html.DropDownListFor(model => model.Width,new SelectList(Model.WidthList,Model.Width),new { @class = "textBoxInput" })
+        <span style="margin-left:5px;">Height</span>@Html.DropDownListFor(model => model.Height,new SelectList(Model.HeightList,Model.Height), new { @class = "textBoxInput" })
+    <button  value="Preview" name="preview" class="resizeInput" >Preview</button>
+    <button  value="Save" id="save" class="resizeInput" >Save</button></div>
+}
+    <div id="imageCont">
+@{Html.RenderPartial("ImagePreview", Model);}
+        </div>
+
+
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var button = $('#save');
+        var form = $(button).closest('form');
+        button.live('click', function () {
+            $(form).attr('data-ajax', 'false');
+        });
+        $("#slider").slider();
+    });
+</script>
+

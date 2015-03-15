@@ -1,0 +1,11 @@
+﻿@model Community.Abstract.PictureDetails
+
+<div class="worldPhotographerDetails">
+    <div class="worldPhotographerPictureContainer"
+        style="background-image:url(@Url.Action("UserProfileImage", "Images", new { id = Model.Photographer.Id }))">
+    @*<img src="@Url.Action("UserProfileImage", "Images", new { id = Model.Photographer.Id })" />*@
+</div>
+    <span class="userTextLink">by @Html.ActionLink(Model.Photographer.Name,"Details","Explorer",new { id = Model.Photographer.Id},null)
+    </span><br />
+    <span class="userAlbumLink">album @Html.ActionLink(Model.Album.Name,"Album","Explorer",new { id = Model.Album.Id, picture = 0},null) </span>
+</div>

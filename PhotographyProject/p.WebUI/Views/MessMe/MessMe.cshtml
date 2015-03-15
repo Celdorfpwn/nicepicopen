@@ -1,0 +1,48 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Photographer>
+
+@{
+    ViewBag.Title = "MessMe";
+}
+@Styles.Render("~/Content/Site.css")
+<h2>MessMe</h2>
+
+
+<div id="MessMe">
+    <div id="conversations">
+
+    </div>
+    <div id="friendsZone">
+        <div id="online">
+    @foreach (var friend in Model)
+    {
+        <div class="conversationOnline">
+        <p>@{Html.RenderAction("IsOnline", "Account", new { id = friend.Name });
+    }</p></div>
+    }
+</div>
+<div id="friendsName">
+    @foreach (var friend in Model)
+    {
+        <div class="conversationFriend">
+        <p>@Ajax.ActionLink(friend.Name, "Conversation", new { id = friend.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "conversations",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })</p>
+            </div>
+    }
+</div>
+</div>
+ </div>
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js");
+    <script type="text/javascript">
+        $(function () {
+            setInterval(function () {
+                $("#online").load('@Url.Action("Online", "MessMe")');
+            }, 5000);
+        });
+    </script>
+}

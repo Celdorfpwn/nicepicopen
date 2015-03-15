@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Arraybracket.TypedViews</id>
+    <version>1.0.0</version>
+    <authors>Shane S. Anderson</authors>
+    <owners>Shane S. Anderson</owners>
+    <licenseUrl>https://github.com/arraybracket/typedviews/blob/v1.0.0/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/arraybracket/typedviews</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Typed views allow MVC/Razor views to specify a strongly-typed ViewModel property, separate to the Model property.</description>
+    <summary>A strongly-typed replacement for ViewBag in MVC/Razor views.</summary>
+    <copyright>Copyright ©2013 Arraybracket Limited</copyright>
+    <tags>aspnet asp.net aspnetmvc mvc razor viewbag viewmodel typed</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Mvc" version="4.0.0.0" />
+    </dependencies>
+    <references>
+      <reference file="Arraybracket.TypedViews.dll" />
+    </references>
+  </metadata>
+</package>

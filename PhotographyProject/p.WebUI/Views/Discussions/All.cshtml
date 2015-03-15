@@ -1,0 +1,32 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Discussion>
+<div id="discussionsD" style="margin-top:10px">
+@foreach (var discussion in Model)
+{
+    <div class="discussionContentDiv">
+        <a style="text-decoration:none" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#discussionsD" href="@Url.Action("Discussion",new {id = discussion.Id})">
+        <div class="discussionSubjectDiv">
+            @discussion.Subject
+        </div>
+            </a>
+        <div class="discussionDetails">
+            <div class="discussionUserName">
+                @discussion.Creator.DescriptionName
+            </div>
+            <img class="discussionUserProfile" src="@Url.Action("UserProfileImage", "Images", new { id = discussion.CreatorId })" />
+        </div>
+        <div class="discussionText">
+            @discussion.Text
+        </div>
+        <div class="discussionStuff">
+            <table>
+                <tr>
+                    <td>Paricipants</td><td>@discussion.Participants.Count</td>
+                </tr>
+                <tr>
+                    <td>Views</td><td>@discussion.UserViews.Count</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+</div>

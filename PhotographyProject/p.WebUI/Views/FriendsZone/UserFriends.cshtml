@@ -1,0 +1,28 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Photographer>
+
+
+
+@foreach(var friend in Model)
+        {
+            <div class="FzUserFriend">
+        <div class="FzUserLink">
+         @Html.ActionLink(friend.DescriptionName, "Details", "Explorer", new { id = friend.Id }, null)
+            </div>
+        <div class="FzUserFriendContainer">
+            <img class="FzUserFriendImg" src='@Url.Action("ShowProfile", "FriendsZone", new { id = friend.Id })' />
+        </div>
+        <div class="FzUserText">
+            
+            <div class="req">
+                </div>
+            <div id="blind">
+             @Ajax.ActionLink("Blind", "Blind", new { id = friend.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET",
+           UpdateTargetId = "blind"
+        })
+         </div>
+        </div>
+    </div>
+        }

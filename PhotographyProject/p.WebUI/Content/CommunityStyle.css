@@ -1,0 +1,382 @@
+
+
+
+
+
+
+#community
+{
+   width:75%;
+   margin:auto;
+   padding-top:20px;
+}
+
+
+#communityUpdates
+{
+    width:18.5%;
+    float:left;
+    text-align:left;
+    font:bold 12px arial;
+    color:black;
+    padding:1%;
+    margin-top:5px;
+}
+/*---------------COMMUNITY PICTURES-------------------*/
+#communityPictures
+{
+    width:55%;
+    float:left;
+    padding:10px;
+    text-align:left;
+    font:bold 12px arial;
+    color:black;
+}
+.communityPictureContainer
+{
+    width:28%;
+    height:100px;
+    float:left;
+    margin:2%;
+        display: inline;
+    position: relative;
+}
+.communityPictureText
+{
+    display: none;
+        position: absolute;
+        background-color:black;
+    z-index: 2;
+    width:98%;
+    padding-left:1%;
+    padding-right:1%;
+    height:13%;
+}
+    .communityPictureText a
+    {
+        text-decoration:none;
+        color:white;
+    }
+        .communityPictureText a:hover
+        {
+                color:#ada9a9;
+        }
+.communityPictureImage
+{
+    width:100%;
+    height:100%;
+    border:solid 1px #91219E;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+/*---------------------------------------------------*/
+/*--------------COMMUNITY PORTOFOLIOS----------------*/
+#communityBestPort
+{
+    height:100%;
+    width:20%;
+    float:left;
+    padding-top:5px;
+    text-align:left;
+    font:bold 12px arial;
+    color:black;
+    margin-top:5px;
+}
+.communityPortofolioContainer
+{
+    width:90%;
+    height:105px;
+    margin:10px 10px 10px 10px;
+    border:solid 2px white;
+}
+.communityPortofolioText
+{
+    display: none;
+    position: absolute;
+    background-color:black;
+    z-index: 2;
+    width:100px;
+    padding-left:10px;
+    margin-left:10px;
+}
+    .communityPortofolioText a
+    {
+        text-decoration:none;
+        color:white;
+    }
+        .communityPortofolioText a:hover
+        {
+                color:#ada9a9;
+        }
+.communityPortofolioImage
+{
+    width:100%;
+    height:100%;
+    border:solid 1px #91219E;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+/*----------------------------------------------------*/
+.updateContainer
+{
+    width:90%;
+    height:130px;
+    padding:1%;
+    border:solid 1px #91219E;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+   margin-top:5px;
+   margin-bottom:5px;
+}
+
+.albumContainer
+{
+    width:17%;
+    height:20px;
+    float:left;
+    border:solid 1px white;
+}
+
+.albumImage
+{
+    width:100%;
+    height:100%;
+}
+
+#category
+{
+    width:20%;
+}
+
+.coverContainer
+{
+    float:left;
+    width:34%;
+    height:40px;
+    border:solid 1px white;
+}
+.coverImage
+{
+    width:100%;
+    height:100%;
+}
+
+.portofolioImageContainer
+{
+    width:17%;
+    height:20px;
+    float:left;
+    border:solid 1px white;
+}
+.portofolioCoverImage
+{
+    width:100%;
+    height:100%;
+}
+
+#checkForm
+{
+    float:right;
+}
+
+#updatesbar
+{
+    width:100%;
+    height:20px;
+    margin-top:7.5%;
+}
+
+#categories
+{
+    padding-left:2%;
+    margin-top:2.8%;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+
+.discussionContentDiv
+{
+    width:90%;
+    height:150px;
+    margin:auto;
+    margin-top:10px;
+    padding:2%;
+    background-color:white;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+.discussionSubjectDiv
+{
+    min-width:30%;
+    padding:1%;
+    height:15px;
+    background-color:#9400D3;
+    color:white;
+    font-weight:bold;
+    font-size:80%;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.discussionDetails
+{
+    width:25%;
+    float:left;
+    padding:1%;
+    height:120px;
+}
+
+.discussionUserName
+{
+    width:90%;
+    padding-left:10px;
+    height:20px;
+}
+.discussionUserProfile
+{
+    max-width:90%;
+    max-height:90px;
+}
+.discussionText
+{
+    width:49%;
+    height:110px;
+    margin:1%;
+    padding:1%;
+    border:solid 1px #E1E4E6;
+    float:left;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+word-wrap:break-word;
+}
+.discussionStuff
+{
+    width:15%;
+    float:left;
+    height:110px;
+    margin:1%;
+    padding:1%;
+    font-size:80%;
+}
+.discussionStuff a
+    {
+        font-size:90%;
+        width:93%;
+        height:16px;
+        display:block;
+        text-decoration:none;
+        font-family:Tahoma;
+        vertical-align:middle;
+        color:black;
+        text-align:center;
+        padding-top:2%;
+        margin-top:2%;
+        font-weight:normal;
+    }
+        .discussionStuff a:hover
+        {
+            background-color:#9400D3;
+            color:white;
+            -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+        }
+
+.discussionPageDiv
+{
+    width:90%;
+    height:120px;
+    margin-bottom:10px;
+    margin:auto;
+    background-color:white;
+    padding:2%;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+.discussionPageText
+{
+    width:70%;
+    float:left;
+    font-weight:bold;
+    height:110px;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:1%;
+border:solid 1px #E1E4E6;
+}
+.discussionPageTextText
+{
+    font-size:80%;
+    word-wrap:break-word;
+    font-weight:normal;
+}
+#createDiscussionPost
+{
+    display:block;
+    margin-top:10px;
+    width:90%;
+    height:53px;
+    padding:2%;
+    margin:auto;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+background-color:white;
+}
+#postTextarea
+{
+    font-size:80%;
+    padding:4%;
+    width:75%;
+    float:left;
+}
+#postSubmit
+{
+    float:right;
+    margin-left:5px;
+}
+
+.discussionPostContent
+{
+    width:90%;
+    height:100px;
+    margin:auto;
+    padding:2%;
+    margin-top:10px;
+    background-color:white;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.discussionPostUser
+{
+    width:20%;
+    height:95px;
+    float:left;
+}
+.discussionPostText
+{
+    width:75%;
+    float:left;
+    height:80px;
+    word-wrap:break-word;
+    font-weight:normal;
+    padding:2%;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border:solid 1px #E1E4E6;
+}

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.ConversationMessage>
+
+@foreach(var message in Model)
+{
+     if (!message.Sender.Name.Equals(User.Identity.Name))
+            {
+            <div class="chatLeft">
+                <div class="leftText">
+                @message.Message
+                    </div>
+            </div>
+            }
+            else
+            {
+            <div class="chatRight">
+                <div class="rightText">
+                @message.Message
+                    </div>
+
+            </div>
+            }
+    <br />
+}
+
+

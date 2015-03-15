@@ -1,0 +1,38 @@
+﻿@model p.Database.Concrete.Entities.Discussion
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Subject)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Subject)
+                @Html.ValidationMessageFor(model => model.Subject)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Text)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Text)
+                @Html.ValidationMessageFor(model => model.Text)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Create" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+

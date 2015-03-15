@@ -1,0 +1,97 @@
+﻿@model int
+
+<div id="profileUser">
+    <div id="loadingProfileUser" style="float:left;margin-left:30%;">
+        <img src="~/Images/loading.gif" style="margin:auto;height:90px;width:90px;margin-top:30px;" />
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var id = '@Model';
+
+        var main = $('#profileUser');
+
+        $.ajax({
+            type: 'GET',
+            url: '/Profile/UserData/' + id,
+            success: function (data) {
+                $('#loadingProfileUser').hide();
+
+                var top = $(document.createElement('div'));
+                top.attr('id', 'profileTop');
+                var profileImage = $(document.createElement('img'));
+                profileImage.attr('class', 'profileImage');
+
+                profileImage.attr('src', PICTURES_URL + '/Pictures/Profile/' + data.Id);
+
+                top.append(profileImage);
+
+                var profileDescription = $(document.createElement('div'));
+                profileDescription.attr('id', 'profileDescription');
+                top.append(profileDescription);
+
+                main.append(top);
+
+                var left = $(document.createElement('div'));
+                left.attr('id', 'profileLeft');
+
+
+                var watchers = data.Watchers.length;
+                if (watchers > 0) {
+                    var watchers = $(document.createElement('div'));
+                    watchers.attr('class', '.profileWatchers');
+
+                    watchers.text('Watchers ' + data.Watchers.length);
+                    watchers.append('<hr/>');
+
+                    $.each(data.Watchers, function (i, watcher) {
+                        var img = $(document.createElement('img'));
+                        img.attr('class', 'profileWatchersImg');
+                        img.attr('src', PICTURES_URL + "/Pictures/SmallProfile/" + watcher.Id);
+                        watchers.append(img);
+                        img.height(img.width());
+                    });
+                    left.append(watchers);
+                }
+
+
+                var watching = data.Watching.length;
+                if (watching > 0) {
+                    var watchers = $(document.createElement('div'));
+                    watchers.attr('class', '.profileWatchers');
+
+                    watchers.text('Watching ' + data.Watchers.length);
+                    watchers.append('<hr/>');
+
+                    $.each(data.Watching, function (i, watcher) {
+                        var img = $(document.createElement('img'));
+                        img.attr('class', 'profileWatchersImg');
+                        img.attr('src', PICTURES_URL + "/Pictures/SmallProfile/" + watcher.Id);
+                        watchers.append(img);
+                        var height = img.width();
+                        img.height(height*2);
+                    });
+                    left.append(watchers);
+                }
+
+
+                main.append(left);
+
+            },
+            error: function () {
+                alert('not');
+            }
+        });
+
+
+    });
+
+
+</script>
+

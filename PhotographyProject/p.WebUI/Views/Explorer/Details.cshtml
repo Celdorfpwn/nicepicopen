@@ -1,0 +1,73 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+@Styles.Render("~/Content/workbench.css")
+@Styles.Render("~/Content/Contests.css")
+@Styles.Render("~/Content/World.css")
+<div id="workbench">
+    <div id="workbenchProfile">
+        <div id="explorerProfileContainer">
+            <p>@Model.Name.Split('@')[0]</p>
+            <img id="workbenchProfileImage" src='@Url.Action("UserProfileImage", "Images", new { id = Model.Id })' />
+        </div>
+
+        <div id="workbenchMainLinks">
+
+        <p>
+            @Ajax.ActionLink("Albums", "Albums", new { id = Model.Id }, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+        </p>
+        <p>
+            @Ajax.ActionLink("Pictures", "Pictures", new { id = Model.Id }, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+        </p>
+            </div>
+    </div>
+    <div id="workbenchContent">
+        <p></p>
+        @{Html.RenderAction("Updates", "ExplorerUpdates", new { id = Model.Id });
+        }
+    </div>
+    <div id="workbenchMenu1">
+        <p>Portofolio
+        </p>
+        @{ Html.RenderAction("Portofolio");}
+        <p>Top Pictures</p>
+        @{ Html.RenderAction("TopPictures", new { id = Model.Id });}
+
+    </div>
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            $(this).closest("form").submit();
+        });
+    });
+</script>
+}
+
+       @* @using (Ajax.BeginForm("Friends", "Explorer", new { id = Model.Id },
+                   new AjaxOptions
+                   {
+                       HttpMethod = "POST",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "friends"
+                   }))
+        {
+            <p>Search
+                <input id="search" style="width:200px;" type="text" name="searchString" /></p>
+        }
+        <div id="friends">
+        @{ Html.RenderPartial("Friends", Model.Friends);}
+            </div>*@

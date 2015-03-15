@@ -1,0 +1,365 @@
+﻿
+
+
+/* #9400D3  vs #9400D3 */
+#world
+{
+    width:75%;
+    margin:auto;
+    padding-top:14px;
+}
+#worldMenu
+{
+    float:left;
+    width:100px;
+    height:300px;
+    position:fixed;
+    margin-top:33px;
+    margin-right:50px;
+    margin-left:70%;
+     border:solid 1px #9400D3;
+    -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding:5px 5px 5px 5px;
+    color:#9400D3;
+     
+}
+
+.worldContainer
+{
+    width:91%;
+    margin:auto;
+    margin-top:7px;
+    background-color:white;
+     border:solid 1px #CECECE;
+    padding:5px 5px 5px 5px;
+    padding-bottom:10px;
+    overflow:auto;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.worldPictureContainer
+{
+    width:99%;
+    margin-left:0.5%;
+    line-height:350px;
+    text-align:center;
+    background-color:black;
+    margin-bottom:5px;
+    float:left;
+    min-height:200px;
+    border:solid 0.5px #CECECE;
+}
+.worldPictureContainer img
+{
+    vertical-align:middle;
+    max-height:100%;
+    max-width:100%;
+}
+.loadingImgCont
+{
+        vertical-align:middle;
+    width:30px;
+    height:30px;
+}
+
+.worldPicture
+{
+    max-height:100%;
+    max-width:100%;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.worldPictureDetails
+{
+    width:98%;
+    height:55px;
+    margin-left:0.5%;
+    margin-top:5px;
+    margin-bottom:5px;
+     
+}
+
+.worldPhotographerContent
+{
+    width:37%;
+    height:60px;
+    float:left; 
+}
+    .worldPhotographerContent a
+    {
+        width:100%;
+        padding-left:4px;
+    }
+.morePictureStuff
+{
+    width:75%;
+    float:left;
+    margin-left:0.6%;
+    background-color:#CECECE;
+    min-height:48px;
+    height:48px;
+    overflow:hidden;
+}
+morePictureStuff2
+{
+        width:75%;
+    float:left;
+    margin-left:0.6%;
+    background-color:#CECECE;
+    min-height:48px;
+    height:48px;
+    overflow:hidden;
+}
+
+.morePictureStuffToggle
+{
+    width:75%;
+    float:left;
+    margin-left:0.6%;
+    background-color:#CECECE;
+    min-height:48px;
+}
+
+.morePicturesStuffMore
+{
+    float:left;
+    display:none;
+}
+.morePictureStuffImg
+{
+    width:47px;
+    height:47px;
+    background-repeat:no-repeat;
+    float:left;
+        margin-left:2px;
+    margin-top:1px;
+}
+
+.morePictureStuffCount
+{
+    width:6%;
+    height:14px;
+    font-weight:bold;
+    font-size:14px;
+    padding-top:14px;
+    margin-right:5px;
+    text-align:center;
+    color:#9400D3;
+    float:right;
+}
+.userTextLink
+{
+    width:100%;
+    font-size:83%;
+    font-weight:bold;
+    margin-bottom:3px;
+}
+    .userTextLink a:hover
+    {
+        background-color:#CECECE;
+    }
+.userAlbumLink
+{
+    width:100%;
+    font-size:73%;
+    margin-bottom:2px;
+}
+    .userAlbumLink a:hover
+    {
+        background-color:#CECECE;
+    }
+.worldPhotographerPictureContainer
+{
+    float:left;
+    width:18%;
+    height:50px;
+    line-height:30px;
+    text-align:center;
+    margin-right:10px;
+    background-repeat:no-repeat;
+    border:solid 1px black;
+
+}
+    .worldPhotographerPictureContainer img
+    {
+            vertical-align:middle;
+    max-height:100%;
+    max-width:100%;
+    }
+.worldPhotographerPicture
+{
+    max-width:100%;
+    max-height:100%;
+    margin:auto;
+}
+.worldPhotographerDetails
+{
+    width:180%;
+    height:55px;
+    padding-right:10px;
+    float:left;
+    padding-top:0px;
+    -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    color:black;
+    background-color:white;
+}
+    .worldPhotographerDetails a
+    {
+        color:black;
+        text-decoration:none;
+    }
+
+.worldPictureCameraDetails
+{
+    width:30%;
+    height:75px;
+    float:right;
+    font-weight:bold;
+    color:#9400D3;
+    text-align:center;
+    font-size:70%;
+
+     
+}
+
+.worldPictureCameraContainer
+{
+    width:98%;
+    height:50px;
+    float:right;
+    line-height:50px;
+}
+
+    .worldPictureCameraContainer img
+    {
+        vertical-align:middle;
+    max-height:100%;
+    max-width:100%;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+    }
+
+.worldPictureStuff
+{
+    float:right;
+    width:70px;
+    height:49px;
+    padding-left:1.5%;
+    background-color:#9400D3;
+    -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.niceOrNot
+{
+    font-family:Tahoma;
+    font-weight:bold;
+    padding-top:6px;
+    width:40%;
+    float:left;
+    height:23px;
+    margin-top:15px;
+    color:white;
+        background-color:#9400D3;
+}
+.notLink
+{
+    background-image:url(Not.png);
+    float:left;
+    height:48px;
+    width:18px;
+    cursor:pointer;
+}
+    .notLink:hover
+    {
+        background-image:url(Not-hover.png);
+    }
+.niceLink
+{
+    background-image:url(nice.png);
+    float:left;
+    height:48px;
+    width:17px;
+    cursor:pointer;
+}
+.niceLink:hover
+    {
+        background-image:url(nice-hover.png);
+    }
+.worldPictureStuffLinks
+{
+    float:left;
+    width:70%;
+    height:20px;
+}
+    .worldPictureStuffLinks img
+    {
+        height:17px;
+        width:20px;
+        float:left;
+    }
+
+.worldPictureMoreDetails
+{
+    height:100px;
+    float:left;
+    width:99%;
+}
+
+.pictureNotSoNice
+{
+    height:20px;
+    width:98%;
+    float:left;
+    margin-top:5%;
+}
+
+.pictureNotSoNiceLink
+{
+    color:black ;
+    height:18px;
+    text-align:center;
+    width:48%;
+    float:left;
+    font-family:Tahoma;
+    font-weight:bold;
+    font-size:80%;
+    background-color:grey;
+    -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+    .pictureNotSoNiceLink:hover
+    {
+        color:white;
+        background-color:#9400D3;
+    }
+
+.pictureNiceLink
+{
+    color:black ;
+    height:18px;
+    text-align:center;
+    width:48%;
+    float:left;
+    font-family:Tahoma;
+    font-weight:bold;
+    font-size:80%;
+    background-color:grey;
+    -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+    .pictureNiceLink:hover
+    {
+        color:white;
+        background-color:#9400D3;
+    }

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+@Styles.Render("~/Content/World.css")
+
+@foreach (var picture in Model)
+{
+    <div class="worldContainer">
+        <div class="worldPictureDetails">
+            <div class="worldPhotographerContent">
+                @{Html.RenderAction("PictureDetails", "World", new { id = picture.Id });
+                }
+            </div>
+            <div class="worldPictureStuff">
+                <a class="not" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("NotSo", "WorkbenchPictures", new { id = picture.Id })">
+                    <div class="notLink"></div>
+                </a>
+                <a class="nice" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("Nice", "WorkbenchPictures", new { id = picture.Id })">
+                    <div class="niceLink"></div>
+                </a>
+                <div class="niceOrNot">
+                    <div class="before">
+                    @if (picture.HasNotSo(User.Identity.Name))
+                    {
+                        <text>ot</text>
+                    }
+                    else if (picture.HasNice(User.Identity.Name))
+                    {
+                        <text>ice</text>
+                    }
+                    else
+                    {
+                        <text></text>
+                    }
+                        </div>
+                    <div class="after"></div>
+                </div>
+            </div>
+            @if (picture.CameraId != null)
+            {
+                <div class="worldPictureCameraDetails">
+                    @*  <p>
+                            Shoot by @{ Html.RenderAction("CameraLink", "Camera", new { id = picture.CameraId });
+                            }
+                        </p>*@
+                    <div class="worldPictureCameraContainer">
+                        <img src="@Url.Action("CameraImage", "Images", new { id = picture.CameraId })" />
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="worldPictureContainer" id="/Images/DetailsPictureWithWatermark/@picture.Id">
+            <img src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = picture.Id })" alt="" />
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+
+    $(".not").mouseleave(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('');
+        $(this).parent().find('.niceOrNot').find('.before').show();
+    });
+
+    $(".not").mouseover(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('ot');
+        $(this).parent().find('.niceOrNot').find('.before').hide();
+    });
+
+    $(".nice").mouseleave(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('');
+        $(this).parent().find('.niceOrNot').find('.before').show();
+    });
+
+    $(".nice").mouseover(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('ice');
+        $(this).parent().find('.niceOrNot').find('.before').hide();
+    });
+
+    $(".nice").click(function () {
+        $(this).parent().find('.niceOrNot').find('.before').text('ice');
+    });
+    $(".not").click(function () {
+        $(this).parent().find('.niceOrNot').find('.before').text('ot');
+    });
+</script>

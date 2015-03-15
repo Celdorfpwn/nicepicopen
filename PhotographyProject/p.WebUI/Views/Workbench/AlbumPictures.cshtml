@@ -1,0 +1,27 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+
+<div id="wtf" style="padding-top:20px;text-align:left;padding-left:53px;">
+@using (Ajax.BeginForm("AllAlbumPictures", new AjaxOptions {
+    HttpMethod = "GET",
+    UpdateTargetId = "workbenchAllPictures",
+    InsertionMode=InsertionMode.Replace
+}))
+{
+    <p>@Html.DropDownList("categoryId", (SelectList)ViewBag.Categories, new { @id = "category" })
+         @Html.DropDownList("albumId", (SelectList)ViewBag.Albums, new { @id = "album" })</p>
+}
+</div>
+<div id="workbenchAllPictures">
+    @{Html.RenderPartial("AllAlbumPictures", Model);}
+</div>
+
+<script type="text/javascript">
+    $("#category").change(function () {
+        $(this).closest('form').submit();
+    });
+    $("#album").change(function () {
+        $(this).closest('form').submit();
+    });
+
+
+</script>

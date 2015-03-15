@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Nice Pic</title>
+    <link href="~/Images/nicepic.png" rel="shortcut icon" type="image/png" />
+    @Styles.Render("~/Content/Layout.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/workbench.css")
+@Styles.Render("~/Content/Contests.css")
+@Styles.Render("~/Content/World.css")
+@Styles.Render("~/Content/CommunityStyle.css")
+    @Styles.Render("~/Content/Profile.css")
+
+    <!--[if lt IE 7]>
+		<link rel="stylesheet" type="text/css" href="style-ie.css" />
+	<![endif]-->
+</head>
+
+<body>
+    <div id="header">
+        <div id="headerMenu">
+            <div id="headerLinks">
+                <a href="@Url.Action("Index","WorkbenchProfile")">
+                <img id="nicepicLink" src="~/Images/nicepic.png"
+                     style="float:left;height:30px;width:30px;margin-left:7%;margin-top:-1px;cursor:pointer;" />
+               </a>
+            </div>
+            <div id="NewMessagesContainer" style="margin-left:5.5%;">
+                <div id="newMessageAlert">
+                    @*{Html.RenderAction("CountNewMessages", "MessMe");}*@
+                </div>
+                <img id="messagesImg" class="imgLink" src="~/Images/messages.png" />
+            </div>
+            <img id="visitsImg" style="cursor:pointer;float:left;margin-top:5px;width:25px;height:18px;" src="~/Images/visitors.png" />
+            <img id="watchersImg" style="cursor:pointer;float:left;margin-top:5px;margin-left:2px;width:25px;height:20px;" src="~/Images/search_user.png" />
+            @Html.Partial("_LoginPartial")
+            @{ Html.RenderAction("Credentials", "WorkbenchProfile");}
+        </div>
+    </div>
+    <div id="newMessages">
+    </div>
+    <div id="newVisits">
+    </div>
+    <div id="newWatchers">
+
+    </div>
+    <div id="wrap">
+        <div id="main">
+            @RenderBody()
+        </div>
+    </div>
+
+        <div id="workbenchMenu">
+        <div id="conversations">
+        </div>
+    </div>
+    <div id="conversationsDiv">
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+        <script src="~/Scripts/jquery.signalR-2.0.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script type="text/javascript" src="~/Scripts/profileScripts.js"></script>
+        <script type="text/javascript" src="~/Scripts/LayoutScripts.js" >
+    </script>
+    <script type="text/javascript" src="~/Scripts/BTE.js"></script>
+    <script type="text/javascript" src="~/Scripts/NiceOrNot.js"></script>
+    <script type="text/javascript" src="~/Scripts/MessChat.js"></script>
+</body>
+</html>

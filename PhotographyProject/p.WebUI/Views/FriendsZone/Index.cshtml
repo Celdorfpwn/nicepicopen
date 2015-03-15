@@ -1,0 +1,68 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+@Styles.Render("~/Content/Site.css")
+@{
+    ViewBag.Title = "Index";
+}
+<div id="FriendsZone">
+    <div id="FriendsZoneMenu">
+    </div>
+    <div id="FriendsZoneNews">
+        <div id="FZLatestUpdates">
+            <span id="mue"></span>
+            @{Html.RenderAction("LatestUpdates"); }
+        </div>
+    </div>
+    <div id="FriendsZoneFriends">
+        <div id="FriendsZoneFriendsNavigator">
+            <div class="FZnavigatorLink">
+                @Ajax.ActionLink("Friends", "Friends", new AjaxOptions
+                     {
+                         UpdateTargetId = "FriendsZoneFriendsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })<span id="friendsNr">(@Model.Friends.Count())</span>
+            </div>
+            <div class="FZnavigatorLink">
+                @Ajax.ActionLink("Find", "FindFriend", new AjaxOptions
+                     {
+                         UpdateTargetId = "FriendsZoneFriendsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })
+            </div>
+            <div class="FZnavigatorLink">
+                @Ajax.ActionLink("Requests", "FriendRequests", new AjaxOptions
+                     {
+                         UpdateTargetId = "FriendsZoneFriendsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })<span id="requestNr">(@Model.FriendRequests.Count)</span>
+            </div>
+            <br />
+        </div>
+        <div id="FriendsZoneFriendsContainer">
+            @{ Html.RenderAction("Friends");}
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script type="text/javascript">
+        $(function () {
+            setInterval(function () {
+                $('#friendsNr').load('@Url.Action("CountFriends", "FriendsZone")');
+            $('#requestNr').load('@Url.Action("CountRequests", "FriendsZone")');
+        }, 2000); // every 3 sec
+});
+
+    $(function () {
+        setInterval(function () {
+            d = document.createElement('div');
+            $(d).load('@Url.Action("MoreUpdates", "FriendsZone")');
+            $(d).insertAfter($('#mue'));
+        }, 9000); // every 3 sec
+    });
+    </script>
+}

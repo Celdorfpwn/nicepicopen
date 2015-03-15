@@ -1,0 +1,6 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+<a href="@Url.Action("PictureProfile", "WorkbenchPictures", new { id = Model.Id })">
+    <img class="albumProfile" src='@Url.Action("AlbumPictureCarusel", "Images", new { id = Model.Id })' />
+</a>
+

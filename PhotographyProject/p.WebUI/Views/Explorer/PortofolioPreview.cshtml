@@ -1,0 +1,77 @@
+﻿@model p.Database.Concrete.Entities.Portofolio
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div id="choosedAlbumImage">
+    
+
+    @if(Model.HasCover())
+    {
+        Html.RenderAction("ImagePreview", new { id = Model.CoverId });
+    }else
+    {
+        <div id="coverPictureDetailsContainer">
+        <img id="coverPic" src="~/Images/empty.jpg" />
+            </div>
+    }
+
+    
+
+</div>
+<div id="coverImageLink">
+    @if(Model.HasCover())
+    {
+        using (Ajax.BeginForm("ImagePreview", "Explorer", new { id = Model.CoverId }, new AjaxOptions
+        {
+            UpdateTargetId = "choosedAlbumImage",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace
+        }))
+        {
+              <img id="coverPictureLink" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = Model.CoverId })" />
+             }
+    }
+    else
+    {
+        <p>Add cover</p>
+    }
+</div>
+@foreach (var picture in Model.Pictures)
+{
+    <div class="portofolioPictureContainer">
+        @using (Ajax.BeginForm("ImagePreview", "Explorer", new { id = picture.Id }, new AjaxOptions
+        {
+            UpdateTargetId = "choosedAlbumImage",
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace
+        }))
+        {
+            <img class="protofolioPicture" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id })" />
+        }
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".protofolioPicture").click(function () {
+                $("#coverPictureLink").css('background-color', 'white');
+                $(this).closest('form').submit();
+                $('.protofolioPicture').closest('div').css('background-color', 'white');
+                $(this).closest('div').css('background-color', 'red');
+                
+            });
+
+            $("#coverPictureLink").click(function () {
+                $('.protofolioPicture').closest('div').css('background-color', 'white');
+                $(this).closest('form').submit();
+            });
+
+        });
+    </script>
+}

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Quote>
+
+@foreach (var quote in Model)
+{
+    <div class="quoteUpdateDiv">
+    <img class="explorerQuote" src="@Url.Action("Quote","Images",new { id = quote.Id})" />
+</div>
+}
+

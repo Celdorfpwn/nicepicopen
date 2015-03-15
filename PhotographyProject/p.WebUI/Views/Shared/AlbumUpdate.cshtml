@@ -1,0 +1,9 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+<div class="picturesUpdateDiv">
+<div class="picturesUpdateDivInfo">
+            @{Html.RenderAction("UserName", "ExplorerUpdates", new { id = Model.PhotographerId });
+    } added new album "@Model.Name"
+        </div>
+@{Html.RenderPartial("PicturesCarusel", Model.Pictures);}
+    </div>

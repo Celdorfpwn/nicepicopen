@@ -1,0 +1,155 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+@{
+    ViewBag.Title = "Workbench";
+}
+<div id="workbench">
+    <div id="workbenchProfile">
+        <div id="prtfImage" data-id="@Model.Id">
+        </div>
+
+
+        <div class="workbenchDivLinks">
+            <div class="linksTitle">My</div>
+            @using (Ajax.BeginForm("EditProfile", "WorkbenchProfile", new { id = Model.Id }, new AjaxOptions
+        {
+            UpdateTargetId = "prtfImage",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "POST"
+        }, new { @id = "form1", enctype = "multipart/form-data" }))
+            {
+                <input id="fileInput" onchange="submit()" type="file" name="file" style="width: 0px; height: 0px; visibility: hidden; display: none;" />
+                <div id="selectFile" class="workbenchProfileLink" style="cursor:pointer;">Edit Profile</div>
+            }
+
+            <div class="workbenchProfileLink">
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchAlbums/Albums">
+                    <div class="workbenchProfileTheLink">Albums</div>
+                </a>
+                <a class="workbenchLink" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchAlbums/AddAlbum">
+                    <div class="workbenchProfileNewPicture"></div>
+                </a>
+            </div>
+
+            <div class="workbenchProfileLink">
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchPictures/AllPictures?categoryId=0&amp;albumId=0">
+                    <div class="workbenchProfileTheLink">Pictures</div>
+                </a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchPictures/AddPicturesForAlbum/@Model.Id">
+                    <div class="workbenchProfileNewPicture"></div>
+                </a>
+            </div>
+
+            <div class="workbenchProfileLink">
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchWatermarks/Index">
+                    <div class="workbenchProfileTheLink">Watermarks</div>
+                </a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchWatermarks/Create">
+                    <div class="workbenchProfileNewPicture"></div>
+                </a>
+            </div>
+
+            <div class="workbenchProfileLink">
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/WorkbenchProfile/Quote">
+                    <div class="workbenchProfileTheLink">Quotes</div>
+                </a>
+                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#workbenchContent" href="/Quotes/Create">
+                    <div class="workbenchProfileNewPicture"></div>
+                </a>
+            </div>
+
+        </div>
+         <div class="workbenchSecondLinks">
+                <div class="linksTitle">World</div>
+
+             @Ajax.ActionLink("Daily contest", "TodaysContest", "DailyContests", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+
+                @Ajax.ActionLink("Best", "Pictures", "World",null, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       }, new { @id = "BestLink" })
+
+                @Ajax.ActionLink("Newest", "Newest", "World", null, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       }, new { @id = "NewestLink" })
+
+                @Ajax.ActionLink("Random", "FreeView", "World", null, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       }, new { @id = "FreeViewLink" })
+
+                @Ajax.ActionLink("Favorites", "Favorites", "WorkbenchPictures", null, new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       }, new { @id = "FavoritesViewLink" })
+            </div>
+
+
+        <div class="workbenchMainLinks">
+            <div class="linksTitle">Watch Zone</div>
+            @Ajax.ActionLink("News", "LatestUpdates", "FriendsZone", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+
+            @Ajax.ActionLink("Watchers", "Friends", "FriendsZone", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+
+            @Ajax.ActionLink("Find", "FindFriend", "FriendsZone", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+
+            @Ajax.ActionLink("Blinded", "Blinded", "FriendsZone", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+            @Ajax.ActionLink("Blinders", "TheirBlinds", "FriendsZone", new AjaxOptions
+       {
+           UpdateTargetId = "workbenchContent",
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET"
+       })
+
+        </div>
+    </div>
+    <div id="workbenchContent">
+    </div>
+
+    <div id="workbenchNews">
+
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script type="text/javascript">
+        $(function () {
+            var id = '@Model.Id';
+            connectToChat(id);
+        });
+    </script>
+}
+

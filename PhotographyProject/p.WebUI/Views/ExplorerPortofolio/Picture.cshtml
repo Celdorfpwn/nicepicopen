@@ -1,0 +1,57 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+@{
+    Random rand = new Random();
+}
+<div id="explorerPictureDetails">
+    <div id="explorerPictureDetailsContainer">
+        <img id="explorerPic" src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = Model.Id,key = rand.Next() })" />
+    </div>
+    <div id="explorerPictureContent">
+        <p>
+            <span style="float: left;">
+                <span style="float: left; padding-right: 5px;">Nices </span>
+                <span style="float: left; padding-right: 10px;" id="counter">
+                    @{Html.RenderAction("PictureNices", new { id = Model.Id });}
+
+                </span> Views  @{Html.RenderAction("PictureViews", new { id = Model.Id });}</span>
+            <a href="@Url.Action("SharePicture", "Facebook", new { id = Model.Id, albumId = Model.AlbumId })">
+                <img style="padding-left: 20%" src="~/Images/Index/logfacebook.png" />
+            </a>
+            <span id="nice" style="float: right; margin-right: 6%;" onclick="this.value='Niced'">
+                @{Html.RenderAction("HasNice", new { id = Model.Id });}
+            </span>
+        </p>
+        <p>
+            @using (Ajax.BeginForm("AddComment", new { id = Model.Id }, new AjaxOptions
+            {
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "explorerPictureComments",
+                HttpMethod = "POST",
+                OnComplete = "done()"
+            }))
+            {
+                <input id="commentInput" style="width: 480px;" type="text" name="comment" />
+            }
+        </p>
+        <div id="explorerPictureComments">
+            @{ Html.RenderAction("PictureComments", new { id = Model.Id });}
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('#nice').click(function () {
+        $(this).text('Niced');
+    });
+    $('#facebookPick').click(function () {
+        $(this).closest('form').submit();
+    });
+    function done() {
+        $('#commentInput').val('');
+        $('#commentInput').select();
+    }
+</script>
+

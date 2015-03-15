@@ -1,0 +1,12 @@
+﻿@model int
+<div class="choosePictureContainer">
+    @using (Ajax.BeginForm("RemovePicture", "Portofolio", new { id = Model }, new AjaxOptions
+            {
+                UpdateTargetId = "choosedAlbumImages",
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.InsertBefore
+            }))
+        {
+<img class="choosePicture" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = Model })" />
+    }
+    </div>

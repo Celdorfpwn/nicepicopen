@@ -1,0 +1,166 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+@Styles.Render("~/Content/World.css")
+
+@foreach (var picture in Model)
+{
+    <div class="worldContainer">
+        <div class="worldPictureDetails">
+            <div class="worldPhotographerContent">
+                <div class="worldPhotographerDetails">
+                    <div class="worldPhotographerPictureContainer"
+        style="background-image:url(@Url.Action("UserProfileImage", "Images", new { id = picture.PhotographerId }))">
+                        @*<img src="@Url.Action("UserProfileImage", "Images", new { id = Model.Photographer.Id })" />*@
+                    </div>
+                    <span class="userTextLink">by @Html.ActionLink(picture.PhotographerName, "Details", "Explorer", new { id = picture.PhotographerId }, null)
+                    </span>
+                    <br />
+                    <span class="userAlbumLink">album @Html.ActionLink(picture.AlbumName, "Album", "Explorer", new { id = picture.AlbumId, picture = 0 }, null) </span>
+                </div>
+            </div>
+            <div class="worldPictureStuff">
+                <a class="not" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("NotSo", "WorkbenchPictures", new { id = picture.Id })">
+                    <div class="notLink"></div>
+                </a>
+                <a class="nice" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("Nice", "WorkbenchPictures", new { id = picture.Id })">
+                    <div class="niceLink"></div>
+                </a>
+                <div class="niceOrNot">
+                    <div class="before">
+                        @if (picture.HasNotSo(User.Identity.Name))
+                        {
+                            <text>ot</text>
+                        }
+                        else if (picture.HasNice(User.Identity.Name))
+                        {
+                            <text>ice</text>
+                        }
+                        else
+                        {
+                            <text></text>
+                        }
+                    </div>
+                    <div class="after"></div>
+                </div>
+            </div>
+            @if (picture.CameraId != null)
+            {
+                <div class="worldPictureCameraDetails" title="camera">
+                    @*  <p>
+                            Shoot by @{ Html.RenderAction("CameraLink", "Camera", new { id = picture.CameraId });
+                            }
+                        </p>*@
+                    <div class="worldPictureCameraContainer">
+                        <img src="@Url.Action("CameraImage", "Images", new { id = picture.CameraId })" />
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="worldPictureContainer">
+            <img src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = picture.Id })" alt="" />
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+
+    $(".not").mouseleave(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('');
+        $(this).parent().find('.niceOrNot').find('.before').show();
+    });
+
+    $(".not").mouseover(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('ot');
+        $(this).parent().find('.niceOrNot').find('.before').hide();
+    });
+
+    $(".nice").mouseleave(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('');
+        $(this).parent().find('.niceOrNot').find('.before').show();
+    });
+
+    $(".nice").mouseover(function () {
+        $(this).parent().find('.niceOrNot').find('.after').text('ice');
+        $(this).parent().find('.niceOrNot').find('.before').hide();
+    });
+
+    $(".nice").click(function () {
+        $(this).parent().find('.niceOrNot').find('.before').text('ice');
+    });
+    $(".not").click(function () {
+        $(this).parent().find('.niceOrNot').find('.before').text('ot');
+    });
+</script>
+
+
+@* <div class="worldPictureStuffLinks">
+                    <img src="~/Images/Index/logfacebook.png" />
+                    <img src="~/Images/Index/logtweet.png" />
+                    @if (picture.Downloadable)
+                    {
+                        if (picture.DownloadWithWatermark)
+                        {
+                        <a href="@Url.Action("DownloadWithWatermark", "WorkbenchPictures", new { id = picture.Id })">
+                            <img src="~/Images/Index/Blue-Download-icon.png" />
+                        </a>
+                        }
+                        else
+                        {
+                        <a href="@Url.Action("Download", "WorkbenchPictures", new { id = picture.Id })">
+                            <img src="~/Images/Index/Blue-Download-icon.png" />
+                        </a>
+                        }
+
+                    }
+                </div>
+                <div class="pictureNotSoNice">
+                    <a class="notNice" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("NotSo", "WorkbenchPictures", new { id = picture.Id })">
+                        @if (picture.HasNotSo(User.Identity.Name))
+                        {
+                            <div class="pictureNotSoNiceLink" style="background-color: #9400D3; color: white">
+                                Not so
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="pictureNotSoNiceLink">
+                                Not so
+                            </div>
+                        }
+                    </a>
+                    <a class="nice" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("Nice", "WorkbenchPictures", new { id = picture.Id })">
+                        @if (picture.HasNice(User.Identity.Name))
+                        {
+                            <div class="pictureNiceLink" style="background-color: #9400D3; color: white">
+                                Nice
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="pictureNiceLink">
+                                Nice
+                            </div>
+                        }
+                    </a>
+                </div>*@
+
+
+@*<script type="text/javascript">
+
+    $(".pictureNotSoNiceLink").click(function () {
+        $(this).parent().parent().find('.nice').find(".pictureNiceLink").css("background-color", "grey");
+        $(this).parent().parent().find('.nice').find(".pictureNiceLink").css("color", "black");
+        $(this).css("background-color", "#9400D3");
+        $(this).css("color", "white");
+    });
+    $(".pictureNiceLink").click(function () {
+        $(this).parent().parent().find('.notNice').find(".pictureNotSoNiceLink").css("background-color", "grey");
+        $(this).parent().parent().find('.notNice').find(".pictureNotSoNiceLink").css("color", "black");
+        $(this).css("background-color", "#9400D3");
+        $(this).css("color", "white");
+    });
+</script>*@
+
+@* @{Html.RenderAction("PictureDetails", "World", new { id = picture.Id });
+                }*@

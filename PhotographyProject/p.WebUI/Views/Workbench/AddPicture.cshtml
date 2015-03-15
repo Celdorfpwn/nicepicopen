@@ -1,0 +1,27 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+@using(Html.BeginForm("AddPicture","Workbench",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="ADDFORM">
+    <table>
+        <tr>
+            <td><h4>Desciption:</h4></td>
+            <td>@Html.TextBoxFor(model => model.Description)</td>
+        </tr>
+        <tr>
+            <td><h4>Category:</h4></td>
+            <td>@Html.DropDownListFor(model => model.CategoryId,(SelectList)ViewBag.Categories)</td>
+        </tr>
+        <tr>
+            <td><h4>File:</h4></td>
+            <td><input type="file" name="file" /></td>
+            <td style="color:red">@ViewBag.ErrorMessage</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" /></td><td></td>
+        </tr>
+
+    </table>
+        </div>
+}

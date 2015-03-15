@@ -1,0 +1,3 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+@Html.ActionLink(Model.Name.Split('@')[0],"Details","Explorer",new { id = Model.Id},null)

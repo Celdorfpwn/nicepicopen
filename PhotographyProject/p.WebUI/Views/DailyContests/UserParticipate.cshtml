@@ -1,0 +1,6 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+@Ajax.ActionLink("Participate","UserPictures",new AjaxOptions{
+    UpdateTargetId ="dailyContestsContent",
+    InsertionMode = InsertionMode.Replace
+})

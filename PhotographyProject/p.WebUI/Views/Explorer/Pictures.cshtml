@@ -1,0 +1,24 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+@using (Ajax.BeginForm("AllPictures", "Explorer", new { id = (int)ViewBag.UserId }, new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "workbenchAllPictures",
+    InsertionMode=InsertionMode.Replace
+}))
+{
+    <p>@Html.DropDownList("categoryId", (SelectList)ViewBag.Categories, new { @id = "category" })
+         @Html.DropDownList("albumId", (SelectList)ViewBag.Albums, new { @id = "album" })</p>
+}
+
+<div id="workbenchAllPictures">
+    @{Html.RenderPartial("AllPictures", Model);}
+</div>
+
+<script type="text/javascript">
+    $("#category").change(function () {
+        $(this).closest('form').submit();
+    });
+    $("#album").change(function () {
+        $(this).closest('form').submit();
+    });
+</script>

@@ -1,0 +1,42 @@
+﻿@model p.Database.Concrete.Entities.Picture
+<div id="picWithNav">
+    <div id="pictureNavigationBar">
+        @Ajax.ActionLink("Preview", "ShowPic", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureDetailsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })
+        @Ajax.ActionLink("Preview Watermark", "ShowPicWithWatermark", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureDetailsContainer",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })
+    </div>
+
+    <div id="pictureDetailsContainer">
+        <img id="pictureDetailsImage" src="@Url.Action("DetailsPicture", "Images", new { id = Model.Id })" />
+    </div>
+</div>
+<div id="pictureDetailsRight">
+    <div id="pictureDetailsInfo">
+        <h4>Info</h4>
+        <hr />
+        <br />
+        <p>Desciption: @Model.Description</p>
+        <p>Album : @Model.Album.Name</p>
+        <p>Views : @Model.Views</p>
+        <p>Nices : @Model.PhotographerNice.Count</p>
+        <p>Comments : @Model.Comments.Count</p>
+    </div>
+    <div id="pictureDetailsComments">
+        <h4>Comments</h4>
+        <hr />
+        <br />
+        @foreach (var comment in Model.Comments)
+        {
+            <p>@comment.Photographer.Name : @comment.Comment</p>
+        }
+    </div>
+</div>

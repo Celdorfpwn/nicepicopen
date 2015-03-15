@@ -1,0 +1,8 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+
+@foreach (var picture in Model)
+{
+    <div class="caruselContainer">
+        <img class="caruselImg" src="@Url.Action("PictureCaruselImage","Images",new { id = picture.Id})" />
+    </div>
+}

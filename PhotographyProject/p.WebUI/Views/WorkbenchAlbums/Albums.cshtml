@@ -1,0 +1,18 @@
+﻿
+<div id="albumDetails">
+</div>
+<img id="loadingAlbums" class="loadingGif" src="~/Images/loading.gif" />
+
+<script type="text/javascript">
+    $(function () {
+        var url = '/WorkbenchAlbums/AllAlbums/';
+        var div = $('#albumDetails');
+        var loading = $('#loadingAlbums');
+        var template = window.Templates.appendAlbums;
+        window.ContentExtractor.init(url, div, template, 15, loading, true);
+
+        $(window).bind('scroll', function () {
+            window.ContentExtractor.scroll();
+        });
+    });
+</script>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Visitor>
+
+@{
+    string today = DateTime.Today.ToShortDateString();
+}
+
+@foreach (var visit in Model)
+{
+    <a href="@Url.Action("Details", "Explorer", new { id = visit.UserVisitorId })">
+    <div class="newMessageDivContent">
+        <div class="newMessageUserName">
+
+            @visit.UserVisitor.Name
+
+        </div>
+        <img style="height:35px;width:35px;float:left;margin-top:5px" src="@Url.Action("UserProfileImage","Images",new { id = visit.UserVisitorId})" />
+        <div class="newMessageText">
+            Visited your profile
+            @if(visit.Date.Equals(today))
+            {
+                <span>today</span>
+            }else
+            {
+                <span>on @visit.Date</span>
+            }
+        </div>
+    </div>
+   </a>
+}

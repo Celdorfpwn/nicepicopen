@@ -1,0 +1,100 @@
+﻿@model p.Database.Concrete.Entities.ContestPicture
+
+@{
+    var picture = Model;
+}
+<div class="worldContainer">
+    <div class="picturesUpdateDivInfo">
+                @Model.Photographer.Name is participating to today's best picture contest
+            </div>
+        <div class="worldPictureDetails">
+            <div class="worldPhotographerContent">
+                @{Html.RenderAction("PictureDetails","World", new { id = Model.Picture.Id });
+                }
+            </div>
+            <div class="worldPictureStuff">
+                <div class="worldPictureStuffLinks">
+                <img  src="~/Images/Index/logfacebook.png" />
+                <img  src="~/Images/Index/logtweet.png" />
+                @if (Model.Picture.Downloadable)
+                {
+                    if (Model.Picture.DownloadWithWatermark)
+                    {
+                    <a href="@Url.Action("DownloadWithWatermark", "WorkbenchPictures", new { id = Model.Picture.Id })">
+                        <img  src="~/Images/Index/Blue-Download-icon.png" />
+                    </a>
+                    }
+                    else
+                    {
+                    <a href="@Url.Action("Download", "WorkbenchPictures", new { id = Model.Picture.Id })">
+                        <img src="~/Images/Index/Blue-Download-icon.png" />
+                    </a>
+                    }
+                    
+                }
+                    </div>
+                <div class="pictureNotSoNice">
+                    <a class="notNice" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("NotSo", "DailyContests", new { id = picture.Id })">
+                        @if (picture.HasNotSo(User.Identity.Name))
+                        {
+                            <div class="pictureNotSoNiceLink" style="background-color: #9400D3; color: white">
+                                Not so
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="pictureNotSoNiceLink">
+                                Not so
+                            </div>
+                        }
+                    </a>
+                    <a class="nice" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#nulla" href="@Url.Action("Nice", "DailyContests", new { id = picture.Id })">
+                        @if (picture.HasNice(User.Identity.Name))
+                        {
+                            <div class="pictureNiceLink" style="background-color: #9400D3; color: white">
+                                Nice
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="pictureNiceLink">
+                                Nice
+                            </div>
+                        }
+                    </a>
+                </div>
+                </div>
+                @if (picture.Picture.CameraId != null)
+                {
+                    <div class="worldPictureCameraDetails">
+                        @*  <p>
+                            Shoot by @{ Html.RenderAction("CameraLink", "Camera", new { id = picture.CameraId });
+                            }
+                        </p>*@
+                        <div class="worldPictureCameraContainer">
+                            <img src="@Url.Action("CameraImage", "Images", new { id = picture.Picture.CameraId })" />
+                        </div>
+                    </div>
+                }
+            
+        </div>
+        <div class="worldPictureContainer">
+            <img src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = picture.Picture.Id })" />
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    $(".pictureNotSoNiceLink").click(function () {
+        $(this).parent().parent().find('.nice').find(".pictureNiceLink").css("background-color", "grey");
+        $(this).parent().parent().find('.nice').find(".pictureNiceLink").css("color", "black");
+        $(this).css("background-color", "#9400D3");
+        $(this).css("color", "white");
+    });
+    $(".pictureNiceLink").click(function () {
+        $(this).parent().parent().find('.notNice').find(".pictureNotSoNiceLink").css("background-color", "grey");
+        $(this).parent().parent().find('.notNice').find(".pictureNotSoNiceLink").css("color", "black");
+        $(this).css("background-color", "#9400D3");
+        $(this).css("color", "white");
+    });
+</script>

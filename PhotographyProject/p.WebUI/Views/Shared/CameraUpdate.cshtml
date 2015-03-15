@@ -1,0 +1,18 @@
+﻿@model p.Database.Concrete.Entities.PhotographerCamera
+
+<div class="cameraUpdateDiv">
+
+        <div class="explorerUpdateStuff">
+            @{Html.RenderAction("UserName", "ExplorerUpdates", new { id = Model.PhotographerId });
+    } added a new camera "@Model.Name"
+        </div>
+
+<div class="cameraExplorerContainer">
+<img src="@Url.Action("CameraImage", "Images", new { id = Model.Id })" />
+</div>
+
+
+<div class="explorerDescriptionContent">
+    @Model.Description
+</div>
+</div>

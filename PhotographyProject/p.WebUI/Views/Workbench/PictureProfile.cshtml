@@ -1,0 +1,33 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+@{
+    ViewBag.Title = "PictureProfile";
+}
+
+
+<div id="pictureDetails">
+    <div id="pictureDetailsLeft">
+        <p>@Html.ActionLink("Back to album","AlbumDetails",new { id = Model.AlbumId})</p>
+        <p>@Ajax.ActionLink("Resize", "ResizePicture","Resizer", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureDetailsContent",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     },null)</p>
+         <p>@Ajax.ActionLink("Picture", "PicturePreview","Workbench", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "pictureDetailsContent",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     },null)</p>
+
+                <p>
+        </p>
+    </div>
+<div id="pictureDetailsContent">
+    @{Html.RenderPartial("PicturePreview", Model);}
+</div>
+    </div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

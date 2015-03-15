@@ -1,0 +1,22 @@
+﻿
+
+<div id="allPictures">
+</div>
+<img id="allPicturesLoading" class="loadingGif" src="~/Images/loading.gif" />
+
+<script type="text/javascript">
+    
+    $(function () {
+        var url = '/WorkbenchPictures/Pictures/';
+        var div = $("#allPictures");
+        var loading = $('#allPicturesLoading');
+
+        var template = window.Templates.appendAllPictures;
+        window.ContentExtractor.init(url, div, template, 27, loading, true);
+
+        $(window).bind('scroll', function () {
+            window.ContentExtractor.scroll();
+        });
+    });
+
+</script>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.ConversationMessage>
+
+@foreach (var message in Model)
+{
+    <div class="newMessageDivContent">
+        <div class="newMessageUserName">
+            @if(message.Seen)
+            {
+            @message.Sender.Name
+            }
+            else
+            {
+                <span style="color:red">@message.Sender.Name</span>
+            }
+        </div>
+        <img style="height:35px;width:35px;float:left;margin-top:5px" src="@Url.Action("UserProfileImage","Images",new { id = message.SenderId})" />
+        <a class="newMessageLinq" data-id="@message.ConversationId" data-ajax="true" data-ajax-method="GET" data-ajax-mode="before" data-ajax-update="#conversationsDiv" href="/MessMe/Conversation/@message.ConversationId">
+            @if (message.HasImage())
+            {
+                        <div class="newMessageText">
+             Sent a picture
+        </div>
+            }
+            else
+            {
+        <div class="newMessageText">
+            @message.Message
+        </div>
+            }
+         </a>
+    </div>
+}
+
+<script type="text/javascript">
+    $('.newMessageLinq').click(function () {
+        var id = $(this).data('id');
+        var found = $.inArray(id, window.array) == -1;
+        if (found) {
+            window.array.push(id);
+            $('.conversationLinq').each(function () {
+                var cId = $(this).data('id');
+                if (cId == id) {
+                    $(this).attr('href', 'null');
+                }
+            });
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+</script>

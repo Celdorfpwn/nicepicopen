@@ -1,0 +1,9 @@
+﻿@if (Request.IsAuthenticated) {
+    <text>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "lgForm" })) {
+            @Html.AntiForgeryToken()
+            <span id="logoutForm" onclick="javascript:document.getElementById('lgForm').submit()">Log off</span>
+        }
+@*Html.ActionLink(User.Identity.Name,"DetailsRedirect","Workbench", new { @class = "headerNameLink" })*@
+    </text>
+}

@@ -1,0 +1,23 @@
+﻿
+
+
+
+#FriendsZone
+{
+    border:solid 1px black;
+    width:100%;
+    margin:1.5%;
+}
+
+#FriendsZoneNews
+{
+    border:solid 1px black;
+    float:left;
+    width:35%;
+}
+#FriendsZoneFriends
+{
+    border:solid 1px black;
+    float:right;
+    width:35%;
+}

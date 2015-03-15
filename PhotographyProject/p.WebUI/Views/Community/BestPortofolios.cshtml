@@ -1,0 +1,22 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Portofolio>
+
+@foreach (var portofolio in Model)
+{
+           
+    <div class="communityPortofolioContainer">
+        <div class="communityPortofolioText">
+           @{ Html.RenderAction("PhotographerLink", new { id = portofolio.PhotographerId });
+}
+        </div>
+
+<a href="@Url.Action("Index", "ExplorerPortofolio", new { id = portofolio.PhotographerId })"> 
+    @if (portofolio.HasCover())
+    {
+        <img class="communityPortofolioImage" src="@Url.Action("ComunityPicture", "Images", new { id = portofolio.CoverId })" />
+    }
+    else
+    {
+            <img class="communityPortofolioImage" src="~/Images/empty.jpg" />
+    }</a>
+    </div>
+}

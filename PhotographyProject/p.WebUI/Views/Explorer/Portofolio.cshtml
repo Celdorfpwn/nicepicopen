@@ -1,0 +1,25 @@
+﻿@model p.Database.Concrete.Entities.Portofolio
+
+<div id="portofolioCoverImage">
+
+    @if(Model!=null)
+    {
+    if(Model.HasCover())
+    {
+    <a href="@Url.Action("Index","ExplorerPortofolio",new { id = Model.PhotographerId})">
+        <div id="portofolioCover">
+        <img class="albumPicture" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = Model.CoverId })" />
+            </div>
+        </a>
+    }
+    }else
+    {
+        <img class="albumPicture" src="~/Images/empty.jpg" />
+    }
+</div>
+
+<script type="text/javascript">
+    $("#portofolioCover").click(function () {
+        $(this).closest("form").submit();
+    });
+</script>

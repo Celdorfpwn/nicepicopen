@@ -1,0 +1,13 @@
+﻿@model p.Database.Concrete.Entities.Conversation
+
+<a class="conversationLinq" data-id="@Model.Id" data-ajax="true" data-ajax-method="GET" data-ajax-mode="before" 
+   data-ajax-update="#conversationsDiv" data-link="/MessMe/Conversation/@Model.Id" href="/MessMe/Conversation/@Model.Id" >
+    <div class="conversationUserLink" data-id="@Model.Id">
+        <img class="conversationUserImg" src="/Images/UserProfileImage/@Model.SenderId" />
+        <span class="conversationUserText">@Model.Sender.Name</span>
+
+        <div class="conversationState" style="background-color:white;">
+        </div>
+    </div>
+</a>
+

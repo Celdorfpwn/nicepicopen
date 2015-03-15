@@ -1,0 +1,12 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+@if (Model.Pictures.Count > 0)
+{
+    <span>
+   @Html.ActionLink("Check it now!", "Album", "Explorer", new { id = Model.Id, picture = 0 }, null)
+        </span>
+}
+else
+{
+    <span>Still waiting for pictures</span>
+}

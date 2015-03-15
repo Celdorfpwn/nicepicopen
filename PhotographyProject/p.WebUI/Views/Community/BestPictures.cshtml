@@ -1,0 +1,27 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+
+@foreach (var picture in Model)
+{
+    <div class="communityPictureContainer">
+        <div class="communityPictureText">
+            @{Html.RenderAction("PhotographerPictureLink", new { id = picture.AlbumId });
+            }
+        </div>
+        <a href="@Url.Action("Album", "Explorer", new { id = picture.AlbumId, picture = picture.Id })">
+            <img class="communityPictureImage" src="@Url.Action("ComunityPicture", "Images", new { id = picture.Id }) " />
+        </a>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $(".communityPictureContainer").hover(
+            function () {
+                $(this).children("img").fadeTo(200, 0.85).end().children(".communityPictureText").show();
+            },
+            function () {
+                $(this).children("img").fadeTo(200, 1).end().children(".communityPictureText").hide();
+            });
+    });
+</script>
+

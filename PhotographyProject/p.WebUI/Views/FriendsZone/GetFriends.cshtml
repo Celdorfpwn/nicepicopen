@@ -1,0 +1,48 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Photographer>
+
+<script type="text/javascript">
+        $(".accept").click(function () {
+            $(this).parent().text('Watched');
+        });
+        $(".blinded").click(function () {
+            $(this).parent.text('Blinded');
+        });
+</script>
+@if (Model.Count() == 0)
+{
+    <p style="color: black;">No users found</p>
+}
+else
+{
+    foreach (var pho in Model)
+    {
+    <div class="FzUserFriend">
+        <div class="FzUserLink">
+         @Html.ActionLink(pho.DescriptionName, "Details", "Explorer", new { id = pho.Id }, null)
+            </div>
+        <div class="FzUserFriendContainer">
+            <img class="FzUserFriendImg" src='@Url.Action("ShowProfile", "FriendsZone", new { id = pho.Id })' />
+        </div>
+        <div class="FzUserText">
+            
+            <div class="req">
+            @Ajax.ActionLink("Watch", "FriendRequest", new { id = pho.Id },
+       new AjaxOptions
+       {
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET",
+           UpdateTargetId = "idwtfshit"
+       }, new { @class = "accept" })
+                </div>
+         <div id="blind">
+             @Ajax.ActionLink("Blind", "Blind", new { id = pho.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET",
+           UpdateTargetId = "as"
+        }, new { @class = "blinded" })
+         </div>
+        </div>
+    </div>
+    }
+}

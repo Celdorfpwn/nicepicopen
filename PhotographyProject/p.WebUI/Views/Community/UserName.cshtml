@@ -1,0 +1,9 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+<a href="@Url.Action("Details", "Explorer", new { id = Model.Id })">
+    <span style="float:left;">by @Model.Name.Split('@')[0]</span></a>
+
+@if(Model.HasPortofolio()){
+<a href="@Url.Action("PortofolioPreview", "Explorer", new { id = Model.Id })">
+    <span style="float:right;margin-right:5px;">Portofolio</span></a>
+}

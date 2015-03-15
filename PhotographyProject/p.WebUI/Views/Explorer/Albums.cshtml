@@ -1,0 +1,28 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Album>
+
+<span style="height:10px;width:100px;padding-top:120px"></span>
+@foreach (var album in Model)
+{
+    <div class="workbenchAlbumShow">
+        <div class="albumProfilePicture">
+
+            <a href="@Url.Action("Album", new { id = album.Id, picture = album.Pictures.ElementAt(0).Id })">
+            <img class="albumProfile" src='@Url.Action("AlbumProfileImage", "Images", new { id = album.Id })' />
+                </a>
+        </div>
+        <div class="albumDescription">
+            <p>
+                Name : @album.Name
+            </p>
+            <p>Desciption : @album.GetShorterDescription()</p>
+            @if(album.Downloadable)
+            {
+            <p>@Html.ActionLink("Download","DownloadAlbum","WorkbenchAlbums",new { id = album.Id},null)</p>   
+            }
+        </div>
+        <div class="albumCaruselBar">
+            @{Html.RenderAction("AlbumCarusel", "Workbench", new { id = album.Id });
+            }
+        </div>
+    </div>
+}

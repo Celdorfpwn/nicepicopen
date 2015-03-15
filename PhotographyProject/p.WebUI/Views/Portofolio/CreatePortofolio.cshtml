@@ -1,0 +1,45 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+@{
+    ViewBag.Title = "CreatePortofolio";
+}
+@Styles.Render("~/Content/Portofolio.css")
+
+
+<div id="portofolio">
+<div id="createPortofolioBar">
+
+    <span>Choose portofolio cover</span>
+    <a href="@Url.Action("ChoosePictures","Portofolio")">
+    <button id="next" style="visibility: hidden;">Next</button></a>
+
+</div>
+
+<div id="choosedCoverImage">
+</div>
+@foreach (var picture in Model)
+{
+    <div class="explorerPictureContainer">
+        @using (Ajax.BeginForm("ChoosedCover", "Portofolio", new { id = picture.Id }, new AjaxOptions
+            {
+                UpdateTargetId = "choosedCoverImage",
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace
+            }))
+        {
+            <img class="explorerPicture" src="@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id })" />
+        }
+    </div>
+}
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".explorerPicture").click(function () {
+                $(this).closest('form').submit();
+                $('#next').css('visibility', 'visible');
+            });
+        });
+    </script>
+}
+

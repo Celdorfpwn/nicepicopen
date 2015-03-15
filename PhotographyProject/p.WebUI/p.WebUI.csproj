@@ -1,0 +1,924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27398805-472F-4889-8B7F-A040F4B5810A}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>p.WebUI</RootNamespace>
+    <AssemblyName>p.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PrecompileBeforePublish>false</PrecompileBeforePublish>
+    <PublishDatabases>true</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CameraController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChatDataController.cs" />
+    <Compile Include="Controllers\CommunityController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\MessMeController.cs" />
+    <Compile Include="Controllers\DailyContestsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\DiscussionPostsController.cs" />
+    <Compile Include="Controllers\DiscussionsController.cs" />
+    <Compile Include="Controllers\ExplorerController.cs" />
+    <Compile Include="Controllers\ExplorerPortofolioController.cs" />
+    <Compile Include="Controllers\ExplorerUpdatesController.cs" />
+    <Compile Include="Controllers\FacebookController.cs" />
+    <Compile Include="Controllers\FriendsZoneController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\OnlineUsersProvider.cs" />
+    <Compile Include="Controllers\PortofolioController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\QuotesController.cs" />
+    <Compile Include="Controllers\ResizerController.cs" />
+    <Compile Include="Controllers\WorkbenchAlbumsController.cs" />
+    <Compile Include="Controllers\WorkbenchPicturesController.cs" />
+    <Compile Include="Controllers\WorkbenchProfileController.cs" />
+    <Compile Include="Controllers\WorkbenchWatermarksController.cs" />
+    <Compile Include="Controllers\WorldController.cs" />
+    <Compile Include="Controllers\WtfController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\CustomRoleProvider.cs" />
+    <Compile Include="Infrastructure\ImageCompressor.cs" />
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="MessMe.cs" />
+    <Compile Include="Migrations\201405040555366_first.cs" />
+    <Compile Include="Migrations\201405040555366_first.Designer.cs">
+      <DependentUpon>201405040555366_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405070849317_11.48.07.05.2014.cs" />
+    <Compile Include="Migrations\201405070849317_11.48.07.05.2014.Designer.cs">
+      <DependentUpon>201405070849317_11.48.07.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405121135567_14.35.12.05.2014.cs" />
+    <Compile Include="Migrations\201405121135567_14.35.12.05.2014.Designer.cs">
+      <DependentUpon>201405121135567_14.35.12.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405121658003_19.57.12.05.2014.cs" />
+    <Compile Include="Migrations\201405121658003_19.57.12.05.2014.Designer.cs">
+      <DependentUpon>201405121658003_19.57.12.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405141328392_16.28.14.05.cs" />
+    <Compile Include="Migrations\201405141328392_16.28.14.05.Designer.cs">
+      <DependentUpon>201405141328392_16.28.14.05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405141405487_17.05.14.05.2014.cs" />
+    <Compile Include="Migrations\201405141405487_17.05.14.05.2014.Designer.cs">
+      <DependentUpon>201405141405487_17.05.14.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405161438397_17.37.16.05.2014.cs" />
+    <Compile Include="Migrations\201405161438397_17.37.16.05.2014.Designer.cs">
+      <DependentUpon>201405161438397_17.37.16.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405180257431_05.56.18.05.2014.cs" />
+    <Compile Include="Migrations\201405180257431_05.56.18.05.2014.Designer.cs">
+      <DependentUpon>201405180257431_05.56.18.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201405190108219_04.07.19.05.2014.cs" />
+    <Compile Include="Migrations\201405190108219_04.07.19.05.2014.Designer.cs">
+      <DependentUpon>201405190108219_04.07.19.05.2014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ImageSizeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheluders\DailyContestsJob.cs" />
+    <Compile Include="Scheluders\DailyWinnerJob.cs" />
+    <Compile Include="Scheluders\UsersState.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\chatPicture.png" />
+    <Content Include="Content\CommunityStyle.css" />
+    <Content Include="Content\Contests.css" />
+    <Content Include="Content\empty.jpg" />
+    <Content Include="Content\Explorer.css" />
+    <Content Include="Content\FriendsZone.css" />
+    <Content Include="Content\indexPageStyle.css" />
+    <Content Include="Content\Layout.css" />
+    <Content Include="Content\LayoutStyle.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\NewStar.png" />
+    <Content Include="Content\NewStar2.png" />
+    <Content Include="Content\nice-hover.png" />
+    <Content Include="Content\nice.png" />
+    <Content Include="Content\Not-hover.png" />
+    <Content Include="Content\Not.png" />
+    <Content Include="Content\Portofolio.css" />
+    <Content Include="Content\Profile.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Workbench.css" />
+    <Content Include="Content\World.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\nicepic - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\nicepic - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\albumImage.jpeg" />
+    <Content Include="Images\black.png" />
+    <Content Include="Images\chatPicture.png" />
+    <Content Include="Images\cup.jpg" />
+    <Content Include="Images\empty.jpg" />
+    <Content Include="Images\empty_profile.gif" />
+    <Content Include="Images\Index\Blue-Download-icon.png" />
+    <Content Include="Images\Index\carousell.png" />
+    <Content Include="Images\Index\left-sidebar.gif" />
+    <Content Include="Images\Index\log.png" />
+    <Content Include="Images\Index\logfacebook.png" />
+    <Content Include="Images\Index\login.png" />
+    <Content Include="Images\Index\logoexcite.png" />
+    <Content Include="Images\Index\logtweet.png" />
+    <Content Include="Images\Index\min-width.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\nicepic.png" />
+    <Content Include="Images\Index\perfectfluidwidthheader.gif" />
+    <Content Include="Images\Index\register.png" />
+    <Content Include="Images\Index\stripe.png" />
+    <Content Include="Images\messages.png" />
+    <Content Include="Images\news-icon.png" />
+    <Content Include="Images\news.png" />
+    <Content Include="Images\NewStar.png" />
+    <Content Include="Images\NewStar2.png" />
+    <Content Include="Images\notifications.png" />
+    <Content Include="Images\offline.png" />
+    <Content Include="Images\online.png" />
+    <Content Include="Images\quote.JPG" />
+    <Content Include="Images\search_user.png" />
+    <Content Include="Images\newmessage.mp3" />
+    <Content Include="Images\stuffing\nice.png" />
+    <Content Include="Images\stuffing\Not.png" />
+    <Content Include="Images\The Symbol.png" />
+    <Content Include="Images\visitors.png" />
+    <Content Include="Libs\AccountManager.dll" />
+    <Content Include="Libs\AccountManager.pdb" />
+    <Content Include="Libs\Antlr3.Runtime.dll" />
+    <Content Include="Libs\Antlr3.Runtime.xml" />
+    <Content Include="Libs\Common.Logging.Core.dll" />
+    <Content Include="Libs\Common.Logging.Core.pdb" />
+    <Content Include="Libs\Common.Logging.Core.xml" />
+    <Content Include="Libs\Common.Logging.dll" />
+    <Content Include="Libs\Common.Logging.pdb" />
+    <Content Include="Libs\Common.Logging.xml" />
+    <Content Include="Libs\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="Libs\DotNetOpenAuth.AspNet.xml" />
+    <Content Include="Libs\DotNetOpenAuth.Core.dll" />
+    <Content Include="Libs\DotNetOpenAuth.Core.xml" />
+    <Content Include="Libs\DotNetOpenAuth.OAuth.Consumer.dll" />
+    <Content Include="Libs\DotNetOpenAuth.OAuth.Consumer.xml" />
+    <Content Include="Libs\DotNetOpenAuth.OAuth.dll" />
+    <Content Include="Libs\DotNetOpenAuth.OAuth.xml" />
+    <Content Include="Libs\DotNetOpenAuth.OpenId.dll" />
+    <Content Include="Libs\DotNetOpenAuth.OpenId.RelyingParty.dll" />
+    <Content Include="Libs\DotNetOpenAuth.OpenId.RelyingParty.xml" />
+    <Content Include="Libs\DotNetOpenAuth.OpenId.xml" />
+    <Content Include="Libs\EntityFramework.dll" />
+    <Content Include="Libs\EntityFramework.SqlServer.dll" />
+    <Content Include="Libs\EntityFramework.SqlServer.xml" />
+    <Content Include="Libs\EntityFramework.xml" />
+    <Content Include="Libs\Explorer.dll" />
+    <Content Include="Libs\Explorer.pdb" />
+    <Content Include="Libs\Facadebook.dll" />
+    <Content Include="Libs\Facebook.dll" />
+    <Content Include="Libs\Facebook.xml" />
+    <Content Include="Libs\FriendsZone.dll" />
+    <Content Include="Libs\FriendsZone.pdb" />
+    <Content Include="Libs\ImageResizer.dll" />
+    <Content Include="Libs\ImageResizer.xml" />
+    <Content Include="Libs\Ionic.Zip.dll" />
+    <Content Include="Libs\Ionic.Zip.xml" />
+    <Content Include="Libs\Microsoft.Data.Edm.dll" />
+    <Content Include="Libs\Microsoft.Data.Edm.xml" />
+    <Content Include="Libs\Microsoft.Data.OData.dll" />
+    <Content Include="Libs\Microsoft.Data.OData.xml" />
+    <Content Include="Libs\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="Libs\Microsoft.Web.Mvc.FixedDisplayModes.dll" />
+    <Content Include="Libs\Microsoft.Web.WebPages.OAuth.dll" />
+    <Content Include="Libs\Microsoft.Web.WebPages.OAuth.xml" />
+    <Content Include="Libs\Microsoft.WindowsAzure.Configuration.dll" />
+    <Content Include="Libs\Microsoft.WindowsAzure.Diagnostics.dll" />
+    <Content Include="Libs\Microsoft.WindowsAzure.Diagnostics.StorageUtility.dll" />
+    <Content Include="Libs\Microsoft.WindowsAzure.Diagnostics.xml" />
+    <Content Include="Libs\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="Libs\Microsoft.WindowsAzure.Storage.xml" />
+    <Content Include="Libs\Newtonsoft.Json.dll" />
+    <Content Include="Libs\Newtonsoft.Json.xml" />
+    <Content Include="Libs\Ninject.dll" />
+    <Content Include="Libs\Ninject.pdb" />
+    <Content Include="Libs\Ninject.Web.Common.dll" />
+    <Content Include="Libs\Ninject.Web.Common.pdb" />
+    <Content Include="Libs\Ninject.Web.Common.xml" />
+    <Content Include="Libs\Ninject.Web.Mvc.dll" />
+    <Content Include="Libs\Ninject.Web.Mvc.pdb" />
+    <Content Include="Libs\Ninject.Web.Mvc.xml" />
+    <Content Include="Libs\Ninject.xml" />
+    <Content Include="Libs\p.Database.dll" />
+    <Content Include="Libs\p.Database.pdb" />
+    <Content Include="Libs\p.WebUI.dll" />
+    <Content Include="Libs\p.WebUI.pdb" />
+    <Content Include="Libs\PicturesProvider.dll" />
+    <Content Include="Libs\PicturesProvider.pdb" />
+    <Content Include="Libs\PortofolioManager.dll" />
+    <Content Include="Libs\PortofolioManager.pdb" />
+    <Content Include="Libs\Quartz.dll" />
+    <Content Include="Libs\Quartz.pdb" />
+    <Content Include="Libs\Quartz.xml" />
+    <Content Include="Libs\System.Net.Http.Formatting.dll" />
+    <Content Include="Libs\System.Net.Http.Formatting.xml" />
+    <Content Include="Libs\System.Spatial.dll" />
+    <Content Include="Libs\System.Spatial.xml" />
+    <Content Include="Libs\System.Web.Helpers.dll" />
+    <Content Include="Libs\System.Web.Helpers.xml" />
+    <Content Include="Libs\System.Web.Http.dll" />
+    <Content Include="Libs\System.Web.Http.OData.dll" />
+    <Content Include="Libs\System.Web.Http.OData.xml" />
+    <Content Include="Libs\System.Web.Http.WebHost.dll" />
+    <Content Include="Libs\System.Web.Http.WebHost.xml" />
+    <Content Include="Libs\System.Web.Http.xml" />
+    <Content Include="Libs\System.Web.Mvc.dll" />
+    <Content Include="Libs\System.Web.Mvc.xml" />
+    <Content Include="Libs\System.Web.Optimization.dll" />
+    <Content Include="Libs\System.Web.Razor.dll" />
+    <Content Include="Libs\System.Web.Razor.xml" />
+    <Content Include="Libs\System.Web.WebPages.Deployment.dll" />
+    <Content Include="Libs\System.Web.WebPages.Deployment.xml" />
+    <Content Include="Libs\System.Web.WebPages.dll" />
+    <Content Include="Libs\System.Web.WebPages.Razor.dll" />
+    <Content Include="Libs\System.Web.WebPages.Razor.xml" />
+    <Content Include="Libs\System.Web.WebPages.xml" />
+    <Content Include="Libs\WebActivator.dll" />
+    <Content Include="Libs\WebGrease.dll" />
+    <Content Include="Libs\WebMatrix.Data.dll" />
+    <Content Include="Libs\WebMatrix.Data.xml" />
+    <Content Include="Libs\WebMatrix.WebData.dll" />
+    <Content Include="Libs\WebMatrix.WebData.xml" />
+    <Content Include="Libs\Workbench.dll" />
+    <Content Include="Libs\Workbench.pdb" />
+    <Content Include="README.txt" />
+    <Content Include="Release-notes.txt" />
+    <Content Include="Scripts\BTE.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.3.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\LayoutScripts.js" />
+    <Content Include="Scripts\MessChat.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\NiceOrNot.js" />
+    <Content Include="Scripts\profileScripts.js" />
+    <Content Include="Scripts\WorkbenchPicturesAll.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\FriendsZone\FindFriend.cshtml" />
+    <Content Include="Views\FriendsZone\GetFriends.cshtml" />
+    <Content Include="Views\FriendsZone\FriendRequests.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\MessMe\Message.cshtml" />
+    <Content Include="Views\MessMe\Messages.cshtml" />
+    <Content Include="Views\Account\index.cshtml" />
+    <Content Include="Views\MessMe\MessMe.cshtml" />
+    <Content Include="Views\MessMe\Online.cshtml" />
+    <Content Include="Views\FriendsZone\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Community\Index.cshtml" />
+    <Content Include="Views\Workbench\Index.cshtml" />
+    <Content Include="Views\Workbench\AddAlbum.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\AlbumDetails.cshtml" />
+    <Content Include="Views\Workbench\AddPictureQuick.cshtml" />
+    <Content Include="Views\Workbench\EditTextWatermark.cshtml" />
+    <Content Include="Views\Workbench\EditImageWatermark.cshtml" />
+    <Content Include="Views\Explorer\Details.cshtml" />
+    <Content Include="Views\Workbench\GetAlbumPictures.cshtml" />
+    <Content Include="Views\Workbench\AddPicture.cshtml" />
+    <Content Include="Views\Account\Online.cshtml" />
+    <Content Include="Views\Account\Offline.cshtml" />
+    <Content Include="Views\Workbench\PreviewWatermark.cshtml" />
+    <Content Include="Views\Workbench\PictureProfile.cshtml" />
+    <Content Include="Views\Workbench\ShowPicWithWatermark.cshtml" />
+    <Content Include="Views\Workbench\ShowPic.cshtml" />
+    <Content Include="Views\Workbench\AddCamera.cshtml" />
+    <Content Include="Views\FriendsZone\UserFriends.cshtml" />
+    <Content Include="Views\FriendsZone\Friends.cshtml" />
+    <Content Include="Views\FriendsZone\Count.cshtml" />
+    <Content Include="Views\FriendsZone\LatestUpdates.cshtml" />
+    <Content Include="Views\FriendsZone\PictureText.cshtml" />
+    <Content Include="Views\FriendsZone\MoreUpdates.cshtml" />
+    <Content Include="Views\FriendsZone\AlbumText.cshtml" />
+    <Content Include="Views\FriendsZone\Updates.cshtml" />
+    <Content Include="Views\FriendsZone\CameraText.cshtml" />
+    <Content Include="Views\Explorer\Friends.cshtml" />
+    <Content Include="Views\Explorer\Album.cshtml" />
+    <Content Include="Views\Explorer\Picture.cshtml" />
+    <Content Include="Views\Explorer\NicesCount.cshtml" />
+    <Content Include="Views\Explorer\PictureComments.cshtml" />
+    <Content Include="Views\Workbench\AlbumCarusel.cshtml" />
+    <Content Include="Views\Wtf\Index.cshtml" />
+    <Content Include="Views\Resizer\ResizePicture.cshtml" />
+    <Content Include="Views\Resizer\ImagePreview.cshtml" />
+    <Content Include="Views\Workbench\PicturePreview.cshtml" />
+    <Content Include="Views\Workbench\AlbumPictures.cshtml" />
+    <Content Include="Views\Workbench\AllAlbumPictures.cshtml" />
+    <Content Include="Views\Explorer\Albums.cshtml" />
+    <Content Include="Views\Explorer\Pictures.cshtml" />
+    <Content Include="Views\Explorer\AllPictures.cshtml" />
+    <Content Include="Views\Portofolio\CreatePortofolio.cshtml" />
+    <Content Include="Views\Portofolio\ChoosedCover.cshtml" />
+    <Content Include="Views\Portofolio\ChoosePictures.cshtml" />
+    <Content Include="Views\Portofolio\ChoosedPicture.cshtml" />
+    <Content Include="Views\Portofolio\Index.cshtml" />
+    <Content Include="Views\Portofolio\ImagePreview.cshtml" />
+    <Content Include="Views\Explorer\Portofolio.cshtml" />
+    <Content Include="Views\Explorer\TopPictures.cshtml" />
+    <Content Include="Views\Explorer\PortofolioPreview.cshtml" />
+    <Content Include="Views\Explorer\ImagePreview.cshtml" />
+    <Content Include="Views\Community\BestPictures.cshtml" />
+    <Content Include="Views\Community\UserName.cshtml" />
+    <Content Include="Views\Community\BestPortofolios.cshtml" />
+    <Content Include="Views\WorkbenchProfile\Index.cshtml" />
+    <Content Include="Views\WorkbenchProfile\AlbumCarusel.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\AlbumCarusel.cshtml" />
+    <Content Include="Views\WorkbenchPictures\AllPictures.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\Albums.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\AddAlbum.cshtml" />
+    <Content Include="Views\WorkbenchWatermarks\Create.cshtml" />
+    <Content Include="Views\WorkbenchWatermarks\EditImageWatermark.cshtml" />
+    <Content Include="Views\WorkbenchWatermarks\EditTextWatermark.cshtml" />
+    <Content Include="Views\WorkbenchProfile\ProfileImage.cshtml" />
+    <Content Include="Views\WorkbenchPictures\AddPictures.cshtml" />
+    <Content Include="Views\WorkbenchPictures\AlbumPictures.cshtml" />
+    <Content Include="Views\WorkbenchPictures\AddAlbumPictures.cshtml" />
+    <Content Include="Views\WorkbenchPictures\PictureProfile.cshtml" />
+    <Content Include="Views\WorkbenchPictures\PreviewWatermark.cshtml" />
+    <Content Include="Views\WorkbenchPictures\PicturePreview.cshtml" />
+    <Content Include="Views\WorkbenchWatermarks\TextWatermark.cshtml" />
+    <Content Include="Views\WorkbenchWatermarks\ImageWatermark.cshtml" />
+    <Content Include="Views\WorkbenchWatermarks\Message.cshtml" />
+    <Content Include="Views\WorkbenchPictures\PictureView.cshtml" />
+    <Content Include="Views\WorkbenchPictures\PictureViewWatermark.cshtml" />
+    <Content Include="Views\Community\LatestUpdates.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\Viral.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\GoViral.cshtml" />
+    <Content Include="Views\Community\AlbumUpdate.cshtml" />
+    <Content Include="Views\Community\PortofolioUpdate.cshtml" />
+    <Content Include="Views\Portofolio\Viral.cshtml" />
+    <Content Include="Views\Portofolio\GoViral.cshtml" />
+    <Content Include="Views\ExplorerPortofolio\Index.cshtml" />
+    <Content Include="Views\ExplorerPortofolio\Picture.cshtml" />
+    <Content Include="Views\ExplorerPortofolio\Niced.cshtml" />
+    <Content Include="Views\ExplorerPortofolio\Nice.cshtml" />
+    <Content Include="Views\ExplorerPortofolio\PictureComments.cshtml" />
+    <Content Include="Views\Community\PhotographerLink.cshtml" />
+    <Content Include="Views\Community\PhotographerPictureLink.cshtml" />
+    <Content Include="Views\WorkbenchProfile\Credentials.cshtml" />
+    <Content Include="Views\WorkbenchPictures\AddPicturesForAlbum.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\AlbumBestPicture.cshtml" />
+    <Content Include="Views\WorkbenchAlbums\Empty.cshtml" />
+    <Content Include="Views\FriendsZone\UserName.cshtml" />
+    <Content Include="Views\FriendsZone\UpdatePictureCarusel.cshtml" />
+    <Content Include="Views\FriendsZone\AlbumLink.cshtml" />
+    <Content Include="Views\FriendsZone\PicturesUpdate.cshtml" />
+    <Content Include="Views\WorkbenchProfile\Quote.cshtml" />
+    <Content Include="Views\Quotes\Create.cshtml" />
+    <Content Include="Views\World\Index.cshtml" />
+    <Content Include="Views\World\BestPictures.cshtml" />
+    <Content Include="Views\Camera\Create.cshtml" />
+    <Content Include="Views\World\PictureDetails.cshtml" />
+    <Content Include="Views\Camera\CameraLink.cshtml" />
+    <Content Include="Views\ExplorerUpdates\Updates.cshtml" />
+    <Content Include="Views\ExplorerUpdates\CameraUpdate.cshtml" />
+    <Content Include="Views\ExplorerUpdates\QuoteUpdate.cshtml" />
+    <Content Include="Views\ExplorerUpdates\PicturesUpdate.cshtml" />
+    <Content Include="Views\ExplorerUpdates\AlbumUpdate.cshtml" />
+    <Content Include="Views\ExplorerUpdates\UserName.cshtml" />
+    <Content Include="Views\ExplorerUpdates\PicturesCarusel.cshtml" />
+    <Content Include="Views\WorkbenchProfile\ProfileLink.cshtml" />
+    <Content Include="Views\World\Quotes.cshtml" />
+    <Content Include="Views\Shared\PicturesCarusel.cshtml" />
+    <Content Include="Views\Shared\AlbumUpdate.cshtml" />
+    <Content Include="Views\Shared\CameraUpdate.cshtml" />
+    <Content Include="Views\Shared\PicturesUpdate.cshtml" />
+    <Content Include="Views\Shared\QuoteUpdate.cshtml" />
+    <Content Include="Views\FriendsZone\Blinded.cshtml" />
+    <Content Include="Views\FriendsZone\TheirBlinds.cshtml" />
+    <Content Include="Views\DailyContests\TodaysContest.cshtml" />
+    <Content Include="Views\DailyContests\ContestPictures.cshtml" />
+    <Content Include="Views\DailyContests\UserParticipate.cshtml" />
+    <Content Include="Views\DailyContests\UserPictures.cshtml" />
+    <Content Include="Views\DailyContests\UserPicture.cshtml" />
+    <Content Include="Views\DailyContests\MyPicture.cshtml" />
+    <Content Include="Views\DailyContests\NoContest.cshtml" />
+    <Content Include="Views\DailyContests\LatestContests.cshtml" />
+    <Content Include="Views\DailyContests\ContestPictureDetails.cshtml" />
+    <Content Include="Views\Camera\Index.cshtml" />
+    <Content Include="Views\ExplorerUpdates\ContestPictureUpdate.cshtml" />
+    <Content Include="Views\ExplorerUpdates\ContestWinner.cshtml" />
+    <Content Include="Views\MessMe\Conversations.cshtml" />
+    <Content Include="Views\MessMe\UserState.cshtml" />
+    <Content Include="Views\Discussions\Index.cshtml" />
+    <Content Include="Views\Discussions\Create.cshtml" />
+    <Content Include="Views\Discussions\All.cshtml" />
+    <Content Include="Views\Discussions\Discussion.cshtml" />
+    <Content Include="Views\DiscussionPosts\DiscussionPosts.cshtml" />
+    <Content Include="Views\DiscussionPosts\DiscussionPost.cshtml" />
+    <Content Include="Views\MessMe\NewMessages.cshtml" />
+    <Content Include="Views\Explorer\Visitors.cshtml" />
+    <Content Include="Views\WorkbenchPictures\Pictures.cshtml" />
+    <Content Include="Views\FriendsZone\Suggestions.cshtml" />
+    <Content Include="Views\Images\Optim.cshtml" />
+    <Content Include="Views\World\Newest.cshtml" />
+    <Content Include="Views\World\FreeView.cshtml" />
+    <Content Include="Views\WorkbenchPictures\Favorites.cshtml" />
+    <Content Include="Views\World\Pictures.cshtml" />
+    <Content Include="Views\MessMe\Conversation.cshtml" />
+    <Content Include="Views\ExplorerUpdates\News.cshtml" />
+    <Content Include="Views\FriendsZone\AcceptRequest.cshtml" />
+    <Content Include="Views\Profile\UserView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Arraybracket.TypedViews">
+      <HintPath>..\packages\Arraybracket.TypedViews.1.0.0\lib\net40\Arraybracket.TypedViews.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Facadebook, Version=5.2.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Facadebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook, Version=5.2.1.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer, Version=3.4.2.549, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.0.3\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.0.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.2.1\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.0.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Helpers">
+      <HintPath>..\packages\microsoft-web-helpers.2.1.20710.2\lib\net40\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.WindowsAzure.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics.StorageUtility, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.WindowsAzure.Diagnostics.StorageUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.2.3.400, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.20\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.20\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.30506\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivator, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccountManager\AccountManager.csproj">
+      <Project>{d03f1aa3-8dc3-4524-bb57-157a227cc87a}</Project>
+      <Name>AccountManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Community\Community.csproj">
+      <Project>{285625ef-5407-4e7f-b743-13761e599edc}</Project>
+      <Name>Community</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contests\Contests.csproj">
+      <Project>{ffd36681-49d8-4fad-a8c6-1a349196e7f3}</Project>
+      <Name>Contests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Explorer\Explorer.csproj">
+      <Project>{6312ee7e-e2d0-4733-89d0-e8af17630bb1}</Project>
+      <Name>Explorer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FriendsZone\Friends.csproj">
+      <Project>{cd4ed7f3-b880-45e7-a50a-dd6254873b29}</Project>
+      <Name>Friends</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessMeLib\MessMeLib.csproj">
+      <Project>{ed8d8e77-9e85-4477-802d-bf306628fef2}</Project>
+      <Name>MessMeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\p.Database\p.Database.csproj">
+      <Project>{9a22974e-a32a-4459-a8b8-8b195b5cf684}</Project>
+      <Name>p.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PicturesProvider\PicturesProvider.csproj">
+      <Project>{f7d15ee8-1d7f-424f-95df-8bbb7792ab8c}</Project>
+      <Name>PicturesProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PortofolioManager\PortofolioManager.csproj">
+      <Project>{3d32bbaa-e9b0-4b6c-a65c-919364193d68}</Project>
+      <Name>PortofolioManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Workbench\Workbench.csproj">
+      <Project>{b1602590-fd37-40cd-9473-cd6dad2f1c1b}</Project>
+      <Name>Workbench</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201405040555366_first.resx">
+      <DependentUpon>201405040555366_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405070849317_11.48.07.05.2014.resx">
+      <DependentUpon>201405070849317_11.48.07.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405121135567_14.35.12.05.2014.resx">
+      <DependentUpon>201405121135567_14.35.12.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405121658003_19.57.12.05.2014.resx">
+      <DependentUpon>201405121658003_19.57.12.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405141328392_16.28.14.05.resx">
+      <DependentUpon>201405141328392_16.28.14.05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405141405487_17.05.14.05.2014.resx">
+      <DependentUpon>201405141405487_17.05.14.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405161438397_17.37.16.05.2014.resx">
+      <DependentUpon>201405161438397_17.37.16.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405180257431_05.56.18.05.2014.resx">
+      <DependentUpon>201405180257431_05.56.18.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405190108219_04.07.19.05.2014.resx">
+      <DependentUpon>201405190108219_04.07.19.05.2014.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1047/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

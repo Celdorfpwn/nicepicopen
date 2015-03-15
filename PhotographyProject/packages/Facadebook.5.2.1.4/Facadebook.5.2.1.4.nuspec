@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Facadebook</id>
+    <version>5.2.1.4</version>
+    <title>Facadebook C# SDK</title>
+    <authors>Daniel Saidi &amp; Ludvig Dickman</authors>
+    <owners>Daniel Saidi &amp; Ludvig Dickman</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/danielsaidi/Facadebook</projectUrl>
+    <iconUrl>http://danielsaidi.github.com/Facadebook/content/img/icon_32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Facadebook C# SDK is a facade and abstraction layer for the Facebook C# SDK. Use it if you need to write your own adjustments or if you need to unit test your code. We do.
+
+This package facades the Facebook C# base library.</description>
+    <summary>Facadebook C# SDK is a facade and abstraction layer for the Facebook C# SDK.</summary>
+    <copyright>(c) 2011 Daniel Saidi &amp; Ludvig Dickman</copyright>
+    <tags>facebook c# sdk api 5.2.1.0</tags>
+    <dependencies>
+      <dependency id="Facebook" version="5.2.1.0" />
+    </dependencies>
+    <references>
+      <reference file="Facadebook.dll" />
+    </references>
+  </metadata>
+</package>

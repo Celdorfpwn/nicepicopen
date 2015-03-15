@@ -1,0 +1,106 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+<div id="addFormContainer">
+    @using (Html.BeginForm("AddAlbum", "WorkbenchAlbums", FormMethod.Post, new { enctype = "multipart/form-data", @id="theForm" }))
+    {
+        @Html.ValidationSummary(true)
+        <div class="formContainer">
+            <div class="formText">
+                Category
+            </div>
+            <div class="formInput">
+                @Html.DropDownList("category", (SelectList)ViewBag.Categories)
+            </div>
+        </div>
+    
+        <div class="formContainer">
+            <div class="formText">
+                Album name
+            </div>
+            <div class="formInput">
+                @Html.TextBoxFor(model => model.Name, new { @id = "albumName" })
+            </div>
+        </div>
+    
+        <div class="formContainer">
+            <div class="formText">
+                Description
+            </div>
+            <div class="formInput">
+                @Html.TextAreaFor(model => model.Description)
+            </div>
+        </div>
+
+                        <div class="formContainer">
+            <div class="formInput">
+                <input name="files" type="file" multiple onchange="readUrl(this)" accept="image/*" required/>
+            </div>
+                            <div id="filesDetails" style="display:none;padding-top:5px;">
+
+        </div>
+        </div>
+        <center>
+        <button type="button" id="formSubmitButton" style="display:none;width:30%;margin-top:10px;margin-bottom:10px;">Add</button>
+            </center>
+       <div id="loadedImagesDiv">
+
+       </div>
+    
+    }
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        var height = $(window).height();
+        $('#addFormContainer').css('min-height', height);
+    });
+
+    $('#formSubmitButton').click(function () {
+        var text = $('#albumName').val();
+        if (text == '') {
+            $('#albumName').css('border-color', 'red');
+        } else {
+            $("#theForm").submit();
+        }
+    });
+    function readUrl(input) {
+       
+        if (input.files && input.files[0]) {
+            var mainDiv = $('#loadedImagesDiv');
+            mainDiv.html('');
+            var size = 0;
+            $.each(input.files, function (i, file) {
+                var type = file.type;
+                var check = type.split('/')[1];
+                size += file.size;
+                if ($.inArray(check, ['png', 'jpg', 'jpeg']) > -1) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+
+                        var div = createTheDiv(mainDiv, e.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            $('#filesDetails').show();
+            $('#filesDetails').css('background-color', '#00ff21');
+            $('#filesDetails').text((size/(1024*1024)).toFixed(2) +' Mb');
+            $('#formSubmitButton').show();
+        }
+    }
+
+    function createTheDiv(mainDiv,url) {
+        var div = $(document.createElement('div'));
+        div.attr('class', 'loadedImagesContainer');
+        var h = mainDiv.width() / 3.4;
+        div.css('height', h);
+        div.css('width', h);
+        div.change('line-height', h);
+        var img = $(document.createElement('img'));
+        img.attr('src', url);
+        div.append(img);
+        mainDiv.append(div);
+    }
+
+</script>

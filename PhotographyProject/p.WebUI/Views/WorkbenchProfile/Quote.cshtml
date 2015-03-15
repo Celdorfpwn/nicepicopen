@@ -1,0 +1,8 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Quote>
+
+@foreach(var quote in Model)
+{
+    <div class="quoteContainer">
+     <img style="width:100%;height:100%;" src="@Url.Action("Quote", "Images", new { id = quote.Id })" />
+        </div>
+}

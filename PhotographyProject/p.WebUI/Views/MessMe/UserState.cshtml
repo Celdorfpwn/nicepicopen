@@ -1,0 +1,16 @@
+﻿@model int
+
+<div class="onlineView" id="@Model">
+    @{Html.RenderAction("Online", new { id = Model });}
+</div>
+
+
+@*<script type="text/javascript">
+    $(function () {
+        setInterval(function () {
+            $('#@Model').load('@Url.Action("Online", "MessMe", new { id = Model })');
+        }, 10000); // every 3 sec
+    });
+</script>
+*@
+

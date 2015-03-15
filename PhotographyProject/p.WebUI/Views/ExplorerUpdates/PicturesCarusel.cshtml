@@ -1,0 +1,206 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Picture>
+
+@{
+    var count = Model.Count();
+}
+    @if (count == 1)
+    {
+        <div class="onePictureContent">
+        <div class="onePictureContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = Model.ElementAt(0).Id }))">
+        </div></div>
+    }
+    else if (count == 2)
+    {
+        <div class="twoPicturesContent">
+
+            @foreach (var picture in Model)
+            {
+                <div class="twoPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            
+            }
+        </div>
+    }
+    else if(count == 3)
+    {
+        <div class="threePicturesContent">
+            @foreach(var picture in Model.Take(1))
+            {
+                <div class="onePictureContainer" 
+                    style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                 </div>
+            }
+                
+
+            @foreach (var picture in Model.Skip(1).Take(2))
+            {
+                <div class="twoPicturesContainer"
+                     style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            
+            }
+        </div>
+    }else if(count == 4)
+    {
+                <div class="fourPicturesContent">
+
+            @foreach (var picture in Model)
+            {
+                <div class="fourPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            
+            }
+        </div>
+    }
+    else if (count == 5)
+    {
+        <div class="fivePicturesContent">
+            @foreach (var picture in Model.Take(2))
+            {
+                <div class="twoPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            }
+            @foreach (var picture in Model.Skip(2))
+            {
+                <div class="threePicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            }
+        </div>
+    }
+    else if (count == 6)
+    {
+        <div class="sixPicturesContent">
+            @foreach (var picture in Model.Take(1))
+            {
+                <div class="onePictureContainer" 
+                    style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                 </div>
+            }
+
+            @foreach (var picture in Model.Skip(1).Take(2))
+            {
+                <div class="twoPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            }
+            @foreach (var picture in Model.Skip(3))
+            {
+                <div class="threePicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            }
+        </div>
+    }
+    else if (count == 7)
+    {
+        <div class="sevenPicturesContent">
+        @foreach (var picture in Model.Take(4))
+        {
+            <div class="fourPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+        }
+        @foreach (var picture in Model.Skip(4))
+        {
+            <div class="threePicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+        }
+            </div>
+    }
+    else if (count == 8)
+    {
+        <div class="eightPicturesContent">
+            @foreach (var picture in Model.Take(2))
+            {
+                <div class="twoPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            }
+            @foreach (var picture in Model.Skip(2))
+            {
+                <div class="threePicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+            }
+
+        </div>
+    }
+    else if (count == 9)
+    {
+        <div class="ninePicturesContent">
+        
+        @foreach (var picture in Model.Take(2))
+        {
+            <div class="twoPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+        }
+        @foreach (var picture in Model.Skip(2).Take(3))
+        {
+            <div class="threePicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+        }
+        @foreach(var picture in Model.Skip(5))
+        {
+            <div class="fourPicturesContainer9" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+        }
+        </div>
+    }else
+{
+        <div class="multipleContainer">
+@{
+    int take = 1;
+    int skip = 0;
+    bool plus = true;
+
+    while (count > 0)
+    {
+        foreach (var picture in Model.Skip(skip).Take(take))
+        {
+            switch (take)
+            {
+                case 1:
+                   <div class="onePictureContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = Model.ElementAt(0).Id }))">
+        </div>
+                    break;
+                case 2:
+                     <div class="twoPicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+                    break;
+                case 3:
+                <div class="threePicturesContainer" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+                    break;
+                case 4: 
+                <div class="fourPicturesContainer9" style="background-image:url(@Url.Action("AlbumPictureCarusel", "Images", new { id = picture.Id }))">
+                </div>
+                    break;
+            }
+            
+        }
+        <div style="clear:both"></div>
+    
+        skip += take;
+        count -= take;
+        if (take == 4)
+        {
+            plus = false;
+        }
+        
+        if (take >= count)
+        {
+            take = count;
+        }
+        else if (plus)
+        {
+            take++;
+        }
+        else if (take == 1)
+        {
+            plus = true;
+            take++;
+        }
+        else
+        {
+            take--;
+        }
+    
+    }
+    } 
+   </div>     
+}

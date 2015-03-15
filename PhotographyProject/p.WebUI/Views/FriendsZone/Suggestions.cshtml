@@ -1,0 +1,43 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.Photographer>
+
+<script type="text/javascript">
+    $(".accept").click(function () {
+        $(this).parent().text('Watched');
+    });
+    $(".blinded").click(function () {
+        $(this).parent.text('Blinded');
+    });
+</script>
+
+@if (Model.Count() > 0)
+{
+    <span>Suggestions</span>
+    
+    foreach (var user in Model)
+    {
+    <div class="newMessageDivContent">
+        <div class="newMessageUserName">
+
+            @user.Name
+
+        </div>
+        <img style="height:35px;width:35px;float:left;margin-top:5px" src="@Url.Action("UserProfileImage", "Images", new { id = user.Id })" />
+        <div class="newMessageText">
+            @Ajax.ActionLink("Watch", "FriendRequest", new { id = user.Id },
+       new AjaxOptions
+       {
+           InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET",
+           UpdateTargetId = "idwtfshit"
+       }, new { @class = "accept" })
+         <div id="blind">
+             @Ajax.ActionLink("Blind", "Blind", new { id = user.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+           HttpMethod = "GET",
+           UpdateTargetId = "as"
+        }, new { @class = "blinded" })
+        </div></div>
+    </div>
+    }
+}

@@ -1,0 +1,10 @@
+﻿@model p.Database.Concrete.Entities.Photographer
+
+<div class="userPorfileContent">
+<div class="newsProfileContainer">
+<img class="newsProfileImage" src="@Url.Action("UserProfileSmall","Images",new { id = Model.Id})" />
+    </div>
+    </div>
+<span class="updateUserText">
+    @Html.ActionLink(Model.Name, "Details", "Explorer", new { id = Model.Id }, null)'s newest album!
+</span>

@@ -1,0 +1,14 @@
+﻿@model p.Database.Concrete.Entities.ContestPicture
+
+<div class="worldContainer">
+    <div class="worldPictureDetails">
+        <div class="worldPhotographerContent">
+            <div class="worldPhotographerDetails">
+                Nices - @Model.Nices.Count
+                <p>NotSo - @Model.NotSo.Count</p>
+            </div>
+        </div>
+        <div class="worldPictureContainer">
+            <img src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = Model.Picture.Id })" />
+        </div>
+    </div>

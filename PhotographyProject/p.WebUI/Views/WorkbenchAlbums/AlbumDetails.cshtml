@@ -1,0 +1,87 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+@Styles.Render("~/Content/workbench.css")
+<div id="workbench">
+    <div id="workbenchProfile">
+        <div id="workbenchMainLinks">
+        <p>
+            @Html.ActionLink("Donwload", "Download", "WorkbenchAlbums", new { id = Model.Id }, null)
+        </p>
+
+        <p>@Ajax.ActionLink("Add Pictures", "AddAlbumPictures", "WorkbenchPictures", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "albumContent",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     }, null)
+        </p>
+        <p>
+            @using (Ajax.BeginForm("AddPictureQuick", "WorkbenchAlbums", new { id = Model.Id }, new AjaxOptions
+            {
+                UpdateTargetId = "prtfImage",
+                InsertionMode = InsertionMode.Replace,
+                HttpMethod = "POST"
+            }, new { @id = "form1", enctype = "multipart/form-data" }))
+            {
+                <input id="fileInput" onchange="submit()" type="file" name="file" style="width: 0px; height: 0px; visibility: hidden; display: none;" />
+                <a id="selectFile" onclick="done()">Quick add</a>
+            }
+
+
+        </p>
+        @if(Model.Pictures.Count>9)
+        {
+        <p>@{Html.RenderAction("IsViral", new { id = Model.Id });}</p>
+        }
+        <p>
+            @using (Ajax.BeginForm("ChangeDownload", new { id = Model.Id }, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "null",
+            OnComplete = "up()",
+            HttpMethod = "GET",
+        }))
+        {
+            <span style="font-size:80%;padding-left:5px">Download</span>@Html.CheckBoxFor(model => model.Downloadable, new { id = "downloadable" });
+        }
+        </p>
+    </div>
+    </div>
+    <div id="albumContent">
+        <div id="albumNavigation">
+            @using (Ajax.BeginForm("AlbumPictures", "WorkbenchPictures", new { id = Model.Id }, new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "albumDetailsShow",
+            InsertionMode = InsertionMode.Replace
+        }))
+            {
+                @Html.DropDownList("categoryId", (SelectList)ViewBag.Categories, new { @id = "categoryId" })
+            }
+        </div>
+        <div id="albumDetailsShow">
+
+            @{ Html.RenderAction("AlbumPictures", "WorkbenchPictures", new { id = Model.Id, categoryId = 0 });}
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+
+    <script type="text/javascript">
+        $("#categoryId").on('change', '', function () {
+            $(this).closest('form').submit();
+        });
+        $("#downloadable").on('change', '', function () {
+            $(this).closest('form').submit();
+        });
+        function done() {
+            $('#fileInput').trigger('click');
+        }
+    </script>
+
+}

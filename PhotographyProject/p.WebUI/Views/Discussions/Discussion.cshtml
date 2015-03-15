@@ -1,0 +1,38 @@
+﻿@model p.Database.Concrete.Entities.Discussion
+
+<div class="discussionPageDiv">
+    <div class="discussionDetails">
+            <div class="discussionUserName">
+                @Model.Creator.DescriptionName
+            </div>
+            <img class="discussionUserProfile" src="@Url.Action("UserProfileImage", "Images", new { id = Model.CreatorId })" />
+        </div>
+    <div class="discussionPageText">
+        <div class="discussionPageTextTitle">
+            @Model.Subject
+        </div>
+        <div class="discussionPageTextText">
+            @Model.Text
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div id="createDiscussionPost">
+    @using (Ajax.BeginForm("AddDiscussionPost", "DiscussionPosts", new { id = Model.Id }, 
+        new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.InsertBefore, UpdateTargetId = "discussionPost",OnComplete="done" }))
+    {
+        @Html.TextBox("post",String.Empty, new { @id = "messageField" })
+
+        <input id="postSubmit" type="submit" value="Post" />
+    }
+</div>
+<div id="discussionPost">
+    @{Html.RenderAction("DiscussionPosts", "DiscussionPosts", new { id = Model.Id });}
+</div>
+
+<script type="text/javascript">
+    function done() {
+        $('#messageField').val('');
+        $('#messageField').select();
+    }
+</script>

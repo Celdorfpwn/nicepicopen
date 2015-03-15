@@ -1,0 +1,172 @@
+﻿@model int
+
+
+
+<div id="conversationsPlace">
+    <audio id="newmessageSound">
+        <source src="~/Images/newmessage.mp3" type="video/mpeg" />
+    </audio>
+    <div id="conversationLoading" >
+        <img src="~/Images/loading.gif" style="width:20px;height:20px;margin-left:45%;" />
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+   @* function checkOnlineFirst() {
+        $.ajax({
+            type: 'GET',
+            url: '/MessMe/UserStateFirst/' + '@Model',
+            success: function (data) {
+                $.each(data, function (i, conv) {
+                    $('.conversationUserLink').each(function () {
+                        var id = $(this).data('id');
+                        if (conv.Id == id) {
+                            var statusDiv = $(this).find('.conversationState');
+                            if (conv.Online) {
+                                $(statusDiv).css('background-color', '#b6ff00');
+                            } else {
+                                $(statusDiv).css('background-color', 'white');
+                            }
+                        }
+                    });
+
+
+                });
+                checkOnline();
+            },
+            error: function () {
+            }
+        });
+    }
+
+
+    function checkOnline() {
+        $.ajax({
+            type: 'GET',
+            url: '/MessMe/UserState/' + '@Model',
+            success: function (data) {
+                $.each(data, function (i, conv) {
+                    $('.conversationUserLink').each(function(){
+                        var id = $(this).data('id');
+                        if (conv.Id == id) {
+                            var statusDiv = $(this).find('.conversationState');
+                            if (conv.Online) {
+                                $(statusDiv).css('background-color', '#b6ff00');
+                            } else {
+                                $(statusDiv).css('background-color', 'white');
+                            }
+                        }
+                    });
+
+
+                });
+                checkOnline();
+            },
+            error: function () {
+            }
+                });
+    }
+    *@
+    $(function () {
+        var div = $('#conversationsPlace');
+        var id  = '@Model'
+        $.ajax({
+            type: 'GET',
+            url: '/ChatData/ConversationsData/@Model',
+            success: function (data) {
+                $('#conversationLoading').hide();
+                $.each(data, function (i, conversation) {
+                    appendConversation(conversation, div,id);
+                });
+            },
+            complete: function () {
+            },
+            error: function () {
+                alert('wtf');
+            }
+        });
+    });
+
+    function appendConversation(conversation, div,userId) {
+        var convDiv = $(document.createElement('a'));
+        $(convDiv).attr('class', 'conversationLinq');
+        $(convDiv).attr('data-id', conversation.Id);
+        $(convDiv).attr('data-ajax', 'true');
+        $(convDiv).attr('data-ajax-method', 'GET');
+        $(convDiv).attr('data-ajax-mode', 'before');
+        $(convDiv).attr('data-ajax-update', '#null');
+        $(convDiv).attr('data-link', '/MessMe/Conversation/' + conversation.Id);
+        $(convDiv).attr('href', '/MessMe/Conversation/' + conversation.Id+'?userId='+userId);
+        $(div).append(convDiv);
+        $(convDiv).on('click', function () {
+            $(convDiv).find('.conversationUserLink').css('background-color', 'white');
+            var k = $('#conversationsDiv').find('.conversationMessages');
+            $.each(k, function (i, theDiv) {
+                if ($(theDiv).data('id') == conversation.Id) {
+                    if ($(theDiv).is(':hidden')) {
+                        $(convDiv).attr('href', '/MessMe/ActiveConversation/' + conversation.Id + '?userId=' + userId);
+                    } else {
+                        $(convDiv).attr('href', '/MessMe/RemoveConversation/' + conversation.Id);
+                    }
+                    $(theDiv).toggle();
+                } else {
+                }
+            });
+        });
+
+
+
+        var conversationUserLink = $(document.createElement('div'));
+        $(conversationUserLink).attr('class', 'conversationUserLink');
+
+        $(conversationUserLink).css('background-color', 'white').hover(
+    function () {
+        $(this).css('background-color', '#E1E4E6');
+    },
+    function () {
+        $(this).css('background-color', 'white');
+    });
+
+
+        $(convDiv).append(conversationUserLink);
+        $(conversationUserLink).data('id', conversation.Id);
+
+        var img = $(document.createElement('img'));
+        $(img).attr('class','conversationUserImg');
+        var imgLink = '/Images/UserProfileImage/' + conversation.UserId;
+        $(img).attr('src', imgLink);
+        $(conversationUserLink).append(img);
+
+        var span = $(document.createElement('span'));
+        $(span).attr('class', 'conversationUserText');
+        $(span).text(conversation.Name);
+        $(conversationUserLink).append(span);
+
+        var stateDiv = $(document.createElement('div'));
+        $(stateDiv).attr('class', 'conversationState');
+        if (conversation.Online) {
+            $(stateDiv).css('background-color', '#b6ff00');
+        } else {
+            $(stateDiv).css('background-color', 'white');
+        }
+
+        $(conversationUserLink).append(stateDiv);
+    }
+
+
+
+</script>
+
+
+
+   @* $(document).on('click', '.conversationLinq', function () {
+        var id = $(this).data('id');
+        var found = $.inArray(id, window.array) == -1;
+        if (found) {
+            window.array.push(id);
+            $(this).attr('href', 'null');
+        } else {
+        }
+    });*@

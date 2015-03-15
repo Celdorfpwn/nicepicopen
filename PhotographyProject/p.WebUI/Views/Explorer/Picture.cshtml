@@ -1,0 +1,71 @@
+﻿@model p.Database.Concrete.Entities.Picture
+
+@{
+    Random rand = new Random();
+}
+<div id="explorerPictureDetails">
+    <div id="explorerPictureDetailsContainer">
+        <img id="explorerPic" src="@Url.Action("DetailsPictureWithWatermark", "Images", new { id = Model.Id,key = rand.Next() })" />
+    </div>
+    <div id="explorerPictureContent">
+        <p>
+            <span style="float:left;">
+            <span style="padding-right:10px;float:left;">Nices</span> <span style="float:left;padding-right:10px;" id="counter">@Model.PhotographerNice.Count</span> Views <span style="padding-left:5px;"> @Model.PhotographerViews.Count</span>
+            @*@using(Ajax.BeginForm("SharePicture", "Facebook", new { id = Model.Id, },new AjaxOptions{
+                UpdateTargetId="nuu"
+            },null))
+            {
+            <img id="facebookPick" src="~/Images/Index/logfacebook.png" />
+            }*@</span>
+            <a href="@Url.Action("SharePicture", "Facebook", new { id = Model.Id,albumId = Model.AlbumId})">
+                <img style="padding-left:20%" src="~/Images/Index/logfacebook.png" />
+            </a>
+            <span id="nice" style="float: right;margin-right:6%;" onclick="this.value='Niced'">
+                @if (!Model.HasNice(User.Identity.Name))
+                {
+                    @Ajax.ActionLink("Nice", "AddNice", new { id = Model.Id }, new AjaxOptions
+                     {
+                         UpdateTargetId = "counter",
+                         InsertionMode = InsertionMode.Replace,
+                         HttpMethod = "GET"
+                     })
+                }
+                else
+                {
+                    <span>Niced</span>
+                }
+            </span>
+        </p>
+        <p>
+            @using (Ajax.BeginForm("AddComment", new { id = Model.Id }, new AjaxOptions
+            {
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "explorerPictureComments",
+                HttpMethod="POST",
+                OnComplete = "done()"
+            }))
+            {
+                <input id="commentInput" style="width:480px;" type="text" name="comment" />
+            }
+        </p>
+        <div id="explorerPictureComments">
+            @{ Html.RenderPartial("PictureComments",Model.Comments.OrderByDescending(c => c.Id));}
+</div>
+    </div>
+</div>
+
+
+
+<script>
+    $('#nice').click(function () {
+        $(this).text('Niced');
+    });
+    $('#facebookPick').click(function () {
+        $(this).closest('form').submit();
+    });
+    function done() {
+        $('#commentInput').val('');
+        $('#commentInput').select();
+    }
+</script>
+

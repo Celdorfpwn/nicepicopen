@@ -1,0 +1,28 @@
+﻿@model p.Database.Concrete.Entities.Album
+
+@using (Html.BeginForm("AddAlbum", "Workbench", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <div id="ADDFORM">
+    <table>
+        <tr>
+            <td>Pictures</td>
+            <td><input name="files" type="file" multiple /></td>
+        </tr>
+        <tr>
+            <td>Album name</td>
+            <td>@Html.TextBoxFor(model => model.Name, new { @id = "albumName" })</td>
+            <td>@Html.ValidationMessageFor(model => model.Name)</td>
+        </tr>
+        <tr>
+             <td>Description</td>
+            <td>@Html.TextAreaFor(model => model.Description)</td>
+            <td>@Html.ValidationMessageFor(model => model.Description)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" id="Thesubmit">Add</button></td>
+        </tr>
+    </table>
+        </div>
+}

@@ -1,0 +1,12 @@
+﻿
+
+<div id="dailyContestsMenu">
+    @Ajax.ActionLink("All", "All", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "discussions" })
+   @Ajax.ActionLink("Mine", "MyDiscussions", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "discussions" })
+    @Ajax.ActionLink("Participating", "Participating", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "discussions" })
+    @Ajax.ActionLink("Seen", "Seen", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "discussions" })
+</div>
+
+<div id="discussions">
+    @{Html.RenderAction("All");}
+</div>

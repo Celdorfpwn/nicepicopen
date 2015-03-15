@@ -1,0 +1,53 @@
+﻿@model p.Database.Concrete.Entities.UserUpdate
+
+<div class="updateDiv">
+    @if (Model.HasQuote())
+    {
+
+         <img style="width:100%;height:100%;" src="@Url.Action("Quote", "Images", new { id = Model.QuoteId })" />
+    }
+    else
+    {
+    <div class="updateText">
+        <span style="margin-bottom:10px;width:80%;float:left;">
+            
+            @{Html.RenderAction("UpdateLink", new { id = Model.Id });}
+        </span>
+            @{ Html.RenderAction("UserName", new { id = Model.PhotographerId });}
+        </div>
+    if (Model.HasPicture())
+    {
+        <div class="updatePictureDiv">
+            <div class="updatePictureContainer">
+                @{Html.RenderAction("PicturesUpdate", "FriendsZone", new { id = Model.Id });
+    }
+            </div>
+        </div>
+        <div class="updatePictureText">
+            </div>
+    }
+    else if (Model.HasAlbum())
+    {
+        <div class="updatePictureDiv">
+                @{Html.RenderAction("UpdatePictureCarusel","FriendsZone", new { id = Model.AlbumId });
+    }            
+        </div>
+    }
+    else if (Model.HasCamera())
+    {
+        <div class="updateText">
+            @{ Html.RenderAction("UserName", new { id = Model.PhotographerId });}added a new camera
+                <hr style="width: 300px;" />
+        </div>
+        <div class="updatePictureDiv">
+            <div class="updatePictureContainer">
+                <img class="updatePicture" src="@Url.Action("ShowCamera", "Workbench", new { id = Model.CameraId })" />
+            </div>
+            <div class="updatePictureText">
+                @{Html.RenderAction("CameraText", "FriendsZone", new { id = Model.CameraId });
+                }
+            </div>
+        </div>
+    }
+    }
+</div>

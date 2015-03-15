@@ -1,0 +1,22 @@
+﻿
+@using(Html.BeginForm("AddAlbumPictures","WorkbenchPictures",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="ADDFORM">
+    <table>
+        <tr>
+            <td>@Html.Label("Category")</td>
+            <td>@Html.DropDownList("categoryId",(SelectList)ViewBag.Categories)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Pictures")</td>
+            <td><input type="file" name="files" multiple /></td>
+            <td style="color:red">@ViewBag.ErrorMessage</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add" /></td>
+        </tr>
+
+    </table>
+        </div>
+}

@@ -1,0 +1,23 @@
+﻿
+
+<div id="favoritesPictures" class="picturesCarusel">
+
+</div>
+<img id="favoritesLoading" class="loadingGif" src="~/Images/loading.gif" />
+
+<script type="text/javascript">
+
+
+    $(function () {
+        var url = '/WorkbenchPictures/FavoritesPictures/';
+        var div = $('#favoritesPictures');
+        var loading = $('#favoritesLoading');
+
+        var template = window.Templates.appendAllPictures;
+        window.ContentExtractor.init(url, div, template, 27, loading, true);
+
+        $(window).bind('scroll', function () {
+            window.ContentExtractor.scroll();
+        });
+    });
+</script>

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<p.Database.Concrete.Entities.PictureComment>
+
+@foreach (var comment in Model)
+{
+    <div class="pictureComment">
+        <div class="pictureCommentImageContainer">
+            <p>@comment.Photographer.Name</p>
+            <img class="pictureCommentImage" src="@Url.Action("Show","Explorer",new { id = comment.UserId})" />
+        </div>
+        <div class="pictureCommentComment">
+            <p>@comment.Comment</p>
+        </div>
+
+    </div>
+}

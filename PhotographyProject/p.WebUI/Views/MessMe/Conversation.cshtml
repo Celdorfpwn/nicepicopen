@@ -1,0 +1,111 @@
+﻿@model p.Database.Concrete.Entities.Conversation
+
+@{
+    int userId = Convert.ToInt32(ViewBag.UserId);
+    int lastId = 0;
+    if (Model.Messages.Count > 0)
+    {
+        lastId = Model.Messages.Last().Id;
+    }
+}
+<div class="conversationMessages" id="conv-@Model.Id" data-id="@Model.Id" data-lastId="@lastId">
+    <div class="conversationPartener">
+        @Model.GetParneterName(userId)
+
+        <button class="conversationHide" onclick="hideConv(this,@Model.Id)" style="float:right;height:20px;font-size:10px;">X</button>
+        <button class="conversationHide" onclick="recording(this)" style="float: right; height: 20px; font-size: 10px;">R</button>
+        <select class="selectLifeInterval" style="display:none;float:right;width:60px;" onchange="changeInterval(this)">
+            <option value="0">none</option>
+            @for (int i = 20; i < 200; i+=20)
+            {
+                <option value="@i">@i sec</option>
+            }
+        </select>
+    </div>
+        <div class="msg"  data-id="@Model" id="msg-@Model">
+            @foreach (var msg in Model.Messages.Skip(Math.Max(0, Model.Messages.Count - 15)))
+            {
+                if (msg.IsUserMessage(userId))
+                {
+                <div class="chatRight">
+                    <div class="rightText">
+                        @if (msg.HasImage())
+                        {
+                            <img class="messageImage" src="/Images/MessageImage/@msg.Id" />
+                        }
+                        else
+                        {
+                            <text>@msg.Message</text>
+                        }
+                    </div>
+                </div>
+                }
+                else
+                {
+                <div class="chatLeft">
+                    <div class="leftText">
+                        @if (msg.HasImage())
+                        {
+                            <img class="messageImage" src="/Images/MessageImage/@msg.Id" />
+                        }
+                        else
+                        {
+                            <text>@msg.Message</text>
+                        }
+                    </div>
+                </div>
+                }
+            }
+
+        </div>
+        <div class="messageForm">
+
+            <form class="textMessageForm" 
+            data-user="@Model.GetPartenerId(userId)" 
+            data-conversation="@Model.Id"
+            data-myid="@userId"
+            data-record="true"
+            data-inteval="0"
+            onsubmit="submitMessage(this);return false;">
+                <input type="text" data-id="@Model.Id" id="field-@Model.Id" class="messageField" name="message">
+            </form>
+            <form>
+                <img style="width: 30px; height: 30px; cursor: pointer;" src="~/Images/chatPicture.png"
+                    onclick="activatte(this)" />
+                <input type="file" name="datafile" style="visibility:hidden;"
+                 onchange="fileUpload(this.form,'/Wtf/Upload/@Model.Id?userId=@Model.GetPartenerId(userId)','upload'); return false;" />
+            </form>
+        </div>
+</div>
+
+<script type="text/javascript" id="script-@Model">
+
+    $(document).ready(function () {
+
+        var lastId = '@lastId';
+        setPipeLastId(lastId);
+
+        var id = '@Model.Id';
+        var convId = 'conv-@Model.Id';
+        setTimeout(function () {
+            var div;
+            $('.conversationMessages').each(function (i, obj) {
+                var objid = $(obj).data('id');
+                if (objid == id) {
+                    div = obj;
+                }
+            });
+            addPolling(div);
+            var msg = $(div).find('.msg');
+            $('.messageImage').load(function () {
+                $(msg).scrollTop(msg.prop('scrollHeight'));
+            });
+            $(msg).scrollTop(msg.prop('scrollHeight'));
+        }, 1000);
+
+
+    });
+
+</script>
+
+
